@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>وكيل | wkil</title>
+  <meta name="description"
+    content="وكيل يساعد نشاطك يرد على الرسايل والتعليقات، يحفظ بيانات العملاء، ويجهز محتوى السوشيال من مكان واحد." />
+  <link rel="icon" href="./assets/wkil-mark.svg" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="nav.skip">تخطى للمحتوى</a>
+
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand-link" href="#top" aria-label="Wkil home">
+        <img src="./assets/wkil-logo.svg" alt="Wkil logo" />
+      </a>
+
+      <div class="nav-links">
+        <a href="#services" data-i18n="nav.services">الخدمات</a>
+        <a href="#workflow" data-i18n="nav.workflow">الطريقة</a>
+        <a href="#trust" data-i18n="nav.trust">الثقة</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="language-toggle" type="button" id="languageToggle">
+          English
+        </button>
+        <a class="login-link" data-login href="/ar/auth/login" data-i18n="nav.login">
+          تسجيل الدخول
+        </a>
+        <a class="primary-button compact" data-signup href="/ar/auth/signup">
+          <span data-i18n="nav.startFree">ابدأ ببلاش</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <h1 data-i18n="hero.title">
+            <span>ردود أسرع على الرسايل</span>
+            <span>بيانات عملاء محفوظة</span>
+            <span>ومحتوى جاهز من مكان واحد</span>
+          </h1>
+          <p class="hero-text" data-i18n="hero.subtitle">
+            وكيل بيستخدم معلومات نشاطك، ويرد على التعليقات والرسايل بأسلوبك، ويظهر لفريقك بيانات العميل والخطوة الجاية
+            بوضوح.
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-button" data-signup href="/ar/auth/signup">
+              <span data-i18n="hero.primaryCta">ابدأ ببلاش</span>
+            </a>
+            <a class="secondary-button" href="#workflow" data-i18n="hero.secondaryCta">
+              شوف بيشتغل إزاي
+            </a>
+          </div>
+
+          <div class="assurance-row" id="assuranceRow"></div>
+        </div>
+
+        <section class="product-card" aria-label="Wkil product preview">
+          <div class="product-card-top">
+            <div>
+              <strong data-i18n="preview.status">متابع الرسايل دلوقتي</strong>
+            </div>
+            <span data-i18n="preview.label">مثال محادثة</span>
+          </div>
+
+          <div class="conversation">
+            <div class="message customer">
+              <span data-i18n="preview.customerLabel">العميل</span>
+              <p data-i18n="preview.customerMessage">
+                السعر كام؟ والتوصيل متاح للقاهرة؟
+              </p>
+            </div>
+
+            <div class="agent-step">
+              <img src="./assets/wkil-mark.svg" alt="Wkil animated mark" />
+              <div>
+                <strong data-i18n="preview.agentTitle">وكيل بيراجع بيانات نشاطك</strong>
+                <p data-i18n="preview.agentText">
+                  بيتأكد من السعر، التوصيل، والسياسة المناسبة قبل الرد.
+                </p>
+              </div>
+            </div>
+
+            <div class="message agent">
+              <span data-i18n="preview.replyLabel">رد مقترح</span>
+              <p data-i18n="preview.replyMessage">
+                أهلاً بيك. التوصيل متاح للقاهرة، والسعر بيتحدد حسب الباقة اللي تناسبك. تحب أبعتلك التفاصيل؟
+              </p>
+            </div>
+          </div>
+
+          <div class="result-strip" id="resultStrip"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="trust-band" id="trust">
+      <div class="content-shell trust-grid" id="trustGrid"></div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="content-shell">
+        <div class="section-heading">
+          <p data-i18n="services.eyebrow">الخدمات الأساسية</p>
+          <h2 data-i18n="services.title">الخدمات اللي بتفرق في تشغيل السوشيال</h2>
+        </div>
+        <div class="services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section muted-section" id="workflow">
+      <div class="content-shell workflow-layout">
+        <div class="section-heading sticky-heading">
+          <p data-i18n="workflow.eyebrow">بيشتغل إزاي</p>
+          <h2 data-i18n="workflow.title">من رسالة عميل لرد أو متابعة واضحة</h2>
+          <span data-i18n="workflow.subtitle">
+            كل رسالة تاخد مسار مفهوم: رد، حفظ عميل، مهمة للفريق، أو تحويل لشخص مسؤول.
+          </span>
+        </div>
+        <div class="workflow-list" id="workflowList"></div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="content-shell final-card">
+        <div>
+          <p data-i18n="cta.eyebrow">جرّبه على رسايلك</p>
+          <h2 data-i18n="cta.title">ابدأ أول ردود وكيل من غير إعداد معقّد</h2>
+        </div>
+        <a class="primary-button" data-signup href="/ar/auth/signup">
+          <span data-i18n="cta.button">ابدأ ببلاش</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="content-shell footer-shell">
+      <div class="footer-brand">
+        <img src="./assets/wkil-mark.svg" alt="Wkil mark" />
+        <div>
+          <strong>وكيل</strong>
+          <span>wkil</span>
+        </div>
+      </div>
+      <p data-i18n="footer.line">
+        وكيل بيساعد الشركات ترد على السوشيال بسرعة وبثقة، وتحافظ على بيانات العملاء والمتابعات في مكان واضح.
+      </p>
+      <div class="footer-links">
+        <a data-login href="/ar/auth/login" data-i18n="nav.login">تسجيل الدخول</a>
+        <a data-signup href="/ar/auth/signup" data-i18n="nav.startFree">ابدأ ببلاش</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
