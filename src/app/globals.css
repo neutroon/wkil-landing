@@ -26,14 +26,18 @@ html {
 }
 
 body {
-  background:
-    linear-gradient(rgba(247, 243, 234, 0.96), rgba(247, 243, 234, 0.96)),
+  background: linear-gradient(
+      rgba(247, 243, 234, 0.96),
+      rgba(247, 243, 234, 0.96)
+    ),
     linear-gradient(90deg, rgba(14, 124, 115, 0.12) 1px, transparent 1px),
     linear-gradient(rgba(14, 124, 115, 0.12) 1px, transparent 1px);
-  background-size: auto, 48px 48px, 48px 48px;
+  background-size:
+    auto,
+    48px 48px,
+    48px 48px;
   color: var(--ink);
-  font-family:
-    Cairo, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-family: Cairo, "Segoe UI", Tahoma, Arial, sans-serif;
   margin: 0;
 }
 
@@ -123,10 +127,13 @@ button {
 .nav-links a,
 .login-link,
 .language-toggle {
+  align-items: center;
   border-radius: 8px;
   color: var(--muted);
+  display: inline-flex;
   font-size: 14px;
   font-weight: 800;
+  justify-content: center;
   min-height: 44px;
   padding: 12px;
   transition:
@@ -195,9 +202,13 @@ button {
 }
 
 .hero {
-  background:
-    linear-gradient(90deg, rgba(126, 224, 195, 0.26), transparent 46%),
-    linear-gradient(135deg, var(--stage-soft) 0%, var(--ivory) 48%, var(--stage) 100%);
+  background: linear-gradient(90deg, rgba(126, 224, 195, 0.26), transparent 46%),
+    linear-gradient(
+      135deg,
+      var(--stage-soft) 0%,
+      var(--ivory) 48%,
+      var(--stage) 100%
+    );
   border-bottom: 1px solid rgba(14, 124, 115, 0.16);
   box-shadow: 0 24px 70px rgba(14, 124, 115, 0.1);
   min-height: min(820px, 92vh);
@@ -235,12 +246,12 @@ p {
 }
 
 h1 {
-  font-size: clamp(39px, 5.9vw, 64px);
+  font-size: clamp(30px, 3.4vw, 42px);
   font-weight: 950;
   letter-spacing: 0;
-  line-height: 1.08;
-  margin-bottom: 20px;
-  max-width: 720px;
+  line-height: 1.12;
+  margin-bottom: 18px;
+  max-width: 620px;
 }
 
 h1 span {
@@ -265,7 +276,7 @@ h1 span {
   font-weight: 720;
   line-height: 1.75;
   margin-bottom: 24px;
-  max-width: 620px;
+  max-width: 590px;
 }
 
 .hero-actions {
@@ -327,8 +338,11 @@ h1 span {
 
 .product-card {
   align-self: start;
-  background:
-    linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(247, 243, 234, 0.98));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 250, 242, 0.96),
+    rgba(247, 243, 234, 0.98)
+  );
   border: 1px solid rgba(14, 124, 115, 0.22);
   border-radius: 8px;
   box-shadow: 0 24px 58px rgba(14, 124, 115, 0.16);
@@ -375,15 +389,6 @@ h1 span {
   font-size: 12px;
   font-weight: 900;
   padding: 7px 10px;
-}
-
-.live-dot {
-  animation: pulse 3s ease-in-out infinite;
-  background: var(--mint);
-  border-radius: 50%;
-  display: block;
-  height: 10px;
-  width: 10px;
 }
 
 .conversation {
@@ -494,8 +499,7 @@ h1 span {
 }
 
 .trust-band {
-  background:
-    linear-gradient(90deg, rgba(126, 224, 195, 0.14), transparent 44%),
+  background: linear-gradient(90deg, rgba(126, 224, 195, 0.14), transparent 44%),
     linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
   border-top: 1px solid rgba(217, 154, 43, 0.22);
   color: var(--ivory);
@@ -671,8 +675,7 @@ h1 span {
 
 .final-card {
   align-items: center;
-  background:
-    linear-gradient(90deg, rgba(126, 224, 195, 0.26), transparent 42%),
+  background: linear-gradient(90deg, rgba(126, 224, 195, 0.26), transparent 42%),
     var(--paper);
   border: 1px solid rgba(14, 124, 115, 0.2);
   border-radius: 8px;
@@ -788,20 +791,7 @@ h1 span {
 }
 
 [dir="ltr"] body {
-  font-family:
-    Inter, Geist, "Segoe UI", Arial, sans-serif;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.65;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.12);
-  }
+  font-family: Inter, Geist, "Segoe UI", Arial, sans-serif;
 }
 
 @media (max-width: 980px) {
@@ -834,9 +824,17 @@ h1 span {
   }
 
   .hero {
-    background:
-      linear-gradient(90deg, rgba(126, 224, 195, 0.22), transparent 48%),
-      linear-gradient(135deg, var(--stage-soft) 0%, var(--ivory) 52%, var(--stage) 100%);
+    background: linear-gradient(
+        90deg,
+        rgba(126, 224, 195, 0.22),
+        transparent 48%
+      ),
+      linear-gradient(
+        135deg,
+        var(--stage-soft) 0%,
+        var(--ivory) 52%,
+        var(--stage) 100%
+      );
     box-shadow: none;
     min-height: auto;
     padding-top: clamp(36px, 8vw, 54px);
@@ -893,12 +891,34 @@ h1 span {
     padding-right: 14px;
   }
 
+  .nav-shell {
+    gap: 10px;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
   .language-toggle {
-    display: none;
+    font-size: 13px;
+    min-height: 40px;
+    padding: 0 10px;
+  }
+
+  .primary-button.compact {
+    font-size: 13px;
+    min-height: 40px;
+    padding: 0 12px;
   }
 
   h1 {
-    font-size: 38px;
+    font-size: clamp(28px, 7.8vw, 32px);
+    line-height: 1.16;
+  }
+
+  .hero .eyebrow {
+    font-size: 13px;
+    margin-bottom: 12px;
   }
 
   .hero-text,
