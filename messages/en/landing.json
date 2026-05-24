@@ -48,6 +48,7 @@
     "ariaLabel": "Wkil product preview",
     "status": "Monitoring messages",
     "label": "Example conversation",
+    "modeAriaLabel": "Choose Wkil preview mode",
     "customerLabel": "Customer",
     "customerMessage": "What is the price? Is delivery available in Cairo?",
     "agentTitle": "Wkil reviews your business data",
@@ -67,7 +68,71 @@
         "title": "Defined follow-up",
         "text": "The team sees what to do next"
       }
-    ]
+    ],
+    "demo": {
+      "label": "Try a reply",
+      "status": "Quick demo",
+      "promptLabel": "Choose a question",
+      "prompts": [
+        {
+          "title": "Customer asks about pricing",
+          "customerMessage": "Can I know the price and available plans?",
+          "replyMessage": "Sure. Wkil plans can match your message volume and connected channels. We can recommend the right plan once we know the channels and monthly conversations you need.",
+          "results": [
+            {
+              "title": "Buying intent",
+              "text": "The question is saved as pricing interest"
+            },
+            {
+              "title": "Sales follow-up",
+              "text": "The team can continue with the right offer"
+            },
+            {
+              "title": "Careful reply",
+              "text": "No unconfirmed price promise"
+            }
+          ]
+        },
+        {
+          "title": "Customer needs WhatsApp",
+          "customerMessage": "Can I connect Wkil to WhatsApp and Facebook?",
+          "replyMessage": "Yes. Wkil is built to bring social conversations and communication channels into one clear flow, so your team can see messages, customers, and follow-ups from one place.",
+          "results": [
+            {
+              "title": "Channels identified",
+              "text": "WhatsApp and Facebook are marked as priorities"
+            },
+            {
+              "title": "Setup step",
+              "text": "The team knows to start with connection"
+            },
+            {
+              "title": "Clear expectation",
+              "text": "The answer explains the value simply"
+            }
+          ]
+        },
+        {
+          "title": "Customer asks about handoff",
+          "customerMessage": "If a customer asks for something sensitive, will Wkil reply alone?",
+          "replyMessage": "No. You can define cases that need human review. Wkil pauses automation, gives your team the conversation context, and leaves the decision to the right person.",
+          "results": [
+            {
+              "title": "Decision protected",
+              "text": "Sensitive conversations go to your team"
+            },
+            {
+              "title": "Context preserved",
+              "text": "The team sees the question and suggested next step"
+            },
+            {
+              "title": "Higher trust",
+              "text": "Automation stays inside your limits"
+            }
+          ]
+        }
+      ]
+    }
   },
   "trust": [
     {
