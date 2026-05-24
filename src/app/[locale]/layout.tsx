@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
+import { Cairo, Geist } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -11,6 +11,11 @@ const cairo = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
+});
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin", "latin-ext"],
 });
 
 export const metadata: Metadata = {
@@ -52,7 +57,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={dir}
       data-wkil-theme="nile"
-      className={cairo.variable}
+      className={`${geistSans.variable} ${cairo.variable}`}
     >
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
