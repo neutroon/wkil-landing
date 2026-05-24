@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { getAuthPath } from "@/lib/routes";
 import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
+import { LandingProductPreview } from "./LandingProductPreview";
 import { ServiceIcon } from "./ServiceIcon";
 
 interface LandingPageProps {
@@ -107,51 +108,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
               </div>
             </div>
 
-            <section
-              className="product-card"
-              aria-label={copy.preview.ariaLabel}
-            >
-              <div className="product-card-top">
-                <div>
-                  <strong>{copy.preview.status}</strong>
-                </div>
-                <span>{copy.preview.label}</span>
-              </div>
-
-              <div className="conversation">
-                <div className="message customer">
-                  <span>{copy.preview.customerLabel}</span>
-                  <p>{copy.preview.customerMessage}</p>
-                </div>
-
-                <div className="agent-step">
-                  <Image
-                    src="/assets/wkil-mark.svg"
-                    alt={copy.brand.markAlt}
-                    width={92}
-                    height={92}
-                  />
-                  <div>
-                    <strong>{copy.preview.agentTitle}</strong>
-                    <p>{copy.preview.agentText}</p>
-                  </div>
-                </div>
-
-                <div className="message agent">
-                  <span>{copy.preview.replyLabel}</span>
-                  <p>{copy.preview.replyMessage}</p>
-                </div>
-              </div>
-
-              <div className="result-strip">
-                {copy.preview.results.map((result) => (
-                  <article className="result-card" key={result.title}>
-                    <span>{result.title}</span>
-                    <strong>{result.text}</strong>
-                  </article>
-                ))}
-              </div>
-            </section>
+            <LandingProductPreview brand={copy.brand} preview={copy.preview} />
           </div>
         </section>
 
