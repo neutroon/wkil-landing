@@ -37,6 +37,7 @@ export interface LandingCopy {
     ariaLabel: string;
     status: string;
     label: string;
+    modeAriaLabel: string;
     customerLabel: string;
     customerMessage: string;
     agentTitle: string;
@@ -47,6 +48,21 @@ export interface LandingCopy {
       title: string;
       text: string;
     }>;
+    demo: {
+      label: string;
+      status: string;
+      promptLabel: string;
+      prompts: Array<{
+        title: string;
+        customerMessage: string;
+        agentText: string;
+        replyMessage: string;
+        results: Array<{
+          title: string;
+          text: string;
+        }>;
+      }>;
+    };
   };
   trust: Array<{
     title: string;
