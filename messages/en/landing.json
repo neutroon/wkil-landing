@@ -75,9 +75,9 @@
       "promptLabel": "Choose a question",
       "prompts": [
         {
-          "title": "Customer asks about pricing",
+          "title": "What are the plans?",
           "customerMessage": "Can I know the price and available plans?",
-          "replyMessage": "Sure. Wkil plans can match your message volume and connected channels. We can recommend the right plan once we know the channels and monthly conversations you need.",
+          "replyMessage": "For now, Wkil is free to try. We would love for you to test it with your messages, see how it fits your business, and send us feedback before we announce paid plans.",
           "results": [
             {
               "title": "Buying intent",
@@ -94,7 +94,7 @@
           ]
         },
         {
-          "title": "Customer needs WhatsApp",
+          "title": "Can I connect WhatsApp?",
           "customerMessage": "Can I connect Wkil to WhatsApp and Facebook?",
           "replyMessage": "Yes. Wkil is built to bring social conversations and communication channels into one clear flow, so your team can see messages, customers, and follow-ups from one place.",
           "results": [
@@ -113,7 +113,7 @@
           ]
         },
         {
-          "title": "Customer asks about handoff",
+          "title": "When does a human step in?",
           "customerMessage": "If a customer asks for something sensitive, will Wkil reply alone?",
           "replyMessage": "No. You can define cases that need human review. Wkil pauses automation, gives your team the conversation context, and leaves the decision to the right person.",
           "results": [
