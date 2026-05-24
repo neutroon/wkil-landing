@@ -77,6 +77,7 @@
         {
           "title": "What are the plans?",
           "customerMessage": "Can I know the price and available plans?",
+          "agentText": "Checks that the current trial is free and prepares a clear answer about collecting feedback.",
           "replyMessage": "For now, Wkil is free to try. We would love for you to test it with your messages, see how it fits your business, and send us feedback before we announce paid plans.",
           "results": [
             {
@@ -94,40 +95,42 @@
           ]
         },
         {
-          "title": "Can I connect WhatsApp?",
-          "customerMessage": "Can I connect Wkil to WhatsApp and Facebook?",
-          "replyMessage": "Yes. Wkil is built to bring social conversations and communication channels into one clear flow, so your team can see messages, customers, and follow-ups from one place.",
+          "title": "Can I link many channels?",
+          "customerMessage": "Can I link any number of Facebook pages and different WhatsApp accounts?",
+          "agentText": "Reviews the requested channels and explains that multiple pages and accounts can be connected as needed.",
+          "replyMessage": "Yes. You can connect multiple Facebook pages and WhatsApp accounts based on your business needs, then manage messages, customers, and follow-ups from one clear place.",
           "results": [
             {
-              "title": "Channels identified",
-              "text": "WhatsApp and Facebook are marked as priorities"
+              "title": "Multiple channels",
+              "text": "Different pages and accounts in one flow"
             },
             {
-              "title": "Setup step",
-              "text": "The team knows to start with connection"
+              "title": "Clearer control",
+              "text": "Each channel keeps its context and follow-up"
             },
             {
-              "title": "Clear expectation",
-              "text": "The answer explains the value simply"
+              "title": "Easier growth",
+              "text": "Add more channels whenever you need"
             }
           ]
         },
         {
-          "title": "When does a human step in?",
-          "customerMessage": "If a customer asks for something sensitive, will Wkil reply alone?",
-          "replyMessage": "No. You can define cases that need human review. Wkil pauses automation, gives your team the conversation context, and leaves the decision to the right person.",
+          "title": "Can it create a content plan?",
+          "customerMessage": "Can Wkil suggest a social content plan from customer questions?",
+          "agentText": "Reviews repeated questions and customer interests to turn them into content ideas ready for review.",
+          "replyMessage": "Yes. Wkil can collect repeated questions and topics from your messages, then suggest post ideas and a content plan your team can review and publish faster.",
           "results": [
             {
-              "title": "Decision protected",
-              "text": "Sensitive conversations go to your team"
+              "title": "Ideas from customers",
+              "text": "Content is based on real questions"
             },
             {
-              "title": "Context preserved",
-              "text": "The team sees the question and suggested next step"
+              "title": "Review-ready plan",
+              "text": "Your team checks ideas before publishing"
             },
             {
-              "title": "Higher trust",
-              "text": "Automation stays inside your limits"
+              "title": "Faster publishing",
+              "text": "Messages become ready content ideas"
             }
           ]
         }
