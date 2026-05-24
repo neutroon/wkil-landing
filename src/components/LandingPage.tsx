@@ -24,7 +24,7 @@ function BrandWordmark() {
       />
       <span className="brand-wordmark" aria-hidden="true">
         <span className="brand-arabic">كيل</span>
-        <span className="brand-latin">wkil</span>
+        <span className="brand-latin">wkil.app</span>
       </span>
     </>
   );
