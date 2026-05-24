@@ -1,0 +1,141 @@
+{
+  "seo": {
+    "title": "Wkil | AI assistant for messages and social teams",
+    "description": "Wkil helps your business reply to messages and comments, save customer data, and prepare social content from one place in your brand voice.",
+    "keywords": [
+      "Wkil",
+      "AI business assistant",
+      "social inbox automation",
+      "customer replies",
+      "customer service automation",
+      "social content workflow"
+    ],
+    "openGraphTitle": "Wkil | AI assistant for messages and social teams",
+    "openGraphDescription": "Faster replies, saved customer data, and ready social content for your team from one place.",
+    "imageAlt": "Wkil logo"
+  },
+  "brand": {
+    "logoAlt": "Wkil logo",
+    "markAlt": "Wkil mark"
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "ariaLabel": "Main navigation",
+    "services": "Services",
+    "workflow": "Workflow",
+    "trust": "Trust",
+    "login": "Sign in",
+    "startFree": "Start Free",
+    "switchLanguage": "العربية"
+  },
+  "hero": {
+    "eyebrow": "Smart agent for social media and customer care",
+    "title": [
+      "Faster replies to messages",
+      "Saved customer data",
+      "Ready content from one place"
+    ],
+    "subtitle": "Wkil uses your business information, replies to comments and messages in your tone, and shows your team the customer details and next step clearly.",
+    "primaryCta": "Start Free",
+    "secondaryCta": "See how it works",
+    "assurance": [
+      "Replies are based on your business information and policies",
+      "Saves the customer name, interest, and source channel",
+      "Hands the conversation to your team when it needs a human decision"
+    ]
+  },
+  "preview": {
+    "ariaLabel": "Wkil product preview",
+    "status": "Monitoring messages",
+    "label": "Example conversation",
+    "customerLabel": "Customer",
+    "customerMessage": "What is the price? Is delivery available in Cairo?",
+    "agentTitle": "Wkil reviews your business data",
+    "agentText": "It checks the price, delivery, and right policy before replying.",
+    "replyLabel": "Suggested reply",
+    "replyMessage": "Hi. Delivery is available in Cairo, and pricing depends on the plan that fits you. Would you like me to send the details?",
+    "results": [
+      {
+        "title": "Clear reply",
+        "text": "From verified business information"
+      },
+      {
+        "title": "Customer recorded",
+        "text": "Channel and interest ready for the team"
+      },
+      {
+        "title": "Defined follow-up",
+        "text": "The team sees what to do next"
+      }
+    ]
+  },
+  "trust": [
+    {
+      "title": "Replies based on your data",
+      "text": "Wkil checks your business profile, FAQs, and policies before replying."
+    },
+    {
+      "title": "Human review when needed",
+      "text": "If the conversation needs a decision or confirmation, it goes to your team instead of sending a random reply."
+    },
+    {
+      "title": "Easier team operations",
+      "text": "Messages, customers, and follow-ups stay on a clear path instead of being scattered across channels."
+    }
+  ],
+  "services": {
+    "title": "The services that make social operations work better",
+    "items": [
+      {
+        "icon": "inbox",
+        "title": "Replies to messages and comments",
+        "text": "It brings together comments, WhatsApp, and Messenger, understands the customer's question, and suggests or sends the right reply based on your settings."
+      },
+      {
+        "icon": "lead",
+        "title": "Saves customers and follow-up",
+        "text": "It records useful details like name, interest, channel, and follow-up status so your team can continue quickly."
+      },
+      {
+        "icon": "content",
+        "title": "Helps prepare social content",
+        "text": "It turns repeated questions and customer requests into post ideas and captions ready for review."
+      }
+    ]
+  },
+  "workflow": {
+    "eyebrow": "How it works",
+    "title": "From customer message to clear reply or follow-up",
+    "subtitle": "Every message follows a clear path: reply, save customer, create a team task, or hand off to the right person.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Message arrives",
+        "text": "Comment, direct message, WhatsApp, Messenger, or web chat."
+      },
+      {
+        "number": "02",
+        "title": "Wkil understands the context",
+        "text": "It reviews the customer's question and your business information before suggesting a reply."
+      },
+      {
+        "number": "03",
+        "title": "It takes the right step",
+        "text": "It replies, records customer details, prepares a task, or asks the team to step in."
+      },
+      {
+        "number": "04",
+        "title": "Your team continues with confidence",
+        "text": "Every conversation has a clear status and next step."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Try it on your messages",
+    "title": "Start with Wkil without complicated setup",
+    "button": "Start Free"
+  },
+  "footer": {
+    "line": "Wkil helps businesses reply faster and with confidence across social channels, while keeping customer data and follow-ups in one clear place."
+  }
+}
