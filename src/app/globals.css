@@ -37,7 +37,7 @@ body {
     48px 48px,
     48px 48px;
   color: var(--ink);
-  font-family: Cairo, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-family: var(--font-cairo), Cairo, "Segoe UI", Tahoma, Arial, sans-serif;
   margin: 0;
 }
 
@@ -105,7 +105,7 @@ button {
 .brand-link {
   --brand-arabic-size: 34px;
   --brand-latin-size: 9px;
-  --brand-mark-offset: -11px;
+  --brand-mark-offset: -18px;
   --brand-mark-size: 50px;
   --brand-mark-y: 7px;
 
@@ -119,7 +119,6 @@ button {
   display: block;
   height: var(--brand-mark-size);
   margin-inline-end: var(--brand-mark-offset);
-  margin-block-start: var(--brand-mark-offset);
   transform: translateY(var(--brand-mark-y));
   width: var(--brand-mark-size);
 }
@@ -128,7 +127,7 @@ button {
   align-items: flex-end;
   display: flex;
   flex-direction: column;
-  font-family: Cairo, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-family: var(--font-cairo), Cairo, "Segoe UI", Tahoma, Arial, sans-serif;
   justify-content: center;
   line-height: 1;
 }
