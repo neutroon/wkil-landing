@@ -470,6 +470,20 @@ h1 span {
   color: var(--teal);
 }
 
+.preview-mode-chip {
+  align-items: center;
+  background: rgba(126, 224, 195, 0.18);
+  border: 1px solid rgba(14, 124, 115, 0.12);
+  border-radius: 8px;
+  color: var(--teal);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 950;
+  min-height: 34px;
+  padding: 0 12px;
+}
+
 .preview-stage {
   min-height: 0;
   overflow-y: auto;
