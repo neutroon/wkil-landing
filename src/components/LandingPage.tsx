@@ -10,6 +10,25 @@ interface LandingPageProps {
   locale: Locale;
 }
 
+function BrandWordmark() {
+  return (
+    <>
+      <Image
+        className="brand-mark"
+        src="/assets/wkil-mark.svg"
+        alt=""
+        width={92}
+        height={92}
+        priority
+      />
+      <span className="brand-wordmark" aria-hidden="true">
+        <span className="brand-arabic">كيل</span>
+        <span className="brand-latin">wkil</span>
+      </span>
+    </>
+  );
+}
+
 export function LandingPage({ copy, locale }: LandingPageProps) {
   const alternateLocale: Locale = locale === "ar" ? "en" : "ar";
   const signupPath = getAuthPath(locale, "signup");
@@ -23,14 +42,13 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
 
       <header className="site-header">
         <nav className="nav-shell" aria-label={copy.nav.ariaLabel}>
-          <a className="brand-link" href="#top" aria-label="Wkil home">
-            <Image
-              src="/assets/wkil-logo.svg"
-              alt={copy.brand.logoAlt}
-              width={214}
-              height={72}
-              priority
-            />
+          <a
+            className="brand-link"
+            href="#top"
+            aria-label={copy.brand.logoAlt}
+            dir="rtl"
+          >
+            <BrandWordmark />
           </a>
 
           <div className="nav-links">
@@ -205,17 +223,12 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
 
       <footer className="footer">
         <div className="content-shell footer-shell">
-          <div className="footer-brand">
-            <Image
-              src="/assets/wkil-mark.svg"
-              alt={copy.brand.markAlt}
-              width={92}
-              height={92}
-            />
-            <div>
-              <strong>وكيل</strong>
-              <span>wkil</span>
-            </div>
+          <div
+            className="footer-brand brand-link"
+            aria-label={copy.brand.logoAlt}
+            dir="rtl"
+          >
+            <BrandWordmark />
           </div>
           <p>{copy.footer.line}</p>
           <div className="footer-links">
