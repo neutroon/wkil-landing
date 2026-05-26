@@ -78,7 +78,7 @@
           "title": "What are the plans?",
           "customerMessage": "Can I know the price and available plans?",
           "agentText": "Checks that the current trial is free and prepares a clear answer about collecting feedback.",
-          "replyMessage": "For now, Wkil is free to try. We would love for you to test it with your messages, see how it fits your business, and send us feedback before we announce paid plans.",
+          "replyMessage": "For now, Wkil is free to try. You can use it and send us feedback so we can improve the trial and shape paid plans around user needs.",
           "results": [
             {
               "title": "Buying intent",
