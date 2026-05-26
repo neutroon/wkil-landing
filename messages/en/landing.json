@@ -211,7 +211,7 @@
     "submit": "Join the waitlist",
     "submitting": "Sending...",
     "successTitle": "Request received",
-    "successText": "You are on the trial list. We will review your details and contact you when a new feedback group opens.",
+    "successText": "You are on the trial list. We will review your details and contact you when your trial turn is ready, so we can support it well and improve Wkil with your feedback.",
     "successAction": "Edit details",
     "errorText": "Something went wrong. Please try again in a moment.",
     "requiredText": "Complete the required details so we can prepare a useful follow-up.",
