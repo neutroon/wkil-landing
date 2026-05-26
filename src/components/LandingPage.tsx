@@ -4,6 +4,7 @@ import { getAuthPath } from "@/lib/routes";
 import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 import { LandingProductPreview } from "./LandingProductPreview";
+import { LandingWaitlistForm } from "./LandingWaitlistForm";
 import { ServiceIcon } from "./ServiceIcon";
 
 interface LandingPageProps {
@@ -32,8 +33,8 @@ function BrandWordmark() {
 
 export function LandingPage({ copy, locale }: LandingPageProps) {
   const alternateLocale: Locale = locale === "ar" ? "en" : "ar";
-  const signupPath = getAuthPath(locale, "signup");
   const loginPath = getAuthPath(locale, "login");
+  const waitlistPath = "#waitlist";
 
   return (
     <>
@@ -70,7 +71,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
             <a className="login-link" href={loginPath}>
               {copy.nav.login}
             </a>
-            <a className="primary-button compact" href={signupPath}>
+            <a className="primary-button compact" href={waitlistPath}>
               <span>{copy.nav.startFree}</span>
             </a>
           </div>
@@ -90,7 +91,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
               <p className="hero-text">{copy.hero.subtitle}</p>
 
               <div className="hero-actions">
-                <a className="primary-button" href={signupPath}>
+                <a className="primary-button" href={waitlistPath}>
                   <span>{copy.hero.primaryCta}</span>
                 </a>
                 <a className="secondary-button" href="#workflow">
@@ -165,13 +166,24 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           </div>
         </section>
 
+        <section className="section waitlist-section" id="waitlist">
+          <div className="content-shell waitlist-layout">
+            <div className="section-heading waitlist-copy">
+              <p>{copy.waitlist.eyebrow}</p>
+              <h2>{copy.waitlist.title}</h2>
+              <span>{copy.waitlist.subtitle}</span>
+            </div>
+            <LandingWaitlistForm copy={copy.waitlist} locale={locale} />
+          </div>
+        </section>
+
         <section className="final-cta">
           <div className="content-shell final-card">
             <div>
               <p>{copy.cta.eyebrow}</p>
               <h2>{copy.cta.title}</h2>
             </div>
-            <a className="primary-button" href={signupPath}>
+            <a className="primary-button" href={waitlistPath}>
               <span>{copy.cta.button}</span>
             </a>
           </div>
@@ -190,7 +202,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           <p>{copy.footer.line}</p>
           <div className="footer-links">
             <a href={loginPath}>{copy.nav.login}</a>
-            <a href={signupPath}>{copy.nav.startFree}</a>
+            <a href={waitlistPath}>{copy.nav.startFree}</a>
           </div>
         </div>
       </footer>
