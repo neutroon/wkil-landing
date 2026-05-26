@@ -86,6 +86,10 @@ button {
   position: absolute;
   top: 0;
   z-index: 40;
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    backdrop-filter 180ms ease;
 }
 
 .nav-shell,
