@@ -64,7 +64,7 @@ export function LandingHeader({
   }
 
   const updateHeaderSurface = () => {
-    header.classList.toggle("is-scrolled", window.scrollY > 40);
+    header.classList.toggle("is-scrolled", window.scrollY > 28);
   };
 
   updateHeaderSurface();
