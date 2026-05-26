@@ -3,7 +3,7 @@ import { defaultLocale, locales, type Locale } from "@/i18n/config";
 export const siteName = "Wkil";
 
 export const siteUrl = new URL(
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://pagespilot.com",
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://wkil.app",
 );
 
 export function getLocalePath(locale: Locale) {
