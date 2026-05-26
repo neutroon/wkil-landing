@@ -169,7 +169,6 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
         <section className="section waitlist-section" id="waitlist">
           <div className="content-shell waitlist-layout">
             <div className="section-heading waitlist-copy">
-              <p>{copy.waitlist.eyebrow}</p>
               <h2>{copy.waitlist.title}</h2>
               <span>{copy.waitlist.subtitle}</span>
             </div>
