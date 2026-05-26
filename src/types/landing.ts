@@ -93,7 +93,6 @@ export interface LandingCopy {
     button: string;
   };
   waitlist: {
-    eyebrow: string;
     title: string;
     subtitle: string;
     formTitle: string;
