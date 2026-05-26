@@ -41,6 +41,7 @@ export function LandingHeader({
               href="/"
               hrefLang={alternateLocale}
               locale={alternateLocale}
+              scroll={false}
             >
               {copy.nav.switchLanguage}
             </Link>
@@ -57,19 +58,40 @@ export function LandingHeader({
         dangerouslySetInnerHTML={{
           __html: `
 (() => {
-  const header = document.querySelector(".site-header");
+  const updateHeaderSurface = () => {
+    document.querySelectorAll(".site-header").forEach((header) => {
+      header.classList.toggle("is-scrolled", window.scrollY > 0);
+    });
+  };
 
-  if (!header) {
+  if (window.__wkilHeaderSurfaceReady) {
+    updateHeaderSurface();
     return;
   }
 
-  const updateHeaderSurface = () => {
-    header.classList.toggle("is-scrolled", window.scrollY > 28);
+  window.__wkilHeaderSurfaceReady = true;
+  let animationFrame = 0;
+
+  const scheduleUpdate = () => {
+    if (animationFrame) {
+      return;
+    }
+
+    animationFrame = window.requestAnimationFrame(() => {
+      animationFrame = 0;
+      updateHeaderSurface();
+    });
   };
 
   updateHeaderSurface();
   window.addEventListener("scroll", updateHeaderSurface, { passive: true });
   window.addEventListener("pageshow", updateHeaderSurface);
+  window.addEventListener("resize", updateHeaderSurface);
+
+  new MutationObserver(scheduleUpdate).observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+  });
 })();
           `,
         }}
