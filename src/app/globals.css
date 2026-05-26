@@ -85,10 +85,6 @@ button {
   inset-inline: 0;
   position: absolute;
   top: 0;
-  transition:
-    background 180ms ease,
-    box-shadow 180ms ease,
-    backdrop-filter 180ms ease;
   z-index: 40;
 }
 
@@ -1424,10 +1420,10 @@ h1 span {
     background:
       linear-gradient(
         var(--inline-highlight-angle),
-        rgba(126, 224, 195, 0.18),
-        transparent 52%
+        rgba(126, 224, 195, 0.2),
+        transparent 50%
       ),
-      rgba(247, 243, 234, 0.82);
+      rgba(247, 243, 234, 0.94);
     backdrop-filter: blur(16px);
     box-shadow: 0 12px 34px rgba(14, 124, 115, 0.08);
   }
@@ -1449,7 +1445,7 @@ h1 span {
         var(--stage-soft) 0%,
         var(--ivory) 52%,
         var(--stage) 100%
-    );
+      );
     box-shadow: none;
     min-height: auto;
     padding-top: clamp(96px, 20vw, 112px);
