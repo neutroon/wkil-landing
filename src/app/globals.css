@@ -921,6 +921,7 @@ h1 span {
   display: grid;
   gap: 20px;
   padding: clamp(18px, 3vw, 28px);
+  scroll-margin-top: 96px;
 }
 
 .waitlist-form-head strong {
