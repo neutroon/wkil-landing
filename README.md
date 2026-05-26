@@ -14,7 +14,9 @@ Standalone Next.js landing page for **وكيل / wkil**.
 
 ## Environment
 
-- `NEXT_PUBLIC_SITE_URL` — canonical production URL used by metadata, JSON-LD, robots, and the sitemap. Defaults to `https://pagespilot.com` when unset.
+- `NEXT_PUBLIC_SITE_URL` — canonical production URL used by metadata, JSON-LD, robots, and the sitemap. Defaults to `https://wkil.app` when unset.
+- `WKIL_BACKEND_URL` — backend origin used by the waitlist API to create leads in the Wkil admin dashboard. Defaults to `NEXT_PUBLIC_API`, then `http://localhost:8080`.
+- `WAITLIST_WEBHOOK_URL` — optional secondary webhook target if you also want to mirror waitlist submissions outside the Wkil stack.
 
 ## Commands
 
