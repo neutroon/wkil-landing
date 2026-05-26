@@ -36,9 +36,17 @@ export function LandingWaitlistForm({
 }: LandingWaitlistFormProps) {
   const [formData, setFormData] = useState<WaitlistFormData>(initialFormData);
   const [status, setStatus] = useState<SubmitStatus>("idle");
-  const [statusMessage, setStatusMessage] = useState("");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+
+  const clearFeedback = () => {
+    if (status === "error") {
+      setStatus("idle");
+      setFeedbackMessage("");
+    }
+  };
 
   const updateField = (field: keyof WaitlistFormData, value: string) => {
+    clearFeedback();
     setFormData((current) => ({
       ...current,
       [field]: value,
@@ -46,6 +54,7 @@ export function LandingWaitlistForm({
   };
 
   const toggleChannel = (value: string) => {
+    clearFeedback();
     setFormData((current) => {
       const channels = current.channels.includes(value)
         ? current.channels.filter((channel) => channel !== value)
@@ -72,12 +81,12 @@ export function LandingWaitlistForm({
 
     if (!isComplete) {
       setStatus("error");
-      setStatusMessage(copy.requiredText);
+      setFeedbackMessage(copy.requiredText);
       return;
     }
 
     setStatus("submitting");
-    setStatusMessage("");
+    setFeedbackMessage("");
 
     try {
       const response = await fetch("/api/waitlist", {
@@ -96,21 +105,21 @@ export function LandingWaitlistForm({
       }
 
       setStatus("success");
-      setStatusMessage("");
+      setFeedbackMessage("");
     } catch {
       setStatus("error");
-      setStatusMessage(copy.errorText);
+      setFeedbackMessage(copy.errorText);
     }
   };
 
   const handleEditSubmission = () => {
     setStatus("idle");
-    setStatusMessage("");
+    setFeedbackMessage("");
   };
 
   if (status === "success") {
     return (
-      <form className="waitlist-form" onSubmit={handleSubmit}>
+      <div aria-live="polite" className="waitlist-form">
         <div className="waitlist-success-panel">
           <span aria-hidden="true" className="waitlist-success-mark">
             ✓
@@ -133,7 +142,7 @@ export function LandingWaitlistForm({
             <span key={item}>{item}</span>
           ))}
         </div>
-      </form>
+      </div>
     );
   }
 
@@ -252,8 +261,8 @@ export function LandingWaitlistForm({
           <span>{status === "submitting" ? copy.submitting : copy.submit}</span>
         </button>
 
-        {statusMessage && (
-          <p className={`waitlist-alert ${status}`}>{statusMessage}</p>
+        {feedbackMessage && (
+          <p className="waitlist-alert error">{feedbackMessage}</p>
         )}
       </div>
 
