@@ -203,6 +203,95 @@
     "title": "Start with Wkil without complicated setup",
     "button": "Start Free"
   },
+  "waitlist": {
+    "eyebrow": "Free trial waitlist",
+    "title": "Join the first Wkil trial",
+    "subtitle": "Leave your details and the channels you manage. We will follow up on WhatsApp when your trial slot is ready.",
+    "formTitle": "Quick waitlist request",
+    "formText": "Four short steps help us understand your channels and the main problem to solve.",
+    "submit": "Join the waitlist",
+    "submitting": "Sending...",
+    "successTitle": "Request received",
+    "successText": "You are on the list. We will review your details and follow up on WhatsApp when the right trial opens.",
+    "errorText": "Something went wrong. Please try again in a moment.",
+    "requiredText": "Complete the required details so we can prepare a useful follow-up.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "whatsapp": "WhatsApp number",
+      "teamSize": "Team size",
+      "channels": "Channels you manage",
+      "challenge": "Biggest challenge right now"
+    },
+    "placeholders": {
+      "name": "Your name or contact person",
+      "email": "name@business.com",
+      "whatsapp": "+20 1X XXX XXXX"
+    },
+    "channels": [
+      {
+        "value": "whatsapp",
+        "label": "WhatsApp"
+      },
+      {
+        "value": "messenger",
+        "label": "Messenger"
+      },
+      {
+        "value": "instagram",
+        "label": "Instagram DMs"
+      },
+      {
+        "value": "website-chat",
+        "label": "Website chat"
+      },
+      {
+        "value": "comments",
+        "label": "Comments"
+      }
+    ],
+    "challenges": [
+      {
+        "value": "slow-replies",
+        "label": "Slow replies to customers"
+      },
+      {
+        "value": "lost-followups",
+        "label": "Losing track of leads and follow-ups"
+      },
+      {
+        "value": "content-creation",
+        "label": "Creating social content"
+      },
+      {
+        "value": "multi-platform",
+        "label": "Managing multiple platforms at once"
+      }
+    ],
+    "teamSizes": [
+      {
+        "value": "solo",
+        "label": "Solo"
+      },
+      {
+        "value": "2-5",
+        "label": "2-5"
+      },
+      {
+        "value": "6-20",
+        "label": "6-20"
+      },
+      {
+        "value": "20-plus",
+        "label": "20+"
+      }
+    ],
+    "trust": [
+      "Free to try at the start",
+      "WhatsApp follow-up without spam",
+      "Answers help tailor your trial"
+    ]
+  },
   "footer": {
     "line": "Wkil helps businesses reply faster and with confidence across social channels, while keeping customer data and follow-ups in one clear place."
   }
