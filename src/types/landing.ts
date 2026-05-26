@@ -92,6 +92,45 @@ export interface LandingCopy {
     title: string;
     button: string;
   };
+  waitlist: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    formTitle: string;
+    formText: string;
+    submit: string;
+    submitting: string;
+    successTitle: string;
+    successText: string;
+    errorText: string;
+    requiredText: string;
+    fields: {
+      name: string;
+      email: string;
+      whatsapp: string;
+      teamSize: string;
+      channels: string;
+      challenge: string;
+    };
+    placeholders: {
+      name: string;
+      email: string;
+      whatsapp: string;
+    };
+    channels: Array<{
+      value: string;
+      label: string;
+    }>;
+    challenges: Array<{
+      value: string;
+      label: string;
+    }>;
+    teamSizes: Array<{
+      value: string;
+      label: string;
+    }>;
+    trust: string[];
+  };
   footer: {
     line: string;
   };
