@@ -206,13 +206,14 @@
   "waitlist": {
     "eyebrow": "Free trial waitlist",
     "title": "Join the first Wkil trial",
-    "subtitle": "Leave your details and the channels you manage. We will follow up on WhatsApp when your trial slot is ready.",
+    "subtitle": "Share your details to be among the first to try Wkil. We are opening access gradually to a limited number of users so we can support the trial and improve it with real feedback.",
     "formTitle": "Quick waitlist request",
-    "formText": "Four short steps help us understand your channels and the main problem to solve.",
+    "formText": "Four short steps help us prioritize trial access and understand your channels and main challenge.",
     "submit": "Join the waitlist",
     "submitting": "Sending...",
     "successTitle": "Request received",
-    "successText": "You are on the list. We will review your details and follow up on WhatsApp when the right trial opens.",
+    "successText": "You are on the trial list. We will review your details and contact you when a new feedback group opens.",
+    "successAction": "Edit details",
     "errorText": "Something went wrong. Please try again in a moment.",
     "requiredText": "Complete the required details so we can prepare a useful follow-up.",
     "fields": {
@@ -288,8 +289,8 @@
     ],
     "trust": [
       "Free to try at the start",
-      "WhatsApp follow-up without spam",
-      "Answers help tailor your trial"
+      "Gradual access so we can support the trial",
+      "Your feedback helps improve Wkil"
     ]
   },
   "footer": {
