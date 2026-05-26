@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 
@@ -34,9 +34,29 @@ export function LandingWaitlistForm({
   copy,
   locale,
 }: LandingWaitlistFormProps) {
+  const successRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState<WaitlistFormData>(initialFormData);
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [feedbackMessage, setFeedbackMessage] = useState("");
+
+  useEffect(() => {
+    if (status !== "success" || !successRef.current) {
+      return;
+    }
+
+    const animationFrame = window.requestAnimationFrame(() => {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      successRef.current?.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [status]);
 
   const clearFeedback = () => {
     if (status === "error") {
@@ -119,7 +139,7 @@ export function LandingWaitlistForm({
 
   if (status === "success") {
     return (
-      <div aria-live="polite" className="waitlist-form">
+      <div ref={successRef} aria-live="polite" className="waitlist-form">
         <div className="waitlist-success-panel">
           <span aria-hidden="true" className="waitlist-success-mark">
             ✓
