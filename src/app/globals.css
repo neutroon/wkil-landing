@@ -1124,6 +1124,53 @@ h1 span {
   gap: 12px;
 }
 
+.waitlist-success-panel {
+  align-items: center;
+  background: rgba(126, 224, 195, 0.16);
+  border: 1px solid rgba(14, 124, 115, 0.22);
+  border-radius: 8px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: clamp(18px, 3vw, 24px);
+}
+
+.waitlist-success-mark {
+  align-items: center;
+  background: var(--teal);
+  border-radius: 999px;
+  color: var(--mint);
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 950;
+  height: 38px;
+  justify-content: center;
+  width: 38px;
+}
+
+.waitlist-success-panel strong {
+  color: var(--ink);
+  display: block;
+  font-size: 20px;
+  font-weight: 950;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.waitlist-success-panel p {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 760;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.waitlist-edit-button {
+  border: 1px solid rgba(14, 124, 115, 0.24);
+  cursor: pointer;
+  min-height: 46px;
+}
+
 .waitlist-form button:disabled {
   cursor: wait;
   opacity: 0.72;
@@ -1449,6 +1496,19 @@ h1 span {
   .waitlist-form-bottom {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .waitlist-success-panel {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .waitlist-success-mark {
+    justify-self: start;
+  }
+
+  .waitlist-edit-button {
+    width: 100%;
   }
 
   .waitlist-form-bottom .primary-button,
