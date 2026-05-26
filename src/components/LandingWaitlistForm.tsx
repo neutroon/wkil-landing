@@ -96,13 +96,46 @@ export function LandingWaitlistForm({
       }
 
       setStatus("success");
-      setStatusMessage(copy.successText);
-      setFormData(initialFormData);
+      setStatusMessage("");
     } catch {
       setStatus("error");
       setStatusMessage(copy.errorText);
     }
   };
+
+  const handleEditSubmission = () => {
+    setStatus("idle");
+    setStatusMessage("");
+  };
+
+  if (status === "success") {
+    return (
+      <form className="waitlist-form" onSubmit={handleSubmit}>
+        <div className="waitlist-success-panel">
+          <span aria-hidden="true" className="waitlist-success-mark">
+            ✓
+          </span>
+          <div>
+            <strong>{copy.successTitle}</strong>
+            <p>{copy.successText}</p>
+          </div>
+          <button
+            className="secondary-button waitlist-edit-button"
+            onClick={handleEditSubmission}
+            type="button"
+          >
+            {copy.successAction}
+          </button>
+        </div>
+
+        <div className="waitlist-trust-row">
+          {copy.trust.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </form>
+    );
+  }
 
   return (
     <form className="waitlist-form" onSubmit={handleSubmit}>
