@@ -102,6 +102,7 @@ export interface LandingCopy {
     submitting: string;
     successTitle: string;
     successText: string;
+    successAction: string;
     errorText: string;
     requiredText: string;
     fields: {
