@@ -1186,12 +1186,6 @@ h1 span {
   padding: 10px 12px;
 }
 
-.waitlist-alert.success {
-  background: rgba(126, 224, 195, 0.16);
-  border-color: rgba(14, 124, 115, 0.2);
-  color: var(--teal);
-}
-
 .waitlist-alert.error {
   background: rgba(225, 159, 34, 0.1);
   border-color: rgba(225, 159, 34, 0.24);
