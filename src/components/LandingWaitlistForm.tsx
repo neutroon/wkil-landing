@@ -183,7 +183,8 @@ export function LandingWaitlistForm({
                 type="checkbox"
                 value={channel.value}
               />
-              <span>{channel.label}</span>
+              <span aria-hidden="true" className="waitlist-option-control" />
+              <span className="waitlist-option-label">{channel.label}</span>
             </label>
           ))}
         </div>
@@ -202,7 +203,8 @@ export function LandingWaitlistForm({
                 type="radio"
                 value={challenge.value}
               />
-              <span>{challenge.label}</span>
+              <span aria-hidden="true" className="waitlist-option-control" />
+              <span className="waitlist-option-label">{challenge.label}</span>
             </label>
           ))}
         </div>
