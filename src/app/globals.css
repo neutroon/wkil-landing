@@ -438,41 +438,6 @@ h1 span {
   gap: 8px;
 }
 
-.preview-mode-switch {
-  align-items: center;
-  background: rgba(255, 250, 242, 0.72);
-  border: 1px solid rgba(14, 124, 115, 0.12);
-  border-radius: 8px;
-  display: flex;
-  flex: 0 0 auto;
-  flex-wrap: wrap;
-  gap: 4px;
-  justify-content: flex-end;
-  padding: 3px;
-}
-
-.preview-mode-switch button {
-  background: transparent;
-  border: 0;
-  border-radius: 7px;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 950;
-  min-height: 34px;
-  padding: 0 10px;
-  transition:
-    background 160ms ease,
-    color 160ms ease,
-    box-shadow 160ms ease;
-}
-
-.preview-mode-switch button[aria-pressed="true"] {
-  background: rgba(126, 224, 195, 0.18);
-  box-shadow: inset 0 0 0 1px rgba(14, 124, 115, 0.12);
-  color: var(--teal);
-}
-
 .preview-mode-chip {
   align-items: center;
   background: rgba(126, 224, 195, 0.18);
@@ -493,53 +458,6 @@ h1 span {
   padding-inline-end: 4px;
   scrollbar-color: rgba(14, 124, 115, 0.28) transparent;
   scrollbar-width: thin;
-}
-
-.demo-prompt-panel {
-  background: rgba(255, 250, 242, 0.72);
-  border: 1px solid rgba(14, 124, 115, 0.12);
-  border-radius: 8px;
-  display: grid;
-  gap: 10px;
-  margin-bottom: 14px;
-  padding: 12px;
-}
-
-.demo-prompt-panel > span {
-  color: var(--teal);
-  display: block;
-  font-size: 12px;
-  font-weight: 950;
-}
-
-.demo-prompt-list {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.demo-prompt-list button {
-  background: rgba(247, 243, 234, 0.78);
-  border: 1px solid rgba(216, 208, 194, 0.82);
-  border-radius: 8px;
-  color: var(--ink);
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 950;
-  line-height: 1.45;
-  min-height: 58px;
-  padding: 10px;
-  text-align: start;
-  transition:
-    background 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
-}
-
-.demo-prompt-list button[aria-pressed="true"] {
-  background: rgba(217, 154, 43, 0.1);
-  border-color: rgba(217, 154, 43, 0.34);
-  color: #9d6a13;
 }
 
 .conversation {
@@ -1899,10 +1817,6 @@ h1 span {
   .footer-shell {
     align-items: stretch;
     flex-direction: column;
-  }
-
-  .demo-prompt-list {
-    grid-template-columns: 1fr;
   }
 
   .message {

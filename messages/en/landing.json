@@ -47,14 +47,13 @@
   },
   "preview": {
     "ariaLabel": "Wkil product preview",
-    "status": "Monitoring messages",
-    "label": "Example conversation",
-    "modeAriaLabel": "Choose Wkil preview mode",
-    "customerLabel": "Customer",
+    "status": "Message to follow-up",
+    "label": "Workflow snapshot",
+    "customerLabel": "Incoming message",
     "customerMessage": "What is the price? Is delivery available in Cairo?",
-    "agentTitle": "Wkil reviews your business data",
-    "agentText": "It checks the price, delivery, and right policy before replying.",
-    "replyLabel": "Suggested reply",
+    "agentTitle": "Wkil checks context and policy",
+    "agentText": "It reviews the customer question against your business profile, FAQs, and channel rules.",
+    "replyLabel": "Reply and next step",
     "replyMessage": "Hi. Delivery is available in Cairo, and pricing depends on the plan that fits you. Would you like me to send the details?",
     "results": [
       {
@@ -69,74 +68,7 @@
         "title": "Defined follow-up",
         "text": "The team sees what to do next"
       }
-    ],
-    "demo": {
-      "label": "Try a reply",
-      "status": "Quick demo",
-      "promptLabel": "Choose a question",
-      "prompts": [
-        {
-          "title": "What are the plans?",
-          "customerMessage": "Can I know the price and available plans?",
-          "agentText": "Checks that the current trial is free and prepares a clear answer about collecting feedback.",
-          "replyMessage": "For now, Wkil is free to try. You can use it and send us feedback so we can improve the trial and shape paid plans around user needs.",
-          "results": [
-            {
-              "title": "Buying intent",
-              "text": "The question is saved as pricing interest"
-            },
-            {
-              "title": "Sales follow-up",
-              "text": "The team can continue with the right offer"
-            },
-            {
-              "title": "Careful reply",
-              "text": "No unconfirmed price promise"
-            }
-          ]
-        },
-        {
-          "title": "Can I link many channels?",
-          "customerMessage": "Can I link any number of Facebook pages and different WhatsApp accounts?",
-          "agentText": "Reviews the requested channels and explains that multiple pages and accounts can be connected as needed.",
-          "replyMessage": "Yes. You can connect multiple Facebook pages and WhatsApp accounts based on your business needs, then manage messages, customers, and follow-ups from one clear place.",
-          "results": [
-            {
-              "title": "Multiple channels",
-              "text": "Different pages and accounts in one flow"
-            },
-            {
-              "title": "Clearer control",
-              "text": "Each channel keeps its context and follow-up"
-            },
-            {
-              "title": "Easier growth",
-              "text": "Add more channels whenever you need"
-            }
-          ]
-        },
-        {
-          "title": "Can it create a content plan?",
-          "customerMessage": "Can Wkil suggest a social content plan from customer questions?",
-          "agentText": "Reviews repeated questions and customer interests to turn them into content ideas ready for review.",
-          "replyMessage": "Yes. Wkil can collect repeated questions and topics from your messages, then suggest post ideas and a content plan your team can review and publish faster.",
-          "results": [
-            {
-              "title": "Ideas from customers",
-              "text": "Content is based on real questions"
-            },
-            {
-              "title": "Review-ready plan",
-              "text": "Your team checks ideas before publishing"
-            },
-            {
-              "title": "Faster publishing",
-              "text": "Messages become ready content ideas"
-            }
-          ]
-        }
-      ]
-    }
+    ]
   },
   "trust": [
     {
