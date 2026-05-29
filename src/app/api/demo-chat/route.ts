@@ -15,6 +15,9 @@ const demoSiteKey =
   process.env.WKIL_DEMO_WIDGET_SITE_KEY ??
   process.env.NEXT_PUBLIC_WKIL_DEMO_WIDGET_SITE_KEY;
 
+const demoWidgetOrigin =
+  process.env.WKIL_DEMO_WIDGET_ORIGIN ?? process.env.NEXT_PUBLIC_SITE_URL;
+
 const requestBuckets = new Map<string, { count: number; resetAt: number }>();
 
 type DemoChatBody = {
@@ -29,6 +32,30 @@ function buildBackendUrl(path: string) {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
   return `${normalizedBaseUrl}${normalizedPath}`;
+}
+
+function getWidgetOrigin(request: Request) {
+  const configuredOrigin = demoWidgetOrigin?.trim();
+
+  if (configuredOrigin) {
+    try {
+      return new URL(configuredOrigin).origin;
+    } catch {
+      // Fall through to the request origin below.
+    }
+  }
+
+  const requestOrigin = request.headers.get("origin");
+
+  if (requestOrigin) {
+    try {
+      return new URL(requestOrigin).origin;
+    } catch {
+      // Fall through to the default production origin.
+    }
+  }
+
+  return "https://wkil.app";
 }
 
 function normalizeText(value: string) {
@@ -152,6 +179,7 @@ export async function POST(request: Request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Origin: getWidgetOrigin(request),
         "X-Widget-Site-Key": demoSiteKey,
       },
       body: JSON.stringify({
@@ -176,9 +204,7 @@ export async function POST(request: Request) {
       mode: "live-ai",
       reply: result.reply || localDemoReply(message, locale),
     });
-  } catch (error) {
-    console.error(error);
-
+  } catch {
     return NextResponse.json({
       conversationId: payload.conversationId ?? null,
       mode: "local-demo",
