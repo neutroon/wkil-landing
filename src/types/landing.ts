@@ -18,6 +18,7 @@ export interface LandingCopy {
   nav: {
     skip: string;
     ariaLabel: string;
+    chat: string;
     services: string;
     workflow: string;
     trust: string;
@@ -68,6 +69,32 @@ export interface LandingCopy {
     title: string;
     text: string;
   }>;
+  chat: {
+    ariaLabel: string;
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    agentName: string;
+    liveLabel: string;
+    statusReady: string;
+    statusThinking: string;
+    assistantLabel: string;
+    customerLabel: string;
+    initialMessage: string;
+    promptLabel: string;
+    prompts: string[];
+    inputLabel: string;
+    inputPlaceholder: string;
+    sendLabel: string;
+    sendingLabel: string;
+    errorText: string;
+    ctaText: string;
+    ctaButton: string;
+    proof: Array<{
+      title: string;
+      text: string;
+    }>;
+  };
   services: {
     eyebrow: string;
     title: string;

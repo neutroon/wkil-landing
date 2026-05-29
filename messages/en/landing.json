@@ -21,6 +21,7 @@
   "nav": {
     "skip": "Skip to content",
     "ariaLabel": "Main navigation",
+    "chat": "Ask Wkil",
     "services": "Services",
     "workflow": "Workflow",
     "trust": "Trust",
@@ -151,6 +152,47 @@
       "text": "Messages, customers, and follow-ups stay on a clear path instead of being scattered across channels."
     }
   ],
+  "chat": {
+    "ariaLabel": "Ask Wkil demo chat",
+    "eyebrow": "Try the AI on the page",
+    "title": "Ask Wkil before you join the trial",
+    "subtitle": "Use the demo chat to ask about replies, channels, customer data, and content workflows. In production, this same path can answer from your own business profile.",
+    "agentName": "Wkil demo agent",
+    "liveLabel": "Demo chat",
+    "statusReady": "Ready to answer",
+    "statusThinking": "Checking the best reply",
+    "assistantLabel": "Wkil",
+    "customerLabel": "You",
+    "initialMessage": "Hi. Ask me how Wkil replies to customers, saves leads, connects channels, or helps your team create social content.",
+    "promptLabel": "Start with one question",
+    "prompts": [
+      "How does Wkil reply to customer messages?",
+      "Can I connect WhatsApp and Messenger?",
+      "Can Wkil save leads for my team?",
+      "Can it suggest content ideas?"
+    ],
+    "inputLabel": "Your question",
+    "inputPlaceholder": "Ask about Wkil, channels, leads, or content...",
+    "sendLabel": "Send",
+    "sendingLabel": "Sending...",
+    "errorText": "The demo chat could not answer right now. Please try again in a moment.",
+    "ctaText": "Want answers from your own business data?",
+    "ctaButton": "Join the trial",
+    "proof": [
+      {
+        "title": "Real product path",
+        "text": "The live setup can use Wkil's widget chat endpoint."
+      },
+      {
+        "title": "Lead-friendly",
+        "text": "Curious visitors can ask first, then join the waitlist."
+      },
+      {
+        "title": "Arabic-first",
+        "text": "The chat follows the current landing language."
+      }
+    ]
+  },
   "services": {
     "title": "The services that make social operations work better",
     "items": [

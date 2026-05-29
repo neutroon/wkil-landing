@@ -30,6 +30,7 @@ export function LandingHeader({
           </a>
 
           <div className="nav-links">
+            <a href="#chat">{copy.nav.chat}</a>
             <a href="#services">{copy.nav.services}</a>
             <a href="#workflow">{copy.nav.workflow}</a>
             <a href="#trust">{copy.nav.trust}</a>

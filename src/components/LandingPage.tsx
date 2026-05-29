@@ -2,6 +2,7 @@ import { getAuthPath } from "@/lib/routes";
 import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 import { LandingBrand } from "./LandingBrand";
+import { LandingChatShowcase } from "./LandingChatShowcase";
 import { LandingHeader } from "./LandingHeader";
 import { LandingProductPreview } from "./LandingProductPreview";
 import { LandingWaitlistForm } from "./LandingWaitlistForm";
@@ -75,6 +76,12 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
             ))}
           </div>
         </section>
+
+        <LandingChatShowcase
+          brand={copy.brand}
+          chat={copy.chat}
+          locale={locale}
+        />
 
         <section className="section" id="services">
           <div className="content-shell">
