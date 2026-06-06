@@ -63,6 +63,14 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
+
+        {/* <!-- Wkil chat widget — place before </body> --> */}
+        <script
+          src="https://go.wkil.app/wkil-widget.js"
+          defer
+          data-site-key="wsk_gmMo5IR3Ss58ibCzKlavuTVQn9mNcMEe"
+          data-api-base="https://api.wkil.app"
+        ></script>
       </body>
     </html>
   );
