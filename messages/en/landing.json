@@ -46,27 +46,27 @@
     ]
   },
   "preview": {
-    "ariaLabel": "Wkil product preview",
-    "status": "Message to follow-up",
-    "label": "Workflow snapshot",
-    "customerLabel": "Customer signal",
-    "customerMessage": "Pricing question + Cairo delivery request detected",
-    "agentTitle": "Policy and context check",
-    "agentText": "It reviews the customer question against your business profile, FAQs, and channel rules.",
-    "replyLabel": "Team-ready outcome",
-    "replyMessage": "Wkil prepares the approved answer, saves the customer interest, and marks the next follow-up for your team.",
+    "ariaLabel": "Wkil workspace preview",
+    "status": "Operations workspace",
+    "label": "Dashboard snapshot",
+    "customerLabel": "Unified inbox",
+    "customerMessage": "Pricing requests, web chat leads, and social messages arrive in one queue",
+    "agentTitle": "Customer memory",
+    "agentText": "Name, channel, interest, and next step stay attached to the conversation.",
+    "replyLabel": "Team workflow",
+    "replyMessage": "Your team sees what is open, what Wkil handled, and which customers need follow-up.",
     "results": [
       {
-        "title": "Clear reply",
-        "text": "From verified business information"
+        "title": "Inbox clarity",
+        "text": "Every channel in one operational view"
       },
       {
-        "title": "Customer recorded",
-        "text": "Channel and interest ready for the team"
+        "title": "Saved memory",
+        "text": "Customer details ready for follow-up"
       },
       {
-        "title": "Defined follow-up",
-        "text": "The team sees what to do next"
+        "title": "Content cue",
+        "text": "Repeated questions become useful content ideas"
       }
     ]
   },
