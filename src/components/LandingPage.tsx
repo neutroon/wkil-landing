@@ -16,6 +16,7 @@ interface LandingPageProps {
 export function LandingPage({ copy, locale }: LandingPageProps) {
   const alternateLocale: Locale = locale === "ar" ? "en" : "ar";
   const loginPath = getAuthPath(locale, "login");
+  const privacyPath = `/${locale}/privacy`;
   const waitlistPath = "#waitlist";
 
   return (
@@ -161,6 +162,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           <div className="footer-links">
             <a href={loginPath}>{copy.nav.login}</a>
             <a href={waitlistPath}>{copy.nav.startFree}</a>
+            <a href={privacyPath}>{copy.footer.privacy}</a>
           </div>
         </div>
       </footer>

@@ -144,5 +144,6 @@ export interface LandingCopy {
   };
   footer: {
     line: string;
+    privacy: string;
   };
 }
