@@ -22,29 +22,34 @@ export function LandingProductPreview({
         <span className="preview-mode-chip">{preview.label}</span>
       </div>
 
-      <div className="preview-stage">
-        <div className="conversation hero-workflow-preview">
-          <div className="message customer demo-reveal">
-            <span>{preview.customerLabel}</span>
-            <p>{preview.customerMessage}</p>
-          </div>
+      <div className="preview-stage operations-preview">
+        <div className="ops-signal demo-reveal">
+          <span>{preview.customerLabel}</span>
+          <strong>{preview.customerMessage}</strong>
+        </div>
 
-          <div className="agent-step demo-reveal">
+        <div className="ops-center demo-reveal">
+          <div className="ops-mark">
             <Image
               src="/assets/wkil-mark.svg"
               alt={brand.markAlt}
-              width={92}
-              height={92}
+              width={72}
+              height={72}
             />
-            <div>
-              <strong>{preview.agentTitle}</strong>
-              <p>{preview.agentText}</p>
-            </div>
           </div>
+          <div>
+            <span>{preview.agentTitle}</span>
+            <p>{preview.agentText}</p>
+          </div>
+        </div>
 
-          <div className="message agent demo-reveal">
-            <span>{preview.replyLabel}</span>
-            <p>{preview.replyMessage}</p>
+        <div className="ops-board demo-reveal">
+          <span>{preview.replyLabel}</span>
+          <p>{preview.replyMessage}</p>
+          <div className="ops-progress" aria-hidden="true">
+            <span />
+            <span />
+            <span />
           </div>
         </div>
 

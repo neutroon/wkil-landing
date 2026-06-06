@@ -49,12 +49,12 @@
     "ariaLabel": "Wkil product preview",
     "status": "Message to follow-up",
     "label": "Workflow snapshot",
-    "customerLabel": "Incoming message",
-    "customerMessage": "What is the price? Is delivery available in Cairo?",
-    "agentTitle": "Wkil checks context and policy",
+    "customerLabel": "Customer signal",
+    "customerMessage": "Pricing question + Cairo delivery request detected",
+    "agentTitle": "Policy and context check",
     "agentText": "It reviews the customer question against your business profile, FAQs, and channel rules.",
-    "replyLabel": "Reply and next step",
-    "replyMessage": "Hi. Delivery is available in Cairo, and pricing depends on the plan that fits you. Would you like me to send the details?",
+    "replyLabel": "Team-ready outcome",
+    "replyMessage": "Wkil prepares the approved answer, saves the customer interest, and marks the next follow-up for your team.",
     "results": [
       {
         "title": "Clear reply",

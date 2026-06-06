@@ -409,7 +409,7 @@ h1 span {
 }
 
 .product-card-top,
-.agent-step,
+.ops-center,
 .result-strip,
 .trust-grid,
 .service-head,
@@ -460,35 +460,66 @@ h1 span {
   scrollbar-width: thin;
 }
 
-.conversation {
-  display: grid;
-  gap: 14px;
-}
-
 .demo-reveal {
   animation: preview-step-in 260ms ease-out both;
 }
 
-.message,
-.agent-step {
+.operations-preview {
+  display: grid;
+  gap: 14px;
+}
+
+.ops-signal,
+.ops-center,
+.ops-board {
   border-radius: 8px;
   padding: 14px;
 }
 
-.message {
+.ops-signal {
   background: var(--ivory);
   border: 1px solid rgba(216, 208, 194, 0.75);
-  max-width: 88%;
 }
 
-.message.agent {
+.ops-signal strong {
+  color: var(--ink);
+  display: block;
+  font-size: 17px;
+  font-weight: 950;
+  line-height: 1.55;
+}
+
+.ops-center {
+  background: rgba(126, 224, 195, 0.2);
+  border: 1px solid rgba(14, 124, 115, 0.14);
+  gap: 14px;
+}
+
+.ops-mark {
+  align-items: center;
+  background: rgba(255, 250, 242, 0.72);
+  border: 1px solid rgba(14, 124, 115, 0.12);
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  height: 76px;
+  justify-content: center;
+  width: 76px;
+}
+
+.ops-mark img {
+  height: 56px;
+  width: 56px;
+}
+
+.ops-board {
   background: var(--soft);
-  border-color: rgba(14, 124, 115, 0.18);
-  justify-self: end;
+  border: 1px solid rgba(14, 124, 115, 0.18);
 }
 
-.message span,
-.agent-step span,
+.ops-signal span,
+.ops-center span,
+.ops-board span,
 .result-card span {
   color: var(--teal);
   display: block;
@@ -497,8 +528,8 @@ h1 span {
   margin-bottom: 6px;
 }
 
-.message p,
-.agent-step p,
+.ops-center p,
+.ops-board p,
 .service-card p,
 .workflow-item p,
 .trust-card p,
@@ -510,61 +541,14 @@ h1 span {
   margin-bottom: 0;
 }
 
-.agent-step {
-  background: rgba(126, 224, 195, 0.2);
-  border: 1px solid rgba(14, 124, 115, 0.14);
-  gap: 14px;
-}
-
-.agent-step.is-processing {
-  overflow: hidden;
-  position: relative;
-}
-
-.agent-step.is-processing::after {
-  animation: agent-processing-line 900ms ease-in-out infinite;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(14, 124, 115, 0.52),
-    transparent
-  );
-  content: "";
-  height: 2px;
-  inset-block-end: 0;
-  inset-inline: 0;
-  position: absolute;
-  transform: translateX(-100%);
-}
-
-.agent-step p {
-  color: var(--muted);
-}
-
-.agent-step strong {
-  color: var(--ink);
-}
-
-.agent-step img {
-  height: 74px;
-  width: 74px;
-}
-
-.agent-step strong {
-  display: block;
-  font-size: 15px;
-  font-weight: 950;
-  margin-bottom: 4px;
-}
-
-.processing-dots {
+.ops-progress {
   align-items: center;
   display: inline-flex;
   gap: 5px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
-.agent-step .processing-dots span {
+.ops-progress span {
   animation: processing-dot 720ms ease-in-out infinite;
   background: var(--teal);
   border-radius: 50%;
@@ -575,11 +559,11 @@ h1 span {
   width: 5px;
 }
 
-.agent-step .processing-dots span:nth-child(2) {
+.ops-progress span:nth-child(2) {
   animation-delay: 120ms;
 }
 
-.agent-step .processing-dots span:nth-child(3) {
+.ops-progress span:nth-child(3) {
   animation-delay: 240ms;
 }
 
@@ -1645,16 +1629,6 @@ h1 span {
   }
 }
 
-@keyframes agent-processing-line {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
-}
-
 @keyframes processing-dot {
   0%,
   100% {
@@ -1819,10 +1793,6 @@ h1 span {
     flex-direction: column;
   }
 
-  .message {
-    max-width: 100%;
-  }
-
   .waitlist-form-bottom {
     align-items: stretch;
     flex-direction: column;
@@ -1912,7 +1882,7 @@ h1 span {
     padding: 14px;
   }
 
-  .agent-step {
+  .ops-center {
     align-items: flex-start;
     flex-direction: column;
   }
