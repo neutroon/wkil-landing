@@ -126,6 +126,18 @@ function localDemoReply(message: string, locale: Locale) {
     : "Wkil helps your business reply from your information and policies, save conversation details, and turn important questions into follow-up or content. Ask me about channels, replies, leads, or content.";
 }
 
+function localDemoResponse(
+  payload: DemoChatBody,
+  message: string,
+  locale: Locale,
+) {
+  return NextResponse.json({
+    conversationId: payload.conversationId ?? null,
+    mode: "local-demo",
+    reply: localDemoReply(message, locale),
+  });
+}
+
 export async function POST(request: Request) {
   if (isRateLimited(getClientKey(request))) {
     return NextResponse.json(
@@ -167,11 +179,7 @@ export async function POST(request: Request) {
   }
 
   if (!demoSiteKey) {
-    return NextResponse.json({
-      conversationId: payload.conversationId ?? null,
-      mode: "local-demo",
-      reply: localDemoReply(message, locale),
-    });
+    return localDemoResponse(payload, message, locale);
   }
 
   try {
@@ -188,10 +196,11 @@ export async function POST(request: Request) {
         stream: false,
         visitorId,
       }),
+      cache: "no-store",
     });
 
     if (!response.ok) {
-      throw new Error(`Demo widget API failed with ${response.status}`);
+      return localDemoResponse(payload, message, locale);
     }
 
     const result = (await response.json()) as {
@@ -205,10 +214,6 @@ export async function POST(request: Request) {
       reply: result.reply || localDemoReply(message, locale),
     });
   } catch {
-    return NextResponse.json({
-      conversationId: payload.conversationId ?? null,
-      mode: "local-demo",
-      reply: localDemoReply(message, locale),
-    });
+    return localDemoResponse(payload, message, locale);
   }
 }
