@@ -30,7 +30,7 @@ export function LandingHeader({
           <div className="nav-links">
             <a href="#benefits">{copy.nav.benefits}</a>
             <a href="#chat">{copy.nav.demo}</a>
-            <a href={waitlistPath}>{copy.nav.join}</a>
+            {/* <a href={waitlistPath}>{copy.nav.join}</a> */}
           </div>
 
           <div className="nav-actions">

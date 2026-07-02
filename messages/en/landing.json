@@ -40,11 +40,6 @@
       "Web chat"
     ]
   },
-  "heroVisual": {
-    "ariaLabel": "Example customer reply",
-    "customerMessage": "What are your prices?",
-    "replyMessage": "We have plans starting at 500 EGP. Want details on WhatsApp?"
-  },
   "benefits": {
     "title": "Why Wkil",
     "items": [

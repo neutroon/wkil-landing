@@ -34,11 +34,6 @@ export interface LandingCopy {
   channels: {
     items: string[];
   };
-  heroVisual: {
-    ariaLabel: string;
-    customerMessage: string;
-    replyMessage: string;
-  };
   benefits: {
     title: string;
     items: Array<{

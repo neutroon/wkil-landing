@@ -322,6 +322,30 @@ button {
   grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
 }
 
+.hero-shell-single {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  max-width: 720px;
+  text-align: center;
+}
+
+.hero-shell-single .hero-copy {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-shell-single .hero-text,
+.hero-shell-single h1 {
+  margin-inline: auto;
+  max-width: 640px;
+}
+
+.hero-shell-single .hero-actions,
+.hero-shell-single .channel-strip {
+  justify-content: center;
+}
+
 .hero-visual {
   align-self: center;
   background:
@@ -1904,6 +1928,7 @@ h1 span {
 @media (max-width: 980px) {
   .hero-shell,
   .hero-shell-focused,
+  .hero-shell-single,
   .chat-layout,
   .waitlist-layout {
     grid-template-columns: 1fr;

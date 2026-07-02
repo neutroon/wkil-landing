@@ -3,7 +3,6 @@ import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 import { LandingChatShowcase } from "./LandingChatShowcase";
 import { LandingHeader } from "./LandingHeader";
-import { LandingHeroVisual } from "./LandingHeroVisual";
 import { LandingWaitlistForm } from "./LandingWaitlistForm";
 import { ServiceIcon } from "./ServiceIcon";
 
@@ -33,7 +32,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           />
 
           <div className="hero-body">
-            <div className="hero-shell hero-shell-focused">
+            <div className="hero-shell hero-shell-single">
               <div className="hero-copy">
                 <h1>{copy.hero.title}</h1>
                 <p className="hero-text">{copy.hero.subtitle}</p>
@@ -55,13 +54,6 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
                   ))}
                 </div>
               </div>
-
-              <LandingHeroVisual
-                assistantLabel={copy.chat.assistantLabel}
-                brand={copy.brand}
-                customerLabel={copy.chat.customerLabel}
-                visual={copy.heroVisual}
-              />
             </div>
           </div>
         </section>

@@ -40,11 +40,6 @@
       "شات الموقع"
     ]
   },
-  "heroVisual": {
-    "ariaLabel": "مثال على رد وكيل",
-    "customerMessage": "الأسعار إيه؟",
-    "replyMessage": "عندنا باقات تبدأ من 500 جنيه. تحب أبعتلك التفاصيل؟"
-  },
   "benefits": {
     "title": "ليه وكيل؟",
     "items": [
