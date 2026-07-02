@@ -1,10 +1,9 @@
 import { getAuthPath } from "@/lib/routes";
 import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
-import { LandingBrand } from "./LandingBrand";
 import { LandingChatShowcase } from "./LandingChatShowcase";
 import { LandingHeader } from "./LandingHeader";
-import { LandingProductPreview } from "./LandingProductPreview";
+import { LandingHeroVisual } from "./LandingHeroVisual";
 import { LandingWaitlistForm } from "./LandingWaitlistForm";
 import { ServiceIcon } from "./ServiceIcon";
 
@@ -25,56 +24,66 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
         {copy.nav.skip}
       </a>
 
-      <LandingHeader
-        alternateLocale={alternateLocale}
-        copy={copy}
-        loginPath={loginPath}
-        waitlistPath={waitlistPath}
-      />
-
       <main id="main">
-        <section className="hero" id="top">
-          <div className="hero-shell">
-            <div className="hero-copy">
-              <p className="eyebrow">{copy.hero.eyebrow}</p>
-              <h1>
-                {copy.hero.title.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </h1>
-              <p className="hero-text">{copy.hero.subtitle}</p>
+        <section className="hero hero-fullscreen" id="top">
+          <LandingHeader
+            alternateLocale={alternateLocale}
+            copy={copy}
+            waitlistPath={waitlistPath}
+          />
 
-              <div className="hero-actions">
-                <a className="primary-button" href={waitlistPath}>
-                  <span>{copy.hero.primaryCta}</span>
-                </a>
-                <a className="secondary-button" href="#workflow">
-                  {copy.hero.secondaryCta}
-                </a>
+          <div className="hero-body">
+            <div className="hero-shell hero-shell-focused">
+              <div className="hero-copy">
+                <h1>{copy.hero.title}</h1>
+                <p className="hero-text">{copy.hero.subtitle}</p>
+
+                <div className="hero-actions">
+                  <a className="primary-button" href={waitlistPath}>
+                    <span>{copy.hero.primaryCta}</span>
+                  </a>
+                  <a className="secondary-button" href="#chat">
+                    {copy.hero.secondaryCta}
+                  </a>
+                </div>
+
+                <div className="channel-strip" aria-label="Supported channels">
+                  {copy.channels.items.map((channel) => (
+                    <span className="channel-pill" key={channel}>
+                      {channel}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="assurance-row">
-                {copy.hero.assurance.map((text) => (
-                  <div className="assurance-pill" key={text}>
-                    <span aria-hidden="true">✓</span>
-                    <strong>{text}</strong>
-                  </div>
-                ))}
-              </div>
+              <LandingHeroVisual
+                assistantLabel={copy.chat.assistantLabel}
+                brand={copy.brand}
+                customerLabel={copy.chat.customerLabel}
+                visual={copy.heroVisual}
+              />
             </div>
-
-            <LandingProductPreview brand={copy.brand} preview={copy.preview} />
           </div>
         </section>
 
-        <section className="trust-band" id="trust">
-          <div className="content-shell trust-grid">
-            {copy.trust.map((item) => (
-              <article className="trust-card" key={item.title}>
-                <strong>{item.title}</strong>
-                <p>{item.text}</p>
-              </article>
-            ))}
+        <section className="section" id="benefits">
+          <div className="content-shell">
+            <div className="section-heading">
+              <h2>{copy.benefits.title}</h2>
+            </div>
+            <div className="services-grid">
+              {copy.benefits.items.map((item) => (
+                <article className="service-card" key={item.title}>
+                  <div className="service-head">
+                    <div className="service-icon">
+                      <ServiceIcon name={item.icon} />
+                    </div>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -83,48 +92,6 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           chat={copy.chat}
           locale={locale}
         />
-
-        <section className="section" id="services">
-          <div className="content-shell">
-            <div className="section-heading">
-              <h2>{copy.services.title}</h2>
-            </div>
-            <div className="services-grid">
-              {copy.services.items.map((service) => (
-                <article className="service-card" key={service.title}>
-                  <div className="service-head">
-                    <div className="service-icon">
-                      <ServiceIcon name={service.icon} />
-                    </div>
-                    <h3>{service.title}</h3>
-                  </div>
-                  <p>{service.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section muted-section" id="workflow">
-          <div className="content-shell workflow-layout">
-            <div className="section-heading sticky-heading">
-              <p>{copy.workflow.eyebrow}</p>
-              <h2>{copy.workflow.title}</h2>
-              <span>{copy.workflow.subtitle}</span>
-            </div>
-            <div className="workflow-list">
-              {copy.workflow.steps.map((step) => (
-                <article className="workflow-item" key={step.number}>
-                  <div className="step-number">{step.number}</div>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section className="section waitlist-section" id="waitlist">
           <div className="content-shell waitlist-layout">
@@ -149,21 +116,10 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="content-shell footer-shell">
-          <div
-            className="footer-brand brand-link"
-            aria-label={copy.brand.logoAlt}
-            dir="rtl"
-          >
-            <LandingBrand />
-          </div>
-          <p>{copy.footer.line}</p>
-          <div className="footer-links">
-            <a href={loginPath}>{copy.nav.login}</a>
-            <a href={waitlistPath}>{copy.nav.startFree}</a>
-            <a href={privacyPath}>{copy.footer.privacy}</a>
-          </div>
+      <footer className="footer footer-minimal">
+        <div className="content-shell footer-shell-minimal">
+          <a href={loginPath}>{copy.nav.login}</a>
+          <a href={privacyPath}>{copy.footer.privacy}</a>
         </div>
       </footer>
     </>

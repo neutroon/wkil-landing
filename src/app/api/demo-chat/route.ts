@@ -97,7 +97,13 @@ function localDemoReply(message: string, locale: Locale) {
 
   const hasAny = (terms: string[]) => terms.some((term) => text.includes(term));
 
-  if (hasAny(["price", "pricing", "plan", "cost", "free", "سعر", "باقات", "مجاني"])) {
+  if (hasAny(["content", "post", "caption", "ideas", "strategy", "trend", "محتوى", "بوست", "كابشن", "أفكار", "خطة", "ترند", "استراتيج"])) {
+    return isArabic
+      ? "وكيل بيجمع أسئلة الشات ومشاكل العملاء وترندات البحث، وبعدين يجهز خطة محتوى فريقك يراجعها وينشرها."
+      : "Wkil gathers chat questions, customer problems, and search trends, then builds a content plan your team can review and publish.";
+  }
+
+  if (hasAny(["price", "pricing", "cost", "free", "سعر", "باقات", "مجاني", "تكلف"])) {
     return isArabic
       ? "حاليًا وكيل متاح للتجربة الأولى. تقدر تجربه على رسايلك وتشوف إزاي يرد من بيانات نشاطك، وبعدها نرتب الباقات حسب احتياجك وحجم القنوات."
       : "Wkil is currently available for the first trial. You can test it on your messages, see how it replies from your business data, then choose the plan that fits your channels and team size.";
@@ -115,15 +121,9 @@ function localDemoReply(message: string, locale: Locale) {
       : "Wkil saves useful details from each conversation, such as customer name, source channel, interest, and follow-up status, so your team continues from a clear next step.";
   }
 
-  if (hasAny(["content", "post", "caption", "ideas", "plan", "محتوى", "بوست", "كابشن", "أفكار", "خطة"])) {
-    return isArabic
-      ? "وكيل يقدر يحول الأسئلة المتكررة واهتمامات العملاء لأفكار محتوى وكابشنز قابلة للمراجعة، عشان فريقك ينشر أسرع وبناء على أسئلة حقيقية."
-      : "Wkil can turn repeated customer questions and interests into content ideas and captions your team can review, so publishing becomes faster and based on real demand.";
-  }
-
   return isArabic
-    ? "وكيل يساعد نشاطك يرد على العملاء من معلوماتك وسياساتك، يحفظ بيانات المحادثة، ويحوّل الأسئلة المهمة لمتابعة أو محتوى. اسألني عن القنوات، الردود، العملاء، أو المحتوى."
-    : "Wkil helps your business reply from your information and policies, save conversation details, and turn important questions into follow-up or content. Ask me about channels, replies, leads, or content.";
+    ? "وكيل بيرد على العملاء، يحفظ بياناتهم، ويجهز خطط محتوى من الشات وترندات البحث. اسأل عن الردود، خطط المحتوى، القنوات، أو العملاء."
+    : "Wkil replies to customers, saves lead details, and builds content plans from chat and search trends. Ask about replies, content plans, channels, or leads.";
 }
 
 function localDemoResponse(

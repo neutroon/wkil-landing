@@ -137,17 +137,7 @@ export function LandingChatShowcase({
     <section className="section chat-section" id="chat">
       <div className="content-shell chat-layout">
         <div className="section-heading chat-copy">
-          <p>{chat.eyebrow}</p>
           <h2>{chat.title}</h2>
-          <span>{chat.subtitle}</span>
-          <div className="chat-proof-list">
-            {chat.proof.map((item) => (
-              <div className="chat-proof-item" key={item.title}>
-                <strong>{item.title}</strong>
-                <span>{item.text}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="chat-panel" aria-label={chat.ariaLabel}>
@@ -193,7 +183,7 @@ export function LandingChatShowcase({
               </div>
             )}
 
-            {userMessageCount >= 2 && (
+            {userMessageCount >= 1 && (
               <div className="chat-inline-cta">
                 <strong>{chat.ctaText}</strong>
                 <a href="#waitlist">{chat.ctaButton}</a>

@@ -16,18 +16,12 @@ interface WaitlistFormData {
   name: string;
   email: string;
   whatsapp: string;
-  teamSize: string;
-  channels: string[];
-  challenge: string;
 }
 
 const initialFormData: WaitlistFormData = {
   name: "",
   email: "",
   whatsapp: "",
-  teamSize: "",
-  channels: [],
-  challenge: "",
 };
 
 export function LandingWaitlistForm({
@@ -73,27 +67,10 @@ export function LandingWaitlistForm({
     }));
   };
 
-  const toggleChannel = (value: string) => {
-    clearFeedback();
-    setFormData((current) => {
-      const channels = current.channels.includes(value)
-        ? current.channels.filter((channel) => channel !== value)
-        : [...current.channels, value];
-
-      return {
-        ...current,
-        channels,
-      };
-    });
-  };
-
   const isComplete = Boolean(
     formData.name.trim() &&
       formData.email.trim() &&
-      formData.whatsapp.trim() &&
-      formData.teamSize &&
-      formData.channels.length > 0 &&
-      formData.challenge,
+      formData.whatsapp.trim(),
   );
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -168,12 +145,7 @@ export function LandingWaitlistForm({
 
   return (
     <form className="waitlist-form" onSubmit={handleSubmit}>
-      <div className="waitlist-form-head">
-        <strong>{copy.formTitle}</strong>
-        <p>{copy.formText}</p>
-      </div>
-
-      <div className="waitlist-contact-grid">
+      <div className="waitlist-contact-grid waitlist-contact-grid-simple">
         <label>
           <span>{copy.fields.name}</span>
           <input
@@ -214,63 +186,7 @@ export function LandingWaitlistForm({
             value={formData.whatsapp}
           />
         </label>
-
-        <label>
-          <span>{copy.fields.teamSize}</span>
-          <select
-            name="teamSize"
-            onChange={(event) => updateField("teamSize", event.target.value)}
-            required
-            value={formData.teamSize}
-          >
-            <option value="">{copy.fields.teamSize}</option>
-            {copy.teamSizes.map((teamSize) => (
-              <option key={teamSize.value} value={teamSize.value}>
-                {teamSize.label}
-              </option>
-            ))}
-          </select>
-        </label>
       </div>
-
-      <fieldset className="waitlist-choice-group">
-        <legend>{copy.fields.channels}</legend>
-        <div className="waitlist-options-grid">
-          {copy.channels.map((channel) => (
-            <label className="waitlist-option" key={channel.value}>
-              <input
-                checked={formData.channels.includes(channel.value)}
-                name="channels"
-                onChange={() => toggleChannel(channel.value)}
-                type="checkbox"
-                value={channel.value}
-              />
-              <span aria-hidden="true" className="waitlist-option-control" />
-              <span className="waitlist-option-label">{channel.label}</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
-
-      <fieldset className="waitlist-choice-group">
-        <legend>{copy.fields.challenge}</legend>
-        <div className="waitlist-options-grid challenge-grid">
-          {copy.challenges.map((challenge) => (
-            <label className="waitlist-option" key={challenge.value}>
-              <input
-                checked={formData.challenge === challenge.value}
-                name="challenge"
-                onChange={() => updateField("challenge", challenge.value)}
-                required
-                type="radio"
-                value={challenge.value}
-              />
-              <span aria-hidden="true" className="waitlist-option-control" />
-              <span className="waitlist-option-label">{challenge.label}</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
 
       <div className="waitlist-form-bottom">
         <button

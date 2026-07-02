@@ -110,6 +110,19 @@ button {
   padding-top: 16px;
 }
 
+.nav-shell-minimal {
+  gap: 16px;
+}
+
+.nav-shell-minimal .nav-actions {
+  margin-inline-start: auto;
+}
+
+.nav-shell .nav-links {
+  flex: 1;
+  justify-content: center;
+}
+
 .brand-link {
   --brand-arabic-size: 34px;
   --brand-latin-size: 9px;
@@ -264,9 +277,37 @@ button {
     );
   border-bottom: 1px solid rgba(14, 124, 115, 0.16);
   box-shadow: 0 24px 70px rgba(14, 124, 115, 0.1);
-  min-height: 100svh;
   position: relative;
   padding: var(--hero-block-start) 0 var(--hero-block-end);
+}
+
+.hero-fullscreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: 0;
+}
+
+.hero-fullscreen > .site-header {
+  flex-shrink: 0;
+  inset-inline: auto;
+  position: relative;
+  top: auto;
+}
+
+.hero-fullscreen .hero-body {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  padding: clamp(12px, 2vw, 24px) 0 clamp(28px, 4vw, 48px);
+}
+
+.hero-fullscreen .hero-shell {
+  margin: 0 auto;
+  max-width: 1160px;
+  padding-inline: 20px;
+  width: 100%;
 }
 
 .hero-shell {
@@ -274,6 +315,83 @@ button {
   display: grid;
   gap: clamp(30px, 4.8vw, 56px);
   grid-template-columns: minmax(0, 1.03fr) minmax(410px, 0.97fr);
+}
+
+.hero-shell-focused {
+  align-items: center;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+}
+
+.hero-visual {
+  align-self: center;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 250, 242, 0.92),
+      rgba(239, 250, 243, 0.88)
+    );
+  border: 1px solid rgba(14, 124, 115, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(14, 124, 115, 0.1);
+  display: grid;
+  gap: 16px;
+  max-width: 420px;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.hero-visual-mark {
+  align-items: center;
+  background: rgba(255, 250, 242, 0.9);
+  border: 1px solid rgba(14, 124, 115, 0.1);
+  border-radius: 12px;
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 56px;
+}
+
+.hero-visual-thread {
+  display: grid;
+  gap: 10px;
+}
+
+.hero-visual-bubble {
+  border-radius: 12px;
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+}
+
+.hero-visual-bubble span {
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.hero-visual-bubble p {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 780;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.hero-visual-bubble.customer {
+  background: rgba(255, 250, 242, 0.96);
+  border: 1px solid rgba(216, 208, 194, 0.82);
+  justify-self: start;
+  max-width: 88%;
+}
+
+.hero-visual-bubble.assistant {
+  background: rgba(126, 224, 195, 0.18);
+  border: 1px solid rgba(14, 124, 115, 0.14);
+  justify-self: end;
+  max-width: 92%;
 }
 
 .hero-copy {
@@ -389,6 +507,32 @@ h1 span {
   line-height: 1.55;
 }
 
+.hero-built-for {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 780;
+  line-height: 1.65;
+  margin: 16px 0 0;
+  max-width: 590px;
+}
+
+.channel-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.channel-pill {
+  background: rgba(126, 224, 195, 0.16);
+  border: 1px solid rgba(14, 124, 115, 0.14);
+  border-radius: 999px;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 12px;
+}
+
 .product-card {
   align-self: start;
   background: linear-gradient(
@@ -411,14 +555,43 @@ h1 span {
 .product-card-top,
 .ops-center,
 .result-strip,
-.trust-grid,
 .service-head,
-.workflow-item,
 .final-card,
 .footer-shell,
 .footer-brand {
   align-items: center;
   display: flex;
+}
+
+.product-card-slim {
+  max-height: none;
+  padding: 16px;
+}
+
+.preview-stage-slim {
+  display: grid;
+  gap: 12px;
+  overflow: visible;
+  padding-inline-end: 0;
+}
+
+.preview-stage-slim .ops-signal {
+  align-items: flex-start;
+  display: flex;
+  gap: 14px;
+}
+
+.preview-stage-slim .ops-mark {
+  height: 56px;
+  width: 56px;
+}
+
+.preview-caption {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 780;
+  line-height: 1.65;
+  margin: 0;
 }
 
 .product-card-top {
@@ -531,8 +704,6 @@ h1 span {
 .ops-center p,
 .ops-board p,
 .service-card p,
-.workflow-item p,
-.trust-card p,
 .footer p {
   color: var(--muted);
   font-size: 14px;
@@ -598,48 +769,6 @@ h1 span {
   line-height: 1.45;
 }
 
-.trust-band {
-  background:
-    linear-gradient(
-      var(--inline-highlight-angle),
-      rgba(126, 224, 195, 0.14),
-      transparent 44%
-    ),
-    linear-gradient(
-      var(--surface-diagonal-angle),
-      var(--teal) 0%,
-      var(--teal-dark) 100%
-    );
-  border-top: 1px solid rgba(217, 154, 43, 0.22);
-  color: var(--ivory);
-  padding: 22px 0;
-}
-
-.trust-grid {
-  align-items: stretch;
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.trust-card {
-  background: rgba(247, 243, 234, 0.1);
-  border: 1px solid rgba(247, 243, 234, 0.16);
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.trust-card strong {
-  display: block;
-  font-size: 16px;
-  font-weight: 950;
-  margin-bottom: 6px;
-}
-
-.trust-card p {
-  color: #b8c9c2;
-}
-
 .chat-section {
   background:
     linear-gradient(
@@ -661,36 +790,6 @@ h1 span {
 .chat-copy {
   position: sticky;
   top: 104px;
-}
-
-.chat-proof-list {
-  display: grid;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.chat-proof-item {
-  background: rgba(255, 250, 242, 0.78);
-  border: 1px solid rgba(14, 124, 115, 0.14);
-  border-radius: 8px;
-  padding: 14px;
-}
-
-.chat-proof-item strong {
-  color: var(--ink);
-  display: block;
-  font-size: 14px;
-  font-weight: 950;
-  line-height: 1.35;
-  margin-bottom: 5px;
-}
-
-.chat-proof-item span {
-  color: var(--muted);
-  display: block;
-  font-size: 13px;
-  font-weight: 780;
-  line-height: 1.65;
 }
 
 .chat-panel {
@@ -1010,39 +1109,22 @@ h1 span {
 }
 
 .section {
-  padding: clamp(46px, 6.5vw, 72px) 0;
+  padding: clamp(36px, 5vw, 56px) 0;
 }
 
 #top,
-#trust,
+#benefits,
 #chat,
-#services,
-#workflow,
 #waitlist {
   scroll-margin-top: 96px;
-}
-
-#services {
-  padding-bottom: clamp(34px, 4.8vw, 52px);
-}
-
-#workflow {
-  padding-top: clamp(40px, 5.4vw, 60px);
-}
-
-.muted-section {
-  background: rgba(255, 250, 242, 0.58);
-  border-bottom: 1px solid rgba(216, 208, 194, 0.72);
-  border-top: 1px solid rgba(216, 208, 194, 0.72);
 }
 
 .section-heading {
   max-width: 720px;
 }
 
-.section-heading h2,
-.final-card h2 {
-  font-size: clamp(30px, 4.4vw, 46px);
+.section-heading h2 {
+  font-size: clamp(28px, 3.8vw, 40px);
   font-weight: 950;
   letter-spacing: 0;
   line-height: 1.12;
@@ -1061,7 +1143,35 @@ h1 span {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 28px;
+  margin-top: 24px;
+}
+
+.benefits-steps {
+  align-items: center;
+  background: rgba(255, 250, 242, 0.72);
+  border: 1px solid rgba(14, 124, 115, 0.12);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  justify-content: center;
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 14px 18px;
+}
+
+.benefits-steps li {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.benefits-steps li:not(:last-child)::after {
+  color: var(--teal);
+  content: "→";
+  font-weight: 700;
+  margin-inline-start: 10px;
 }
 
 .service-card {
@@ -1107,53 +1217,11 @@ h1 span {
   color: #9d6a13;
 }
 
-.service-card h3,
-.workflow-item h3 {
+.service-card h3 {
   font-size: 20px;
   font-weight: 950;
   line-height: 1.25;
   margin-bottom: 0;
-}
-
-.workflow-layout {
-  display: grid;
-  gap: 36px;
-  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
-}
-
-.sticky-heading {
-  align-self: start;
-  position: sticky;
-  top: 104px;
-}
-
-.workflow-list {
-  display: grid;
-  gap: 12px;
-}
-
-.workflow-item {
-  align-items: flex-start;
-  background: rgba(247, 243, 234, 0.78);
-  border: 1px solid rgba(216, 208, 194, 0.82);
-  border-radius: 8px;
-  gap: 16px;
-  padding: 18px;
-}
-
-.step-number {
-  align-items: center;
-  background: var(--ink);
-  border-radius: 8px;
-  color: var(--mint);
-  display: flex;
-  flex: 0 0 auto;
-  font-size: 13px;
-  font-weight: 950;
-  height: 40px;
-  justify-content: center;
-  margin-top: 2px;
-  width: 40px;
 }
 
 .waitlist-section {
@@ -1218,6 +1286,11 @@ h1 span {
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.waitlist-contact-grid-simple {
+  grid-template-columns: 1fr;
+  max-width: 420px;
 }
 
 .waitlist-form label,
@@ -1511,72 +1584,6 @@ h1 span {
   width: 8px;
 }
 
-.final-cta {
-  padding: clamp(42px, 6vw, 64px) 0;
-}
-
-.final-card {
-  align-items: center;
-  background:
-    linear-gradient(
-      var(--inline-highlight-angle),
-      rgba(126, 224, 195, 0.26),
-      transparent 42%
-    ),
-    var(--paper);
-  border: 1px solid rgba(14, 124, 115, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 22px 62px rgba(14, 124, 115, 0.12);
-  color: var(--ink);
-  gap: clamp(22px, 4vw, 48px);
-  justify-content: space-between;
-  min-height: 190px;
-  padding: clamp(28px, 4vw, 42px) clamp(28px, 4.8vw, 56px);
-  position: relative;
-}
-
-.final-card::before {
-  background: var(--gold);
-  border-radius: 8px;
-  content: "";
-  height: calc(100% - 34px);
-  inset-block: 17px;
-  inset-inline-start: 17px;
-  position: absolute;
-  width: 5px;
-}
-
-.final-card p {
-  color: var(--teal);
-  font-size: 14px;
-  margin-bottom: 12px;
-}
-
-.final-card h2 {
-  color: var(--ink);
-  font-size: clamp(28px, 3.6vw, 42px);
-  line-height: 1.16;
-  margin-bottom: 0;
-  max-width: 610px;
-}
-
-.final-card .primary-button {
-  background: var(--gold);
-  border: 1px solid rgba(157, 106, 19, 0.18);
-  box-shadow: 0 18px 38px rgba(217, 154, 43, 0.24);
-  color: var(--ink);
-  font-size: 17px;
-  min-height: 64px;
-  min-width: 196px;
-  padding: 0 34px;
-  position: relative;
-  z-index: 1;
-}
-
-.final-card .primary-button:hover {
-  background: #e3ad45;
-}
-
 .privacy-page {
   background:
     linear-gradient(rgba(247, 243, 234, 0.96), rgba(247, 243, 234, 0.96)),
@@ -1777,6 +1784,93 @@ h1 span {
   color: var(--ink);
 }
 
+.final-cta {
+  padding: clamp(42px, 6vw, 64px) 0;
+}
+
+.final-card {
+  align-items: center;
+  background:
+    linear-gradient(
+      var(--inline-highlight-angle),
+      rgba(126, 224, 195, 0.26),
+      transparent 42%
+    ),
+    var(--paper);
+  border: 1px solid rgba(14, 124, 115, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 22px 62px rgba(14, 124, 115, 0.12);
+  color: var(--ink);
+  gap: clamp(22px, 4vw, 48px);
+  justify-content: space-between;
+  min-height: 190px;
+  padding: clamp(28px, 4vw, 42px) clamp(28px, 4.8vw, 56px);
+  position: relative;
+}
+
+.final-card::before {
+  background: var(--gold);
+  border-radius: 8px;
+  content: "";
+  height: calc(100% - 34px);
+  inset-block: 17px;
+  inset-inline-start: 17px;
+  position: absolute;
+  width: 5px;
+}
+
+.final-card p {
+  color: var(--teal);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.final-card h2 {
+  color: var(--ink);
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1.16;
+  margin-bottom: 0;
+  max-width: 610px;
+}
+
+.final-card .primary-button {
+  background: var(--gold);
+  border: 1px solid rgba(157, 106, 19, 0.18);
+  box-shadow: 0 18px 38px rgba(217, 154, 43, 0.24);
+  color: var(--ink);
+  font-size: 17px;
+  min-height: 64px;
+  min-width: 196px;
+  padding: 0 34px;
+  position: relative;
+  z-index: 1;
+}
+
+.final-card .primary-button:hover {
+  background: #e3ad45;
+}
+
+.footer-minimal {
+  padding: 16px 0 20px;
+}
+
+.footer-shell-minimal {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.footer-shell-minimal a {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.footer-shell-minimal a:hover {
+  color: var(--teal);
+}
+
 [dir="ltr"] body {
   font-family:
     var(--font-geist-sans), var(--font-cairo), "Segoe UI", Arial, sans-serif;
@@ -1807,18 +1901,17 @@ h1 span {
   }
 }
 
-@media (min-width: 981px) {
-  .hero {
-    height: 100svh;
-  }
-}
-
 @media (max-width: 980px) {
   .hero-shell,
+  .hero-shell-focused,
   .chat-layout,
-  .waitlist-layout,
-  .workflow-layout {
+  .waitlist-layout {
     grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    justify-self: center;
+    max-width: 520px;
   }
 
   .product-card {
@@ -1832,10 +1925,6 @@ h1 span {
   .preview-stage {
     overflow: visible;
     padding-inline-end: 0;
-  }
-
-  .sticky-heading {
-    position: static;
   }
 
   .chat-copy {
@@ -1870,7 +1959,23 @@ h1 span {
     padding-top: 0;
   }
 
-  .hero {
+  .hero-fullscreen {
+    min-height: 100svh;
+    padding-top: 0;
+  }
+
+  .hero-fullscreen > .site-header {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 40;
+  }
+
+  .hero-fullscreen .hero-body {
+    padding-top: 88px;
+  }
+
+  .hero:not(.hero-fullscreen) {
     background:
       linear-gradient(
         var(--inline-highlight-angle),
@@ -1893,9 +1998,23 @@ h1 span {
     padding-bottom: 0;
   }
 
-  .nav-links,
-  .login-link {
+  .nav-links {
+    display: flex;
+    gap: 2px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    min-height: 36px;
+    padding: 8px 10px;
+  }
+
+  .nav-actions .primary-button.compact {
     display: none;
+  }
+
+  .hero-fullscreen .hero-body {
+    padding-top: 76px;
   }
 
   .brand-link {
@@ -1929,6 +2048,17 @@ h1 span {
     flex-direction: column;
   }
 
+  .final-card::before {
+    height: 5px;
+    inset-block: 16px auto;
+    inset-inline: 16px;
+    width: auto;
+  }
+
+  .final-card .primary-button {
+    width: 100%;
+  }
+
   .product-card {
     min-height: 0;
   }
@@ -1937,19 +2067,19 @@ h1 span {
     min-height: 0;
   }
 
-  .final-card::before {
-    height: 5px;
-    inset-block: 16px auto;
-    inset-inline: 16px;
-    width: auto;
-  }
-
-  .trust-grid,
   .services-grid,
   .chat-prompt-list,
-  .waitlist-contact-grid,
-  .waitlist-options-grid {
+  .waitlist-contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .benefits-steps {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .benefits-steps li:not(:last-child)::after {
+    content: none;
   }
 
   .result-strip,
@@ -2042,8 +2172,7 @@ h1 span {
   }
 
   .product-card,
-  .service-card,
-  .workflow-item {
+  .service-card {
     padding: 14px;
   }
 

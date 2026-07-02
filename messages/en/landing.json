@@ -1,17 +1,15 @@
 {
   "seo": {
-    "title": "Wkil | AI assistant for messages and social teams",
-    "description": "Wkil helps your business reply to messages and comments, save customer data, and prepare social content from one place in your brand voice.",
+    "title": "Wkil | AI replies for WhatsApp and social",
+    "description": "Wkil replies on WhatsApp and social, saves leads, and builds content plans from customer chat and search trends.",
     "keywords": [
       "Wkil",
-      "AI business assistant",
-      "social inbox automation",
-      "customer replies",
-      "customer service automation",
-      "social content workflow"
+      "WhatsApp replies",
+      "social inbox",
+      "AI customer service"
     ],
-    "openGraphTitle": "Wkil | AI assistant for messages and social teams",
-    "openGraphDescription": "Faster replies, saved customer data, and ready social content for your team from one place.",
+    "openGraphTitle": "Wkil | Reply in your brand voice",
+    "openGraphDescription": "AI replies, saved leads, and content plans from chat questions and search trends.",
     "imageAlt": "Wkil logo"
   },
   "brand": {
@@ -21,156 +19,74 @@
   "nav": {
     "skip": "Skip to content",
     "ariaLabel": "Main navigation",
-    "chat": "Ask Wkil",
-    "services": "Services",
-    "workflow": "Workflow",
-    "trust": "Trust",
+    "benefits": "Why Wkil",
+    "demo": "Demo",
+    "join": "Join",
     "login": "Sign in",
-    "startFree": "Start Free",
+    "startFree": "Join trial",
     "switchLanguage": "العربية"
   },
   "hero": {
-    "eyebrow": "Smart agent for social media and customer care",
-    "title": [
-      "Faster replies to messages",
-      "Saved customer data",
-      "Ready content from one place"
-    ],
-    "subtitle": "Wkil uses your business information, replies to comments and messages in your tone, and shows your team the customer details and next step clearly.",
-    "primaryCta": "Start Free",
-    "secondaryCta": "See how it works",
-    "assurance": [
-      "Replies are based on your business information and policies",
-      "Saves the customer name, interest, and source channel",
-      "Hands the conversation to your team when it needs a human decision"
+    "title": "Replies and content plans for WhatsApp and social.",
+    "subtitle": "Wkil answers customers, saves leads, and builds a content plan from chat questions and search trends.",
+    "primaryCta": "Join trial",
+    "secondaryCta": "Try demo"
+  },
+  "channels": {
+    "items": [
+      "WhatsApp",
+      "Messenger",
+      "Instagram",
+      "Web chat"
     ]
   },
-  "preview": {
-    "ariaLabel": "Wkil workspace preview",
-    "status": "Operations workspace",
-    "label": "Dashboard snapshot",
-    "customerLabel": "Unified inbox",
-    "customerMessage": "Pricing requests, web chat leads, and social messages arrive in one queue",
-    "agentTitle": "Customer memory",
-    "agentText": "Name, channel, interest, and next step stay attached to the conversation.",
-    "replyLabel": "Team workflow",
-    "replyMessage": "Your team sees what is open, what Wkil handled, and which customers need follow-up.",
-    "results": [
-      {
-        "title": "Inbox clarity",
-        "text": "Every channel in one operational view"
-      },
-      {
-        "title": "Saved memory",
-        "text": "Customer details ready for follow-up"
-      },
-      {
-        "title": "Content cue",
-        "text": "Repeated questions become useful content ideas"
-      }
-    ]
+  "heroVisual": {
+    "ariaLabel": "Example customer reply",
+    "customerMessage": "What are your prices?",
+    "replyMessage": "We have plans starting at 500 EGP. Want details on WhatsApp?"
   },
-  "trust": [
-    {
-      "title": "Replies based on your data",
-      "text": "Wkil checks your business profile, FAQs, and policies before replying."
-    },
-    {
-      "title": "Human review when needed",
-      "text": "If the conversation needs a decision or confirmation, it goes to your team instead of sending a random reply."
-    },
-    {
-      "title": "Easier team operations",
-      "text": "Messages, customers, and follow-ups stay on a clear path instead of being scattered across channels."
-    }
-  ],
-  "chat": {
-    "ariaLabel": "Ask Wkil demo chat",
-    "eyebrow": "Try the AI on the page",
-    "title": "Ask Wkil before you join the trial",
-    "subtitle": "Use the demo chat to ask about replies, channels, customer data, and content workflows. In production, this same path can answer from your own business profile.",
-    "agentName": "Wkil demo agent",
-    "liveLabel": "Demo chat",
-    "statusReady": "Ready to answer",
-    "statusThinking": "Checking the best reply",
-    "assistantLabel": "Wkil",
-    "customerLabel": "You",
-    "initialMessage": "Hi. Ask me how Wkil replies to customers, saves leads, connects channels, or helps your team create social content.",
-    "promptLabel": "Start with one question",
-    "prompts": [
-      "How does Wkil reply to customer messages?",
-      "Can I connect WhatsApp and Messenger?",
-      "Can Wkil save leads for my team?",
-      "Can it suggest content ideas?"
-    ],
-    "inputLabel": "Your question",
-    "inputPlaceholder": "Ask about Wkil, channels, leads, or content...",
-    "sendLabel": "Send",
-    "sendingLabel": "Sending...",
-    "errorText": "The demo chat could not answer right now. Please try again in a moment.",
-    "ctaText": "Want answers from your own business data?",
-    "ctaButton": "Join the trial",
-    "proof": [
-      {
-        "title": "Real product path",
-        "text": "The live setup can use Wkil's widget chat endpoint."
-      },
-      {
-        "title": "Lead-friendly",
-        "text": "Curious visitors can ask first, then join the waitlist."
-      },
-      {
-        "title": "Arabic-first",
-        "text": "The chat follows the current landing language."
-      }
-    ]
-  },
-  "services": {
-    "title": "The services that make social operations work better",
+  "benefits": {
+    "title": "Why Wkil",
     "items": [
       {
         "icon": "inbox",
-        "title": "Replies to messages and comments",
-        "text": "It brings together comments, WhatsApp, and Messenger, understands the customer's question, and suggests or sends the right reply based on your settings."
+        "title": "Faster replies",
+        "text": "Answers from your profile and FAQs. Escalates when unsure."
       },
       {
         "icon": "lead",
-        "title": "Saves customers and follow-up",
-        "text": "It records useful details like name, interest, channel, and follow-up status so your team can continue quickly."
+        "title": "Leads saved",
+        "text": "Name, channel, and interest on every conversation."
       },
       {
         "icon": "content",
-        "title": "Helps prepare social content",
-        "text": "It turns repeated questions and customer requests into post ideas and captions ready for review."
+        "title": "Content plans",
+        "text": "Chat questions, customer problems, and search trends become a content plan your team can publish."
       }
     ]
   },
-  "workflow": {
-    "eyebrow": "How it works",
-    "title": "From customer message to clear reply or follow-up",
-    "subtitle": "Every message follows a clear path: reply, save customer, create a team task, or hand off to the right person.",
-    "steps": [
-      {
-        "number": "01",
-        "title": "Message arrives",
-        "text": "Comment, direct message, WhatsApp, Messenger, or web chat."
-      },
-      {
-        "number": "02",
-        "title": "Wkil understands the context",
-        "text": "It reviews the customer's question and your business information before suggesting a reply."
-      },
-      {
-        "number": "03",
-        "title": "It takes the right step",
-        "text": "It replies, records customer details, prepares a task, or asks the team to step in."
-      },
-      {
-        "number": "04",
-        "title": "Your team continues with confidence",
-        "text": "Every conversation has a clear status and next step."
-      }
-    ]
+  "chat": {
+    "ariaLabel": "Ask Wkil demo chat",
+    "title": "Ask Wkil",
+    "agentName": "Wkil",
+    "liveLabel": "Demo",
+    "statusReady": "Ready",
+    "statusThinking": "Thinking…",
+    "assistantLabel": "Wkil",
+    "customerLabel": "You",
+    "initialMessage": "Ask about replies, content plans, channels, or leads.",
+    "promptLabel": "Try asking",
+    "prompts": [
+      "How does it reply?",
+      "How does the content plan work?"
+    ],
+    "inputLabel": "Your question",
+    "inputPlaceholder": "Ask about Wkil…",
+    "sendLabel": "Send",
+    "sendingLabel": "Sending…",
+    "errorText": "Demo unavailable. Try again shortly.",
+    "ctaText": "Want this on your business data?",
+    "ctaButton": "Join trial"
   },
   "cta": {
     "eyebrow": "Try it on your messages",
@@ -178,96 +94,31 @@
     "button": "Start Free"
   },
   "waitlist": {
-    "title": "Join the first Wkil trial",
-    "subtitle": "Share your details to be among the first to try Wkil. We are opening access gradually to a limited number of users so we can support the trial and improve it with real feedback.",
-    "formTitle": "Quick waitlist request",
-    "formText": "Four short steps help us prioritize trial access and understand your channels and main challenge.",
-    "submit": "Join the waitlist",
-    "submitting": "Sending...",
-    "successTitle": "Request received",
-    "successText": "You are on the trial list. We will review your details and contact you when your trial turn is ready, so we can support it well and improve Wkil with your feedback.",
+    "title": "Join the trial",
+    "subtitle": "Email and WhatsApp. We will reach out when your spot opens.",
+    "submit": "Join waitlist",
+    "submitting": "Sending…",
+    "successTitle": "You're on the list",
+    "successText": "We will contact you on WhatsApp when your spot is ready.",
     "successAction": "Edit details",
-    "errorText": "Something went wrong. Please try again in a moment.",
-    "requiredText": "Complete the required details so we can prepare a useful follow-up.",
+    "errorText": "Something went wrong. Try again.",
+    "requiredText": "Fill in all fields.",
     "fields": {
       "name": "Name",
       "email": "Email",
-      "whatsapp": "WhatsApp number",
-      "teamSize": "Team size",
-      "channels": "Channels you manage",
-      "challenge": "Biggest challenge right now"
+      "whatsapp": "WhatsApp"
     },
     "placeholders": {
-      "name": "Your name or contact person",
+      "name": "Your name",
       "email": "name@business.com",
       "whatsapp": "+20 1X XXX XXXX"
     },
-    "channels": [
-      {
-        "value": "whatsapp",
-        "label": "WhatsApp"
-      },
-      {
-        "value": "messenger",
-        "label": "Messenger"
-      },
-      {
-        "value": "instagram",
-        "label": "Instagram DMs"
-      },
-      {
-        "value": "website-chat",
-        "label": "Website chat"
-      },
-      {
-        "value": "comments",
-        "label": "Comments"
-      }
-    ],
-    "challenges": [
-      {
-        "value": "slow-replies",
-        "label": "Slow replies to customers"
-      },
-      {
-        "value": "lost-followups",
-        "label": "Losing track of leads and follow-ups"
-      },
-      {
-        "value": "content-creation",
-        "label": "Creating social content"
-      },
-      {
-        "value": "multi-platform",
-        "label": "Managing multiple platforms at once"
-      }
-    ],
-    "teamSizes": [
-      {
-        "value": "solo",
-        "label": "Solo"
-      },
-      {
-        "value": "2-5",
-        "label": "2-5"
-      },
-      {
-        "value": "6-20",
-        "label": "6-20"
-      },
-      {
-        "value": "20-plus",
-        "label": "20+"
-      }
-    ],
     "trust": [
-      "Free to try at the start",
-      "Gradual access so we can support the trial",
-      "Your feedback helps improve Wkil"
+      "Free to try",
+      "No spam"
     ]
   },
   "footer": {
-    "line": "Wkil helps businesses reply faster and with confidence across social channels, while keeping customer data and follow-ups in one clear place.",
     "privacy": "Privacy"
   }
 }
