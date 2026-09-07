@@ -1139,7 +1139,8 @@ h1 span {
 #top,
 #benefits,
 #chat,
-#waitlist {
+#waitlist,
+#signup {
   scroll-margin-top: 96px;
 }
 
@@ -1257,6 +1258,78 @@ h1 span {
     ),
     rgba(255, 250, 242, 0.6);
   border-bottom: 1px solid rgba(216, 208, 194, 0.72);
+}
+
+.signup-section {
+  background:
+    linear-gradient(
+      var(--inline-highlight-angle),
+      rgba(126, 224, 195, 0.16),
+      transparent 44%
+    ),
+    rgba(255, 250, 242, 0.6);
+  border-bottom: 1px solid rgba(216, 208, 194, 0.72);
+}
+
+.signup-layout {
+  align-items: start;
+  display: grid;
+  gap: clamp(24px, 4vw, 42px);
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+}
+
+.signup-copy {
+  position: sticky;
+  top: 104px;
+}
+
+.signup-card {
+  align-items: center;
+  background:
+    linear-gradient(
+      var(--surface-diagonal-angle),
+      rgba(126, 224, 195, 0.11),
+      transparent 48%
+    ),
+    rgba(255, 250, 242, 0.9);
+  border: 1px solid rgba(14, 124, 115, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 22px 58px rgba(14, 124, 115, 0.12);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: clamp(22px, 3vw, 32px);
+  scroll-margin-top: 96px;
+}
+
+.signup-card-mark {
+  align-items: center;
+  background: rgba(126, 224, 195, 0.28);
+  border-radius: 50%;
+  color: var(--teal);
+  display: flex;
+  font-size: 20px;
+  font-weight: 950;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
+}
+
+.signup-card strong {
+  color: var(--ink);
+  display: block;
+  font-size: 21px;
+  font-weight: 950;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.signup-card p {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 720;
+  line-height: 1.7;
+  margin: 0;
 }
 
 .waitlist-layout {
@@ -1930,7 +2003,8 @@ h1 span {
   .hero-shell-focused,
   .hero-shell-single,
   .chat-layout,
-  .waitlist-layout {
+  .waitlist-layout,
+  .signup-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1957,6 +2031,10 @@ h1 span {
   }
 
   .waitlist-copy {
+    position: static;
+  }
+
+  .signup-copy {
     position: static;
   }
 }
@@ -2150,6 +2228,19 @@ h1 span {
 
   .waitlist-form-bottom .primary-button,
   .waitlist-alert {
+    width: 100%;
+  }
+
+  .signup-card {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .signup-card-mark {
+    justify-self: start;
+  }
+
+  .signup-card .primary-button {
     width: 100%;
   }
 }

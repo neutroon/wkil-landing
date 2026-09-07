@@ -6,13 +6,13 @@ import { LandingBrand } from "./LandingBrand";
 interface LandingHeaderProps {
   alternateLocale: Locale;
   copy: Pick<LandingCopy, "brand" | "nav">;
-  waitlistPath: string;
+  signupPath: string;
 }
 
 export function LandingHeader({
   alternateLocale,
   copy,
-  waitlistPath,
+  signupPath,
 }: LandingHeaderProps) {
   return (
     <>
@@ -30,7 +30,7 @@ export function LandingHeader({
           <div className="nav-links">
             <a href="#benefits">{copy.nav.benefits}</a>
             <a href="#chat">{copy.nav.demo}</a>
-            {/* <a href={waitlistPath}>{copy.nav.join}</a> */}
+            <a href="#signup">{copy.nav.join}</a>
           </div>
 
           <div className="nav-actions">
@@ -43,7 +43,7 @@ export function LandingHeader({
             >
               {copy.nav.switchLanguage}
             </Link>
-            <a className="primary-button compact" href={waitlistPath}>
+            <a className="primary-button compact" href={signupPath}>
               <span>{copy.nav.startFree}</span>
             </a>
           </div>

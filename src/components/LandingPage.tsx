@@ -3,7 +3,6 @@ import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 import { LandingChatShowcase } from "./LandingChatShowcase";
 import { LandingHeader } from "./LandingHeader";
-import { LandingWaitlistForm } from "./LandingWaitlistForm";
 import { ServiceIcon } from "./ServiceIcon";
 
 interface LandingPageProps {
@@ -15,7 +14,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
   const alternateLocale: Locale = locale === "ar" ? "en" : "ar";
   const loginPath = getAuthPath(locale, "login");
   const privacyPath = `/${locale}/privacy`;
-  const waitlistPath = "#waitlist";
+  const signupPath = getAuthPath(locale, "signup");
 
   return (
     <>
@@ -28,7 +27,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           <LandingHeader
             alternateLocale={alternateLocale}
             copy={copy}
-            waitlistPath={waitlistPath}
+            signupPath={signupPath}
           />
 
           <div className="hero-body">
@@ -38,7 +37,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
                 <p className="hero-text">{copy.hero.subtitle}</p>
 
                 <div className="hero-actions">
-                  <a className="primary-button" href={waitlistPath}>
+                  <a className="primary-button" href={signupPath}>
                     <span>{copy.hero.primaryCta}</span>
                   </a>
                   <a className="secondary-button" href="#chat">
@@ -83,15 +82,25 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           brand={copy.brand}
           chat={copy.chat}
           locale={locale}
+          signupPath={signupPath}
         />
 
-        <section className="section waitlist-section" id="waitlist">
-          <div className="content-shell waitlist-layout">
-            <div className="section-heading waitlist-copy">
-              <h2>{copy.waitlist.title}</h2>
-              <span>{copy.waitlist.subtitle}</span>
+        <section className="section signup-section" id="signup">
+          <div className="content-shell signup-layout">
+            <div className="section-heading signup-copy">
+              <h2>{copy.signup.title}</h2>
+              <span>{copy.signup.subtitle}</span>
             </div>
-            <LandingWaitlistForm copy={copy.waitlist} locale={locale} />
+            <div className="signup-card">
+              <div className="signup-card-mark" aria-hidden="true">✓</div>
+              <div>
+                <strong>{copy.signup.cardTitle}</strong>
+                <p>{copy.signup.note}</p>
+              </div>
+              <a className="primary-button" href={signupPath}>
+                {copy.signup.button}
+              </a>
+            </div>
           </div>
         </section>
 
@@ -101,7 +110,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
               <p>{copy.cta.eyebrow}</p>
               <h2>{copy.cta.title}</h2>
             </div>
-            <a className="primary-button" href={waitlistPath}>
+            <a className="primary-button" href={signupPath}>
               <span>{copy.cta.button}</span>
             </a>
           </div>

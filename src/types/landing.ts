@@ -67,27 +67,12 @@ export interface LandingCopy {
     title: string;
     button: string;
   };
-  waitlist: {
+  signup: {
     title: string;
     subtitle: string;
-    submit: string;
-    submitting: string;
-    successTitle: string;
-    successText: string;
-    successAction: string;
-    errorText: string;
-    requiredText: string;
-    fields: {
-      name: string;
-      email: string;
-      whatsapp: string;
-    };
-    placeholders: {
-      name: string;
-      email: string;
-      whatsapp: string;
-    };
-    trust: string[];
+    cardTitle: string;
+    button: string;
+    note: string;
   };
   footer: {
     privacy: string;

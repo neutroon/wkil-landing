@@ -99,14 +99,14 @@ function localDemoReply(message: string, locale: Locale) {
 
   if (hasAny(["content", "post", "caption", "ideas", "strategy", "trend", "محتوى", "بوست", "كابشن", "أفكار", "خطة", "ترند", "استراتيج"])) {
     return isArabic
-      ? "وكيل بيجمع أسئلة الشات ومشاكل العملاء وترندات البحث، وبعدين يجهز خطة محتوى فريقك يراجعها وينشرها."
-      : "Wkil gathers chat questions, customer problems, and search trends, then builds a content plan your team can review and publish.";
+      ? "وكيل بيجمع أسئلة الشات ومشاكل العملاء وترندات البحث، يجهز خطة المحتوى ويكتب البوستات. بعد موافقتك يبرمجها أو ينشرها."
+      : "Wkil gathers chat questions, customer problems, and search trends, then builds the plan and writes the posts. After your approval, it schedules or publishes them.";
   }
 
   if (hasAny(["price", "pricing", "cost", "free", "سعر", "باقات", "مجاني", "تكلف"])) {
     return isArabic
-      ? "حاليًا وكيل متاح للتجربة الأولى. تقدر تجربه على رسايلك وتشوف إزاي يرد من بيانات نشاطك، وبعدها نرتب الباقات حسب احتياجك وحجم القنوات."
-      : "Wkil is currently available for the first trial. You can test it on your messages, see how it replies from your business data, then choose the plan that fits your channels and team size.";
+      ? "اعمل حساب وابدأ تجرب وكيل على شغلك. بعد كده تختار الخطة المناسبة للقنوات وحجم الشغل بتاعك."
+      : "Create an account and start trying Wkil on your work. Then choose the plan that fits your channels and workload.";
   }
 
   if (hasAny(["whatsapp", "messenger", "facebook", "instagram", "channel", "channels", "واتساب", "ماسنجر", "فيسبوك", "انستجرام", "قنوات"])) {
@@ -122,8 +122,8 @@ function localDemoReply(message: string, locale: Locale) {
   }
 
   return isArabic
-    ? "وكيل بيرد على العملاء، يحفظ بياناتهم، ويجهز خطط محتوى من الشات وترندات البحث. اسأل عن الردود، خطط المحتوى، القنوات، أو العملاء."
-    : "Wkil replies to customers, saves lead details, and builds content plans from chat and search trends. Ask about replies, content plans, channels, or leads.";
+    ? "قول لوكيل عايز تخلّص إيه، وهو يجهز الخطوات وينفذها. يقدر يجهز المحتوى، يكتب وينشر البوستات، أو يتعامل مع محادثات العملاء."
+    : "Tell Wkil what you want done and it will plan the steps and carry them out. It can prepare content, write and publish posts, or handle customer conversations.";
 }
 
 function localDemoResponse(

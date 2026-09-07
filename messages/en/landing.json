@@ -1,15 +1,15 @@
 {
   "seo": {
-    "title": "Wkil | AI replies for WhatsApp and social",
-    "description": "Wkil replies on WhatsApp and social, saves leads, and builds content plans from customer chat and search trends.",
+    "title": "Wkil | Your AI operator for business and social media",
+    "description": "Tell Wkil what your business needs. It plans content, writes and publishes posts, and handles customer conversations from one chat.",
     "keywords": [
       "Wkil",
-      "WhatsApp replies",
-      "social inbox",
-      "AI customer service"
+      "AI business assistant",
+      "social media automation",
+      "customer conversations"
     ],
-    "openGraphTitle": "Wkil | Reply in your brand voice",
-    "openGraphDescription": "AI replies, saved leads, and content plans from chat questions and search trends.",
+    "openGraphTitle": "Wkil | Tell it what to do. It gets the work done.",
+    "openGraphDescription": "One chat to plan content, publish posts, and handle customer conversations in your brand voice.",
     "imageAlt": "Wkil logo"
   },
   "brand": {
@@ -21,16 +21,16 @@
     "ariaLabel": "Main navigation",
     "benefits": "Why Wkil",
     "demo": "Demo",
-    "join": "Join",
+    "join": "Get started",
     "login": "Sign in",
-    "startFree": "Join trial",
+    "startFree": "Get started",
     "switchLanguage": "العربية"
   },
   "hero": {
-    "title": "Replies and content plans for WhatsApp and social.",
-    "subtitle": "Wkil answers customers, saves leads, and builds a content plan from chat questions and search trends.",
-    "primaryCta": "Join trial",
-    "secondaryCta": "Try demo"
+    "title": "Tell Wkil what to do. It gets the work done.",
+    "subtitle": "Your AI teammate for business and social media. Wkil plans your content, writes and publishes posts, handles customer conversations, and keeps you in control when a decision is needed.",
+    "primaryCta": "Get started",
+    "secondaryCta": "See Wkil in action"
   },
   "channels": {
     "items": [
@@ -41,77 +41,59 @@
     ]
   },
   "benefits": {
-    "title": "Why Wkil",
+    "title": "One conversation. Real work completed.",
     "items": [
       {
         "icon": "inbox",
-        "title": "Faster replies",
-        "text": "Answers from your profile and FAQs. Escalates when unsure."
+        "title": "From idea to published post",
+        "text": "Ask for a content plan, get the posts written, then let Wkil schedule or publish them after your approval."
       },
       {
         "icon": "lead",
-        "title": "Leads saved",
-        "text": "Name, channel, and interest on every conversation."
+        "title": "Customer conversations handled",
+        "text": "Wkil replies using what it knows about your business, captures interested customers, and brings you the conversations that need you."
       },
       {
         "icon": "content",
-        "title": "Content plans",
-        "text": "Chat questions, customer problems, and search trends become a content plan your team can publish."
+        "title": "A teammate that knows your work",
+        "text": "Give Wkil your website, services, FAQs, and brand voice. Every task starts with the context that makes your work yours."
       }
     ]
   },
   "chat": {
     "ariaLabel": "Ask Wkil demo chat",
-    "title": "Ask Wkil",
+    "title": "Watch Wkil take a task from request to result",
     "agentName": "Wkil",
     "liveLabel": "Demo",
     "statusReady": "Ready",
     "statusThinking": "Thinking…",
     "assistantLabel": "Wkil",
     "customerLabel": "You",
-    "initialMessage": "Ask about replies, content plans, channels, or leads.",
-    "promptLabel": "Try asking",
+    "initialMessage": "Tell me what you want done. I can plan content, write and publish posts, or handle customer conversations.",
+    "promptLabel": "Try a real task",
     "prompts": [
-      "How does it reply?",
-      "How does the content plan work?"
+      "Create and publish a week of posts",
+      "Reply to customers asking about our offer"
     ],
     "inputLabel": "Your question",
-    "inputPlaceholder": "Ask about Wkil…",
+    "inputPlaceholder": "Tell Wkil what to do…",
     "sendLabel": "Send",
     "sendingLabel": "Sending…",
     "errorText": "Demo unavailable. Try again shortly.",
-    "ctaText": "Want this on your business data?",
-    "ctaButton": "Join trial"
+    "ctaText": "Ready to put Wkil to work?",
+    "ctaButton": "Get started"
   },
   "cta": {
-    "eyebrow": "Try it on your messages",
-    "title": "Start with Wkil without complicated setup",
-    "button": "Start Free"
+    "eyebrow": "Start with a conversation",
+    "title": "Give Wkil a task and let it take care of the steps",
+    "button": "Get started"
   },
-  "waitlist": {
-    "title": "Join the trial",
-    "subtitle": "Email and WhatsApp. We will reach out when your spot opens.",
-    "submit": "Join waitlist",
-    "submitting": "Sending…",
-    "successTitle": "You're on the list",
-    "successText": "We will contact you on WhatsApp when your spot is ready.",
-    "successAction": "Edit details",
-    "errorText": "Something went wrong. Try again.",
-    "requiredText": "Fill in all fields.",
-    "fields": {
-      "name": "Name",
-      "email": "Email",
-      "whatsapp": "WhatsApp"
-    },
-    "placeholders": {
-      "name": "Your name",
-      "email": "name@business.com",
-      "whatsapp": "+20 1X XXX XXXX"
-    },
-    "trust": [
-      "Free to try",
-      "No spam"
-    ]
+  "signup": {
+    "title": "Ready to put Wkil to work?",
+    "subtitle": "Create your account and start with a conversation. Setup takes a few minutes.",
+    "cardTitle": "Start with your first task",
+    "button": "Create your account",
+    "note": "You can add your website, services, and brand voice during onboarding. Wkil will use them to carry out your tasks."
   },
   "footer": {
     "privacy": "Privacy"

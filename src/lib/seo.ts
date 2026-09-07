@@ -1,4 +1,5 @@
 import { defaultLocale, locales, type Locale } from "@/i18n/config";
+import { getAuthPath } from "@/lib/routes";
 
 export const siteName = "Wkil";
 
@@ -62,8 +63,8 @@ export function buildLandingJsonLd({
         inLanguage: getLanguageTag(locale),
         potentialAction: {
           "@type": "RegisterAction",
-          target: getAbsoluteUrl(`/${locale}/auth/signup`),
-          name: locale === "ar" ? "ابدأ ببلاش" : "Start Free",
+          target: getAuthPath(locale, "signup"),
+          name: locale === "ar" ? "ابدأ دلوقتي" : "Get started",
         },
       },
       {

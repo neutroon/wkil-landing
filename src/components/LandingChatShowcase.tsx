@@ -18,6 +18,7 @@ interface LandingChatShowcaseProps {
   brand: LandingCopy["brand"];
   chat: ChatCopy;
   locale: Locale;
+  signupPath: string;
 }
 
 function createVisitorId() {
@@ -32,6 +33,7 @@ export function LandingChatShowcase({
   brand,
   chat,
   locale,
+  signupPath,
 }: LandingChatShowcaseProps) {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>(() => [
@@ -186,7 +188,7 @@ export function LandingChatShowcase({
             {userMessageCount >= 1 && (
               <div className="chat-inline-cta">
                 <strong>{chat.ctaText}</strong>
-                <a href="#waitlist">{chat.ctaButton}</a>
+                <a href={signupPath}>{chat.ctaButton}</a>
               </div>
             )}
           </div>
