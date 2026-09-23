@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { siteName } from "@/lib/seo";
+import { resolveWidgetEmbedConfig } from "@/lib/widget-embed";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -51,6 +52,7 @@ export default async function LocaleLayout({
 
   const messages = await getMessages({ locale });
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const widgetEmbed = resolveWidgetEmbedConfig(process.env);
 
   return (
     <html
@@ -64,13 +66,15 @@ export default async function LocaleLayout({
           {children}
         </NextIntlClientProvider>
 
-        {/* <!-- Wkil chat widget — place before </body> --> */}
-        <script
-          src="https://go.wkil.app/wkil-widget.js"
-          defer
-          data-site-key="wsk_gmMo5IR3Ss58ibCzKlavuTVQn9mNcMEe"
-          data-api-base="https://api.wkil.app"
-        ></script>
+        {widgetEmbed ? (
+          <script
+            src={widgetEmbed.scriptSrc}
+            defer
+            data-site-key={widgetEmbed.siteKey}
+            data-api-base={widgetEmbed.apiBase}
+            data-locale={locale}
+          />
+        ) : null}
       </body>
     </html>
   );
