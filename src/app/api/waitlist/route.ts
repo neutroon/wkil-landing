@@ -1,4 +1,9 @@
 import { NextResponse } from "next/server";
+import {
+  hasRequiredFields,
+  buildLeadPayload,
+  getWaitlistUrl,
+} from "./waitlist-utils";
 
 const requiredFields = ["name", "email", "whatsapp"] as const;
 
@@ -8,60 +13,11 @@ const backendBaseUrl =
   process.env.NEXT_PUBLIC_API ??
   "http://localhost:8080";
 
-function hasRequiredFields(payload: Record<string, unknown>) {
-  return requiredFields.every((field) => {
-    const value = payload[field];
-
-    return typeof value === "string" && value.trim().length > 0;
-  });
-}
-
-function getText(payload: Record<string, unknown>, field: string) {
-  const value = payload[field];
-
-  return typeof value === "string" ? value.trim() : "";
-}
-
 function buildBackendUrl(path: string) {
   const normalizedBaseUrl = backendBaseUrl.replace(/\/$/, "");
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
   return `${normalizedBaseUrl}${normalizedPath}`;
-}
-
-function getWaitlistUrl(locale: string) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wkil.app";
-
-  try {
-    return new URL(`/${locale}#waitlist`, siteUrl).toString();
-  } catch {
-    return "";
-  }
-}
-
-function truncateLeadMessage(message: string) {
-  if (message.length <= leadMessageMaxLength) {
-    return message;
-  }
-
-  return `${message.slice(0, leadMessageMaxLength - 3)}...`;
-}
-
-function buildLeadPayload(submission: Record<string, unknown>) {
-  const locale = getText(submission, "locale") || "ar";
-  const message = [
-    "Wkil waitlist submission",
-    `WhatsApp: ${getText(submission, "whatsapp")}`,
-    `Locale: ${locale}`,
-    `Submitted at: ${getText(submission, "submittedAt")}`,
-  ].join("\n");
-
-  return {
-    name: getText(submission, "name"),
-    email: getText(submission, "email"),
-    url: getWaitlistUrl(locale),
-    message: truncateLeadMessage(message),
-  };
 }
 
 async function sendToWkilStack(submission: Record<string, unknown>) {
