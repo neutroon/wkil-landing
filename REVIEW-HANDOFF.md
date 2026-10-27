@@ -49,3 +49,11 @@ Deliver for independent Quality Reviewer. Once billing eligibility is confirmed 
 - Blocker preserved (verified): `gh` unavailable (auth/API fails) → GitHub Actions billing/free unconfirmed.
 - Terminal BLOCKED / monitored recorded (comment `0f31b5ab-74ce-4367-a269-db32f3a2dbd1`); no push/PR; hand to SE + independent Quality Reviewer + CEO billing.
 - Recovery completed per contract: no new deliverable; source durable; blocker documented; handed back.
+
+--- NEU-2 continuation (wake fc6195f7) ---
+Scope changed per latest wake: unit tests for route utilities (not PR workflow only).
+Deliverable: src/app/api/demo-chat/route.test.mjs (4 funcs x 3+ cases), src/app/api/waitlist/route.test.mjs (4 funcs x 3+ cases), pure-utils extracted (chat-utils.ts, waitlist-utils.ts) with minimal exported-change documentation.
+Verification: npm run test => 29 pass / 0 fail (live, 2026-10-27).
+Blocker preserved: gh unavailable/auth fails => GitHub Actions billing/free unconfirmed; source durable neu-2-pr-quality-checks/fc4707a; no push/PR; sandbox protections preserved.
+Dependencies blocked lint/typecheck/build (npm ci timeout, next/eslint/tsc missing in partial node_modules) — not logic failures; baseline verified via existing widget-embed pass.
+Hand to independent Quality Reviewer + CEO billing confirmation before any remote trigger.

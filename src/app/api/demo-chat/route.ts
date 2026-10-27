@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
 import type { Locale } from "@/i18n/config";
+import {
+  normalizeText,
+  getClientKey,
+  isRateLimited,
+  localDemoReply,
+} from "./chat-utils";
 
 const messageMaxLength = 800;
 const visitorIdMaxLength = 128;
-const rateLimitWindowMs = 60_000;
-const rateLimitMaxRequests = 18;
 
 const backendBaseUrl =
   process.env.WKIL_BACKEND_URL ??
@@ -17,15 +21,6 @@ const demoSiteKey =
 
 const demoWidgetOrigin =
   process.env.WKIL_DEMO_WIDGET_ORIGIN ?? process.env.NEXT_PUBLIC_SITE_URL;
-
-const requestBuckets = new Map<string, { count: number; resetAt: number }>();
-
-type DemoChatBody = {
-  conversationId?: number | null;
-  locale?: Locale;
-  message?: string;
-  visitorId?: string;
-};
 
 function buildBackendUrl(path: string) {
   const normalizedBaseUrl = backendBaseUrl.replace(/\/$/, "");
@@ -58,74 +53,12 @@ function getWidgetOrigin(request: Request) {
   return "https://wkil.app";
 }
 
-// Exported for testability (minimal change per NEU-2)
-export function normalizeText(value: string) {
-  return value
-    .replace(/[\uFE00-\uFE0F\u200B-\u200D\u2060\uFEFF]/g, "")
-    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "")
-    .replace(/[ \t]+/g, " ")
-    .replace(/\s*\n\s*/g, "\n")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
-}
-
-export function getClientKey(request: Request) {
-  const forwardedFor = request.headers.get("x-forwarded-for")?.split(",")[0];
-  const realIp = request.headers.get("x-real-ip");
-
-  return forwardedFor?.trim() || realIp?.trim() || "anonymous";
-}
-
-export function isRateLimited(key: string) {
-  const now = Date.now();
-  const bucket = requestBuckets.get(key);
-
-  if (!bucket || bucket.resetAt <= now) {
-    requestBuckets.set(key, {
-      count: 1,
-      resetAt: now + rateLimitWindowMs,
-    });
-    return false;
-  }
-
-  bucket.count += 1;
-  return bucket.count > rateLimitMaxRequests;
-}
-
-export function localDemoReply(message: string, locale: Locale) {
-  const text = message.toLowerCase();
-  const isArabic = locale === "ar";
-
-  const hasAny = (terms: string[]) => terms.some((term) => text.includes(term));
-
-  if (hasAny(["content", "post", "caption", "ideas", "strategy", "trend", "محتوى", "بوست", "كابشن", "أفكار", "خطة", "ترند", "استراتيج"])) {
-    return isArabic
-      ? "وكيل بيجمع أسئلة الشات ومشاكل العملاء وترندات البحث، يجهز خطة المحتوى ويكتب البوستات. بعد موافقتك يبرمجها أو ينشرها."
-      : "Wkil gathers chat questions, customer problems, and search trends, then builds the plan and writes the posts. After your approval, it schedules or publishes them.";
-  }
-
-  if (hasAny(["price", "pricing", "cost", "free", "سعر", "باقات", "مجاني", "تكلف"])) {
-    return isArabic
-      ? "اعمل حساب وابدأ تجرب وكيل على شغلك. بعد كده تختار الخطة المناسبة للقنوات وحجم الشغل بتاعك."
-      : "Create an account and start trying Wkil on your work. Then choose the plan that fits your channels and workload.";
-  }
-
-  if (hasAny(["whatsapp", "messenger", "facebook", "instagram", "channel", "channels", "واتساب", "ماسنجر", "فيسبوك", "انستجرام", "قنوات"])) {
-    return isArabic
-      ? "ينفع تربط قنوات متعددة زي واتساب وماسنجر وتعليقات فيسبوك وشات الموقع. وكيل يحافظ على سياق كل قناة ويظهر لفريقك بيانات العميل والخطوة الجاية."
-      : "You can connect multiple channels such as WhatsApp, Messenger, Facebook comments, and website chat. Wkil keeps each channel's context and shows your team the customer details and next step.";
-  }
-
-  if (hasAny(["lead", "customer", "follow", "crm", "data", "عميل", "عملاء", "متابعة", "بيانات"])) {
-    return isArabic
-      ? "وكيل يحفظ بيانات مهمة من المحادثة مثل اسم العميل، القناة، الاهتمام، وحالة المتابعة، بحيث فريقك يكمل من نقطة واضحة بدل ما يبدأ من الصفر."
-      : "Wkil saves useful details from each conversation, such as customer name, source channel, interest, and follow-up status, so your team continues from a clear next step.";
-  }
-
-  return isArabic
-    ? "قول لوكيل عايز تخلّص إيه، وهو يجهز الخطوات وينفذها. يقدر يجهز المحتوى، يكتب وينشر البوستات، أو يتعامل مع محادثات العملاء."
-    : "Tell Wkil what you want done and it will plan the steps and carry them out. It can prepare content, write and publish posts, or handle customer conversations.";
-}
+type DemoChatBody = {
+  conversationId?: number | null;
+  locale?: Locale;
+  message?: string;
+  visitorId?: string;
+};
 
 function localDemoResponse(
   payload: DemoChatBody,
