@@ -11,7 +11,7 @@ https://nextjs.org/telemetry
    ▲ Next.js 15.5.9
 
    Creating an optimized production build ...
- ✓ Compiled successfully in 12.0s
+ ✓ Compiled successfully in 3.3s
    Checking validity of types ...
    Collecting page data ...
    Generating static pages (0/12) ...
@@ -47,3 +47,5 @@ Route (app)                                 Size  First Load JS
 ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
 ƒ  (Dynamic)  server-rendered on demand
 
+EXIT_CODE=0
+VERIFIED_EXIT_CODE=0

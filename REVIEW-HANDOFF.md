@@ -9,7 +9,7 @@ Branch: neu-2-pr-quality-checks (from eb80b06)
 - Node selected from repo evidence + local verification: v24.22.1 (matches package-lock / next 15 ecosystem).
 - npm ci completed (exit 0, lockfile from repo preserved; no package updates).
 
-## Separate check results (recorded in results-*.txt)
+## Separate check results (recorded in evidence/results-*.txt; live rerun completed this session from npm ci)
 - lint: exit 0 (no errors)
 - typecheck: exit 0 (tsc --noEmit)
 - test: exit 0 (3/3 pass; widget-embed tests)
