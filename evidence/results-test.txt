@@ -1,0 +1,15 @@
+
+> wkil-landing@0.1.0 test
+> node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test src/lib/widget-embed.test.mjs
+
+✔ returns no embed when the landing widget site key is missing (1.010207ms)
+✔ normalizes a configured public widget embed (199.74214ms)
+✔ rejects non-HTTP widget origins instead of emitting an unsafe script (0.212802ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2931.993198
