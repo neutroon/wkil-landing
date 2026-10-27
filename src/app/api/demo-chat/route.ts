@@ -58,7 +58,8 @@ function getWidgetOrigin(request: Request) {
   return "https://wkil.app";
 }
 
-function normalizeText(value: string) {
+// Exported for testability (minimal change per NEU-2)
+export function normalizeText(value: string) {
   return value
     .replace(/[\uFE00-\uFE0F\u200B-\u200D\u2060\uFEFF]/g, "")
     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "")
@@ -68,14 +69,14 @@ function normalizeText(value: string) {
     .trim();
 }
 
-function getClientKey(request: Request) {
+export function getClientKey(request: Request) {
   const forwardedFor = request.headers.get("x-forwarded-for")?.split(",")[0];
   const realIp = request.headers.get("x-real-ip");
 
   return forwardedFor?.trim() || realIp?.trim() || "anonymous";
 }
 
-function isRateLimited(key: string) {
+export function isRateLimited(key: string) {
   const now = Date.now();
   const bucket = requestBuckets.get(key);
 
@@ -91,7 +92,7 @@ function isRateLimited(key: string) {
   return bucket.count > rateLimitMaxRequests;
 }
 
-function localDemoReply(message: string, locale: Locale) {
+export function localDemoReply(message: string, locale: Locale) {
   const text = message.toLowerCase();
   const isArabic = locale === "ar";
 

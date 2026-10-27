@@ -42,3 +42,10 @@ All four exit 0; artifacts in results-*.txt.
 
 ## Review request
 Deliver for independent Quality Reviewer. Once billing eligibility is confirmed externally or by CEO, the branch can be pushed and PR opened; workflow is ready.
+
+## Disposition repair (2026-10-27)
+- Prior attempts 2/2 exhausted (`unchanged_source_state_exhausted`).
+- Live verified: branch `neu-2-pr-quality-checks` / `a9bd15a`; `.github/workflows/pr-quality.yml`; evidence 4 exit 0; `REVIEW-HANDOFF.md` present.
+- Blocker preserved (verified): `gh` unavailable (auth/API fails) → GitHub Actions billing/free unconfirmed.
+- Terminal BLOCKED / monitored recorded (comment `0f31b5ab-74ce-4367-a269-db32f3a2dbd1`); no push/PR; hand to SE + independent Quality Reviewer + CEO billing.
+- Recovery completed per contract: no new deliverable; source durable; blocker documented; handed back.

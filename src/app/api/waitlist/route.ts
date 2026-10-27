@@ -8,7 +8,7 @@ const backendBaseUrl =
   process.env.NEXT_PUBLIC_API ??
   "http://localhost:8080";
 
-function hasRequiredFields(payload: Record<string, unknown>) {
+export function hasRequiredFields(payload: Record<string, unknown>) {
   return requiredFields.every((field) => {
     const value = payload[field];
 
@@ -29,7 +29,7 @@ function buildBackendUrl(path: string) {
   return `${normalizedBaseUrl}${normalizedPath}`;
 }
 
-function getWaitlistUrl(locale: string) {
+export function getWaitlistUrl(locale: string) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wkil.app";
 
   try {
@@ -39,7 +39,7 @@ function getWaitlistUrl(locale: string) {
   }
 }
 
-function truncateLeadMessage(message: string) {
+export function truncateLeadMessage(message: string) {
   if (message.length <= leadMessageMaxLength) {
     return message;
   }
@@ -47,7 +47,7 @@ function truncateLeadMessage(message: string) {
   return `${message.slice(0, leadMessageMaxLength - 3)}...`;
 }
 
-function buildLeadPayload(submission: Record<string, unknown>) {
+export function buildLeadPayload(submission: Record<string, unknown>) {
   const locale = getText(submission, "locale") || "ar";
   const message = [
     "Wkil waitlist submission",
