@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 import { LandingChatShowcase } from "./LandingChatShowcase";
 import { LandingHeader } from "./LandingHeader";
+import { LandingPricing } from "./LandingPricing";
 import { ServiceIcon } from "./ServiceIcon";
 
 interface LandingPageProps {
@@ -84,6 +85,8 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           locale={locale}
           signupPath={signupPath}
         />
+
+        <LandingPricing pricing={copy.pricing} signupPath={signupPath} />
 
         <section className="section signup-section" id="signup">
           <div className="content-shell signup-layout">

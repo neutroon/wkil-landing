@@ -1,5 +1,17 @@
 export type ServiceIconName = "inbox" | "lead" | "content";
 
+export interface LandingPricingPlan {
+  id: string;
+  name: string;
+  tagline: string;
+  price: string;
+  annual?: string;
+  badge?: string;
+  featured?: boolean;
+  cta: string;
+  features: string[];
+}
+
 export interface LandingSeoCopy {
   title: string;
   description: string;
@@ -20,6 +32,7 @@ export interface LandingCopy {
     ariaLabel: string;
     benefits: string;
     demo: string;
+    pricing: string;
     join: string;
     login: string;
     startFree: string;
@@ -61,6 +74,33 @@ export interface LandingCopy {
     errorText: string;
     ctaText: string;
     ctaButton: string;
+  };
+  pricing: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    billingNote: string;
+    currency: string;
+    period: string;
+    plans: LandingPricingPlan[];
+    overage: {
+      title: string;
+      text: string;
+    };
+    meta: {
+      title: string;
+      text: string;
+    };
+    addon: {
+      title: string;
+      text: string;
+    };
+    agency: {
+      title: string;
+      text: string;
+      cta: string;
+    };
+    trialNote: string;
   };
   cta: {
     eyebrow: string;
