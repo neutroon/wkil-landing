@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 
@@ -15,7 +15,6 @@ type ChatMessage = {
 };
 
 interface LandingChatShowcaseProps {
-  brand: LandingCopy["brand"];
   chat: ChatCopy;
   locale: Locale;
   signupPath: string;
@@ -30,7 +29,6 @@ function createVisitorId() {
 }
 
 export function LandingChatShowcase({
-  brand,
   chat,
   locale,
   signupPath,
@@ -48,11 +46,6 @@ export function LandingChatShowcase({
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState("");
   const logRef = useRef<HTMLDivElement>(null);
-
-  const userMessageCount = useMemo(
-    () => messages.filter((message) => message.role === "user").length,
-    [messages],
-  );
 
   useEffect(() => {
     const storedVisitorId = window.sessionStorage.getItem("wkil-demo-visitor-id");
@@ -136,30 +129,26 @@ export function LandingChatShowcase({
   };
 
   return (
-    <section className="section chat-section" id="chat">
-      <div className="content-shell chat-layout">
-        <div className="section-heading chat-copy">
-          <h2>{chat.title}</h2>
+    <section className="section section-surface" id="chat">
+      <div className="shell split">
+        <div className="split-head">
+          <h2 className="section-title">{chat.title}</h2>
+          <p className="section-text">{chat.limits}</p>
+          <a className="button button-primary chat-start" href={signupPath}>
+            {chat.ctaButton}
+          </a>
         </div>
 
-        <div className="chat-panel" aria-label={chat.ariaLabel}>
+        <div className="chat-panel" role="group" aria-label={chat.ariaLabel}>
           <div className="chat-panel-top">
-            <div className="chat-agent-title">
-              <Image
-                src="/assets/wkil-mark.svg"
-                alt={brand.markAlt}
-                width={58}
-                height={58}
-              />
+            <div className="chat-agent">
+              <Image src="/assets/wkil-mark.svg" alt="" width={32} height={32} />
               <div>
                 <strong>{chat.agentName}</strong>
                 <span>{isSending ? chat.statusThinking : chat.statusReady}</span>
               </div>
             </div>
-            <span className="chat-status-pill">
-              <span aria-hidden="true" />
-              {chat.liveLabel}
-            </span>
+            <span className="demo-panel-tag">{chat.liveLabel}</span>
           </div>
 
           <div className="chat-log" ref={logRef} aria-live="polite">
@@ -184,17 +173,9 @@ export function LandingChatShowcase({
                 <span />
               </div>
             )}
-
-            {userMessageCount >= 1 && (
-              <div className="chat-inline-cta">
-                <strong>{chat.ctaText}</strong>
-                <a href={signupPath}>{chat.ctaButton}</a>
-              </div>
-            )}
           </div>
 
-          <div className="chat-prompt-block">
-            <span>{chat.promptLabel}</span>
+          <div className="chat-controls">
             <div className="chat-prompt-list">
               {chat.prompts.map((prompt) => (
                 <button
@@ -207,28 +188,33 @@ export function LandingChatShowcase({
                 </button>
               ))}
             </div>
+
+            <form className="chat-form" onSubmit={handleSubmit}>
+              <label>
+                <span className="sr-only">{chat.inputLabel}</span>
+                <input
+                  value={input}
+                  maxLength={800}
+                  onChange={(event) => setInput(event.target.value)}
+                  placeholder={chat.inputPlaceholder}
+                  disabled={isSending || !visitorId}
+                />
+              </label>
+              <button
+                className="button button-primary"
+                type="submit"
+                disabled={!input.trim() || isSending || !visitorId}
+              >
+                {isSending ? chat.sendingLabel : chat.sendLabel}
+              </button>
+            </form>
+
+            {error && (
+              <p className="chat-error" role="alert">
+                {error}
+              </p>
+            )}
           </div>
-
-          <form className="chat-form" onSubmit={handleSubmit}>
-            <label>
-              <span>{chat.inputLabel}</span>
-              <input
-                value={input}
-                maxLength={800}
-                onChange={(event) => setInput(event.target.value)}
-                placeholder={chat.inputPlaceholder}
-                disabled={isSending || !visitorId}
-              />
-            </label>
-            <button
-              type="submit"
-              disabled={!input.trim() || isSending || !visitorId}
-            >
-              {isSending ? chat.sendingLabel : chat.sendLabel}
-            </button>
-          </form>
-
-          {error && <p className="chat-error">{error}</p>}
         </div>
       </div>
     </section>

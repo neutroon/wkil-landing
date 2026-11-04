@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { LandingBrand } from "@/components/LandingBrand";
 import { isLocale, locales, type Locale } from "@/i18n/config";
+import { Link as LocaleLink } from "@/i18n/navigation";
 import { getAuthPath } from "@/lib/routes";
 import { getOpenGraphLocale, siteName, siteUrl } from "@/lib/seo";
 
@@ -11,19 +11,25 @@ interface PrivacyPageProps {
   params: Promise<{ locale: string }>;
 }
 
-const LAST_UPDATED = "April 16, 2025";
+const LAST_UPDATED = new Date(Date.UTC(2025, 3, 16));
 const CONTACT_EMAIL = "support@wkil.app";
+
+function formatLastUpdated(locale: Locale) {
+  return LAST_UPDATED.toLocaleDateString(
+    locale === "ar" ? "ar-EG-u-nu-latn" : "en-US",
+    { day: "numeric", month: "long", timeZone: "UTC", year: "numeric" },
+  );
+}
 
 const privacyCopy = {
   en: {
     title: "Privacy Policy",
-    eyebrow: "Your data stays yours",
     description:
       "How Wkil collects, uses, and protects account, business, and customer conversation data.",
     lastUpdated: "Last updated",
     home: "Home",
     login: "Sign in",
-    footer: "Public privacy details for Wkil customers and visitors.",
+    switchLanguage: "العربية",
     contact: "Contact us",
     sections: [
       {
@@ -66,20 +72,19 @@ const privacyCopy = {
   },
   ar: {
     title: "سياسة الخصوصية",
-    eyebrow: "بياناتك تفضل ملكك",
     description:
       "كيف يجمع وكيل بيانات الحساب والنشاط ومحادثات العملاء ويستخدمها ويحميها.",
     lastUpdated: "آخر تحديث",
     home: "الرئيسية",
     login: "تسجيل الدخول",
-    footer: "تفاصيل خصوصية عامة لعملاء وزوار وكيل.",
+    switchLanguage: "English",
     contact: "تواصل معنا",
     sections: [
       {
         title: "ما البيانات التي نجمعها",
         body: [
           "بيانات الحساب مثل الاسم والبريد الإلكتروني والدور وحالة التحقق.",
-          "محتوى ملف النشاط مثل الخدمات والسياسات والأسئلة الشائعة وأصول العلامة وقواعد الرد.",
+          "محتوى ملف الوكيل مثل الخدمات والسياسات والأسئلة الشائعة وملفات العلامة وتعليمات الرد.",
           "بيانات القنوات المرتبطة اللازمة لاستقبال رسائل العملاء وتنظيمها والرد عليها.",
         ],
       },
@@ -93,21 +98,21 @@ const privacyCopy = {
       {
         title: "الذكاء الاصطناعي ومحادثات العملاء",
         body: [
-          "يستخدم وكيل معرفة النشاط التي تضيفها لصياغة الردود وتحديد المحادثات التي تحتاج مراجعة بشرية.",
-          "تُستخدم ذاكرة العملاء للاحتفاظ بسياق مفيد مثل الاهتمامات واحتياج المتابعة وتفاصيل القناة لفريقك.",
+          "يستخدم الوكيل معرفة النشاط التي تضيفها لصياغة الردود وتحديد المحادثات التي تحتاج مراجعة من موظف.",
+          "تُستخدم ذاكرة العميل للاحتفاظ بسياق مفيد مثل الاهتمامات واحتياج المتابعة وتفاصيل القناة لفريقك.",
         ],
       },
       {
         title: "الأمان والاحتفاظ بالبيانات",
         body: [
-          "نستخدم صلاحيات وصول، وتخزيناً مشفراً للبيانات الحساسة، ومراقبة تشغيلية لحماية الخدمة.",
+          "نستخدم صلاحيات وصول، وتخزينًا مشفرًا للبيانات الحساسة، ومراقبة تشغيلية لحماية الخدمة.",
           "يمكنك طلب حذف الحساب أو البيانات، مع مراعاة متطلبات الاحتفاظ القانونية والأمنية والتشغيلية.",
         ],
       },
       {
         title: "الخدمات الخارجية",
         body: [
-          "عند ربط خدمات مثل Meta أو WhatsApp أو أي قنوات أخرى، تنطبق سياسات هذه الخدمات أيضاً.",
+          "عند ربط خدمات مثل ميتا أو واتساب أو أي قنوات أخرى، تنطبق سياسات هذه الخدمات أيضًا.",
           "نطلب فقط الصلاحيات اللازمة لتشغيل مزايا وكيل المرتبطة.",
         ],
       },
@@ -117,12 +122,11 @@ const privacyCopy = {
   Locale,
   {
     title: string;
-    eyebrow: string;
     description: string;
     lastUpdated: string;
     home: string;
     login: string;
-    footer: string;
+    switchLanguage: string;
     contact: string;
     sections: Array<{ title: string; body: string[] }>;
   }
@@ -195,78 +199,72 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
 
   const copy = privacyCopy[locale];
   const loginPath = getAuthPath(locale, "login");
+  const alternateLocale: Locale = locale === "ar" ? "en" : "ar";
 
   return (
-    <div className="privacy-page">
-      <header className="privacy-header">
-        <nav className="nav-shell" aria-label={copy.title}>
-          <Link
-            className="brand-link"
-            href={`/${locale}`}
-            aria-label={siteName}
-            dir="rtl"
-          >
+    <>
+      <header className="site-header">
+        <div className="shell header-row">
+          <LocaleLink className="brand" href="/" locale={locale} aria-label={copy.home}>
             <LandingBrand />
-          </Link>
-          <div className="privacy-header-actions">
-            <Link className="privacy-text-link" href={`/${locale}`}>
-              {copy.home}
-            </Link>
-            <a className="primary-button compact" href={loginPath}>
-              <span>{copy.login}</span>
+          </LocaleLink>
+          <div className="header-actions">
+            <LocaleLink
+              className="header-link"
+              href="/privacy"
+              hrefLang={alternateLocale}
+              lang={alternateLocale}
+              locale={alternateLocale}
+            >
+              {copy.switchLanguage}
+            </LocaleLink>
+            <a className="button button-secondary button-small header-cta" href={loginPath}>
+              {copy.login}
             </a>
           </div>
-        </nav>
+        </div>
       </header>
 
       <main id="main" className="privacy-main">
-        <section className="content-shell privacy-hero">
-          <p className="privacy-eyebrow">{copy.eyebrow}</p>
-          <h1>{copy.title}</h1>
-          <p>{copy.description}</p>
-          <span>
-            {copy.lastUpdated}: {LAST_UPDATED}
-          </span>
-        </section>
+        <h1>{copy.title}</h1>
+        <p className="privacy-lead">{copy.description}</p>
+        <p className="privacy-updated">
+          {copy.lastUpdated}: {formatLastUpdated(locale)}
+        </p>
 
-        <section className="content-shell privacy-content" aria-label={copy.title}>
-          {copy.sections.map((section) => (
-            <article className="privacy-section" key={section.title}>
-              <h2>{section.title}</h2>
-              <ul>
-                {section.body.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
+        {copy.sections.map((section) => (
+          <section className="privacy-section" key={section.title}>
+            <h2>{section.title}</h2>
+            <ul>
+              {section.body.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
 
-          <article className="privacy-section privacy-contact">
-            <h2>{copy.contact}</h2>
-            <p>
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-            </p>
-          </article>
+        <section className="privacy-section">
+          <h2>{copy.contact}</h2>
+          <p>
+            <a className="text-link" href={`mailto:${CONTACT_EMAIL}`}>
+              {CONTACT_EMAIL}
+            </a>
+          </p>
         </section>
       </main>
 
       <footer className="footer">
-        <div className="content-shell footer-shell">
-          <Link
-            className="footer-brand brand-link"
-            href={`/${locale}`}
-            aria-label={siteName}
-            dir="rtl"
-          >
+        <div className="shell footer-row">
+          <LocaleLink className="brand" href="/" locale={locale} aria-label={copy.home}>
             <LandingBrand />
-          </Link>
-          <p>{copy.footer}</p>
+          </LocaleLink>
           <div className="footer-links">
-            <Link href={`/${locale}`}>{copy.home}</Link>
-            <a href={loginPath}>{copy.login}</a>
+            <LocaleLink className="header-link" href="/" locale={locale}>
+              {copy.home}
+            </LocaleLink>
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
