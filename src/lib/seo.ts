@@ -64,7 +64,7 @@ export function buildLandingJsonLd({
         potentialAction: {
           "@type": "RegisterAction",
           target: getAuthPath(locale, "signup"),
-          name: locale === "ar" ? "ابدأ دلوقتي" : "Get started",
+          name: locale === "ar" ? "ابدأ مجانًا" : "Start free",
         },
       },
       {
@@ -79,7 +79,7 @@ export function buildLandingJsonLd({
         offers: {
           "@type": "Offer",
           price: "0",
-          priceCurrency: "USD",
+          priceCurrency: "EGP",
         },
       },
     ],

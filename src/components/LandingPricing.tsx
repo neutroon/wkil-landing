@@ -6,15 +6,13 @@ interface LandingPricingProps {
 }
 
 export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
-  return (
-    <section className="section pricing-section" id="pricing">
-      <div className="content-shell">
-        <div className="section-heading pricing-heading">
-          <p className="pricing-eyebrow">{pricing.eyebrow}</p>
-          <h2>{pricing.title}</h2>
-          <span>{pricing.subtitle}</span>
-        </div>
+  const notes = [pricing.meta, pricing.overage, pricing.addon];
 
+  return (
+    <section className="section" id="pricing">
+      <div className="shell">
+        <h2 className="section-title">{pricing.title}</h2>
+        <p className="section-text">{pricing.subtitle}</p>
         <p className="pricing-billing-note">{pricing.billingNote}</p>
 
         <div className="pricing-grid">
@@ -24,34 +22,27 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
                 plan.featured ? "pricing-card pricing-card-featured" : "pricing-card"
               }
               key={plan.id}
-              aria-label={plan.name}
             >
-              {plan.badge ? (
-                <span className="pricing-badge">{plan.badge}</span>
-              ) : null}
-
               <div className="pricing-card-head">
                 <h3>{plan.name}</h3>
-                <p className="pricing-tagline">{plan.tagline}</p>
+                {plan.badge ? (
+                  <span className="pricing-badge">{plan.badge}</span>
+                ) : null}
               </div>
+              <p className="pricing-tagline">{plan.tagline}</p>
 
-              <div className="pricing-price">
+              <p className="pricing-price">
                 <span className="pricing-amount">{plan.price}</span>
                 <span className="pricing-unit">
-                  <span>{pricing.currency}</span>
-                  <span>{pricing.period}</span>
+                  {pricing.currency} {pricing.period}
                 </span>
-              </div>
-              <p className="pricing-annual">
-                {plan.annual ?? " "}
               </p>
+              <p className="pricing-annual">{plan.annual ?? " "}</p>
 
               <a
-                className={
-                  plan.featured
-                    ? "primary-button pricing-cta"
-                    : "secondary-button pricing-cta"
-                }
+                className={`button pricing-cta ${
+                  plan.featured ? "button-primary" : "button-secondary"
+                }`}
                 href={signupPath}
               >
                 {plan.cta}
@@ -60,9 +51,18 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
               <ul className="pricing-features">
                 {plan.features.map((feature) => (
                   <li key={feature}>
-                    <span className="pricing-check" aria-hidden="true">
-                      ✓
-                    </span>
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.75"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="m3.5 8.5 3 3 6-7" />
+                    </svg>
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -71,26 +71,23 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
           ))}
         </div>
 
-        <div className="pricing-notes">
-          <div className="pricing-note">
-            <strong>{pricing.overage.title}</strong>
-            <p>{pricing.overage.text}</p>
-          </div>
-          <div className="pricing-note">
-            <strong>{pricing.meta.title}</strong>
-            <p>{pricing.meta.text}</p>
-          </div>
-          <div className="pricing-note">
-            <strong>{pricing.addon.title}</strong>
-            <p>{pricing.addon.text}</p>
-          </div>
-          <div className="pricing-note pricing-note-agency">
-            <strong>{pricing.agency.title}</strong>
+        <div className="pricing-agency">
+          <div>
+            <h3>{pricing.agency.title}</h3>
             <p>{pricing.agency.text}</p>
-            <a className="pricing-text-link" href={signupPath}>
-              {pricing.agency.cta}
-            </a>
           </div>
+          <a className="button button-secondary" href={signupPath}>
+            {pricing.agency.cta}
+          </a>
+        </div>
+
+        <div className="pricing-notes">
+          {notes.map((note) => (
+            <div className="pricing-note" key={note.title}>
+              <h3>{note.title}</h3>
+              <p>{note.text}</p>
+            </div>
+          ))}
         </div>
 
         <p className="pricing-trial">{pricing.trialNote}</p>

@@ -1,5 +1,3 @@
-export type ServiceIconName = "inbox" | "lead" | "content";
-
 export interface LandingPricingPlan {
   id: string;
   name: string;
@@ -25,32 +23,62 @@ export interface LandingCopy {
   seo: LandingSeoCopy;
   brand: {
     logoAlt: string;
-    markAlt: string;
   };
   nav: {
     skip: string;
     ariaLabel: string;
-    benefits: string;
+    how: string;
+    agent: string;
     demo: string;
     pricing: string;
-    join: string;
     login: string;
     startFree: string;
     switchLanguage: string;
+    menu: string;
   };
   hero: {
     title: string;
     subtitle: string;
     primaryCta: string;
     secondaryCta: string;
+    note: string;
   };
-  channels: {
-    items: string[];
+  orderDemo: {
+    ariaLabel: string;
+    messageTitle: string;
+    exampleTag: string;
+    message: string;
+    confirmButton: string;
+    cancelButton: string;
+    confirmedReply: string;
+    canceledReply: string;
+    ordersTitle: string;
+    orderLabel: string;
+    customer: string;
+    total: string;
+    status: {
+      awaiting: string;
+      confirmed: string;
+      canceled: string;
+    };
+    hint: string;
+    reset: string;
   };
-  benefits: {
+  how: {
     title: string;
+    steps: Array<{
+      title: string;
+      text: string;
+    }>;
+    storeNote: {
+      title: string;
+      text: string;
+    };
+  };
+  agent: {
+    title: string;
+    subtitle: string;
     items: Array<{
-      icon: ServiceIconName;
       title: string;
       text: string;
     }>;
@@ -58,6 +86,7 @@ export interface LandingCopy {
   chat: {
     ariaLabel: string;
     title: string;
+    subtitle: string;
     agentName: string;
     liveLabel: string;
     statusReady: string;
@@ -76,7 +105,6 @@ export interface LandingCopy {
     ctaButton: string;
   };
   pricing: {
-    eyebrow: string;
     title: string;
     subtitle: string;
     billingNote: string;
@@ -102,17 +130,10 @@ export interface LandingCopy {
     };
     trialNote: string;
   };
-  cta: {
-    eyebrow: string;
-    title: string;
-    button: string;
-  };
   signup: {
     title: string;
     subtitle: string;
-    cardTitle: string;
     button: string;
-    note: string;
   };
   footer: {
     privacy: string;

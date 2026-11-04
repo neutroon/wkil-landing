@@ -46,6 +46,25 @@ test("localDemoReply handles pricing keywords", () => {
   assert.ok(localDemoReply("سعر", "ar").length > 0);
 });
 
+test("localDemoReply answers every suggested prompt with the right topic", () => {
+  assert.ok(localDemoReply("تأكيد الطلبات بيشتغل إزاي؟", "ar").includes("زرار تأكيد"));
+  assert.ok(localDemoReply("How does order confirmation work?", "en").includes("Confirm"));
+  assert.ok(localDemoReply("عندي 50 طلب في اليوم، أختار أنهي خطة؟", "ar").includes("1,999"));
+  assert.ok(localDemoReply("I get 50 orders a day. Which plan fits?", "en").includes("1,999"));
+  assert.ok(localDemoReply("بتشتغلوا مع EasyOrders؟", "ar").includes("بيتربط مباشرة"));
+  assert.ok(localDemoReply("Do you work with EasyOrders?", "en").includes("connects directly"));
+});
+
+test("localDemoReply says Zammit has no direct connection yet", () => {
+  assert.ok(localDemoReply("Zammit?", "en").includes("no direct connection"));
+  assert.ok(localDemoReply("Zammit؟", "ar").includes("مفيش معاه ربط مباشر"));
+});
+
+test("localDemoReply does not offer Instagram as a channel", () => {
+  assert.equal(/instagram/i.test(localDemoReply("Do you reply on Instagram?", "en")), false);
+  assert.equal(/إنستجرام/.test(localDemoReply("بترد على إنستجرام؟", "ar")), false);
+});
+
 test("localDemoReply defaults to generic for unknown input", () => {
   assert.ok(localDemoReply("xyz", "en").includes("Tell Wkil"));
   assert.ok(localDemoReply("xyz", "ar").includes("قول"));

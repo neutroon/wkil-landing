@@ -48,31 +48,43 @@ export function localDemoReply(message: string, locale: Locale) {
 
   const hasAny = (terms: string[]) => terms.some((term) => text.includes(term));
 
-  if (hasAny(["content", "post", "caption", "ideas", "strategy", "trend", "محتوى", "بوست", "كابشن", "أفكار", "خطة", "ترند", "استراتيج"])) {
+  if (hasAny(["content", "post", "caption", "ideas", "strategy", "محتوى", "منشور", "بوست", "كابشن", "أفكار"])) {
     return isArabic
-      ? "وكيل بيجمع أسئلة الشات ومشاكل العملاء وترندات البحث، يجهز خطة المحتوى ويكتب البوستات. بعد موافقتك يبرمجها أو ينشرها."
-      : "Wkil gathers chat questions, customer problems, and search trends, then builds the plan and writes the posts. After your approval, it schedules or publishes them.";
+      ? "الوكيل بيجهز خطة محتوى ويكتب المنشورات. بعد ما تعتمدها، تتنشر أو تتجدول على صفحتك في فيسبوك."
+      : "The agent drafts a content plan and writes the posts. After you approve them, they publish or schedule on your Facebook page.";
   }
 
-  if (hasAny(["price", "pricing", "cost", "free", "سعر", "باقات", "مجاني", "تكلف"])) {
+  if (hasAny(["price", "pricing", "cost", "plan", "free", "سعر", "أسعار", "خطة", "خطط", "باقة", "باقات", "مجاني", "تكلف"])) {
     return isArabic
-      ? "اعمل حساب وابدأ تجرب وكيل على شغلك. بعد كده تختار الخطة المناسبة للقنوات وحجم الشغل بتاعك."
-      : "Create an account and start trying Wkil on your work. Then choose the plan that fits your channels and workload.";
+      ? "لحد 10 طلبات في اليوم، خطة البداية بـ 699 ج.م في الشهر. لحد 65 طلب في اليوم، خطة النمو بـ 1,999 ج.م. أكتر من كده، خطة التوسّع بـ 3,999 ج.م. وفيه خطة مجانية لشات الموقع وماسنجر، من غير تأكيد طلبات."
+      : "For up to 10 orders a day, the Starter plan is EGP 699 a month. For up to 65 a day, Growth is EGP 1,999. Above that, Scale is EGP 3,999. There is also a Free plan for web chat and Messenger, without order confirmation.";
   }
 
-  if (hasAny(["whatsapp", "messenger", "facebook", "instagram", "channel", "channels", "واتساب", "ماسنجر", "فيسبوك", "انستجرام", "قنوات"])) {
+  if (hasAny(["easyorders", "zammit", "store", "shop", "webhook", "متجر", "ويب هوك"])) {
     return isArabic
-      ? "ينفع تربط قنوات متعددة زي واتساب وماسنجر وتعليقات فيسبوك وشات الموقع. وكيل يحافظ على سياق كل قناة ويظهر لفريقك بيانات العميل والخطوة الجاية."
-      : "You can connect multiple channels such as WhatsApp, Messenger, Facebook comments, and website chat. Wkil keeps each channel's context and shows your team the customer details and next step.";
+      ? "EasyOrders بيتربط مباشرة. أي متجر تاني بيقدر يبعت الطلبات لويب هوك بيتربط برضه. وZammit لسه مفيش معاه ربط مباشر."
+      : "EasyOrders connects directly. Any other store that can send orders to a webhook can connect too. Zammit has no direct connection yet.";
+  }
+
+  if (hasAny(["order", "confirm", "cancel", "cod", "طلب", "تأكيد", "أكد", "إلغاء", "استلام", "شحن"])) {
+    return isArabic
+      ? "كل طلب جديد من متجرك بيوصل للعميل كرسالة على واتساب، فيها زرار تأكيد وزرار إلغاء. ولما يرد، حالة الطلب بتتحدث في صفحة الطلبات، فتعرف تشحن إيه."
+      : "Every new order from your store reaches the customer as a WhatsApp message with a Confirm and a Cancel button. When they answer, the status updates on the orders page, so you know what to ship.";
+  }
+
+  if (hasAny(["whatsapp", "messenger", "facebook", "channel", "واتساب", "ماسنجر", "فيسبوك", "قنوات", "قناة"])) {
+    return isArabic
+      ? "الوكيل بيرد على واتساب وماسنجر وشات الموقع. ولما حد يعلّق على صفحتك في فيسبوك، بيبعتله التفاصيل على ماسنجر."
+      : "The agent replies on WhatsApp, Messenger and web chat. When someone comments on your Facebook page, it sends them the details in Messenger.";
   }
 
   if (hasAny(["lead", "customer", "follow", "crm", "data", "عميل", "عملاء", "متابعة", "بيانات"])) {
     return isArabic
-      ? "وكيل يحفظ بيانات مهمة من المحادثة مثل اسم العميل، القناة، الاهتمام، وحالة المتابعة، بحيث فريقك يكمل من نقطة واضحة بدل ما يبدأ من الصفر."
-      : "Wkil saves useful details from each conversation, such as customer name, source channel, interest, and follow-up status, so your team continues from a clear next step.";
+      ? "الوكيل بيحفظ البيانات المهمة من المحادثة في ذاكرة العميل، وبيتابع اللي ما ردّش، وبيحوّل المحادثة لفريقك لما تحتاج موظف."
+      : "The agent keeps the important details from each conversation in customer memory, follows up with customers who went quiet, and hands off to your team when a conversation needs a person.";
   }
 
   return isArabic
-    ? "قول لوكيل عايز تخلّص إيه، وهو يجهز الخطوات وينفذها. يقدر يجهز المحتوى، يكتب وينشر البوستات، أو يتعامل مع محادثات العملاء."
-    : "Tell Wkil what you want done and it will plan the steps and carry them out. It can prepare content, write and publish posts, or handle customer conversations.";
+    ? "قول لي عايز تعرف إيه: تأكيد الطلبات بيشتغل إزاي، أنهي خطة تناسبك، أو الوكيل بيرد على أنهي قنوات."
+    : "Tell Wkil what you want to know: how order confirmation works, which plan fits you, or which channels the agent replies on.";
 }
