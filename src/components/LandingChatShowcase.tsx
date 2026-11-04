@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 
@@ -46,11 +46,6 @@ export function LandingChatShowcase({
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState("");
   const logRef = useRef<HTMLDivElement>(null);
-
-  const userMessageCount = useMemo(
-    () => messages.filter((message) => message.role === "user").length,
-    [messages],
-  );
 
   useEffect(() => {
     const storedVisitorId = window.sessionStorage.getItem("wkil-demo-visitor-id");
@@ -138,7 +133,10 @@ export function LandingChatShowcase({
       <div className="shell split">
         <div className="split-head">
           <h2 className="section-title">{chat.title}</h2>
-          <p className="section-text">{chat.subtitle}</p>
+          <p className="section-text">{chat.limits}</p>
+          <a className="button button-primary chat-start" href={signupPath}>
+            {chat.ctaButton}
+          </a>
         </div>
 
         <div className="chat-panel" role="group" aria-label={chat.ariaLabel}>
@@ -175,32 +173,20 @@ export function LandingChatShowcase({
                 <span />
               </div>
             )}
-
-            {userMessageCount >= 1 && !isSending && (
-              <div className="chat-inline-cta">
-                <strong>{chat.ctaText}</strong>
-                <a className="text-link" href={signupPath}>
-                  {chat.ctaButton}
-                </a>
-              </div>
-            )}
           </div>
 
           <div className="chat-controls">
-            <div>
-              <span className="chat-prompt-label">{chat.promptLabel}</span>
-              <div className="chat-prompt-list">
-                {chat.prompts.map((prompt) => (
-                  <button
-                    type="button"
-                    key={prompt}
-                    onClick={() => void sendMessage(prompt)}
-                    disabled={isSending || !visitorId}
-                  >
-                    {prompt}
-                  </button>
-                ))}
-              </div>
+            <div className="chat-prompt-list">
+              {chat.prompts.map((prompt) => (
+                <button
+                  type="button"
+                  key={prompt}
+                  onClick={() => void sendMessage(prompt)}
+                  disabled={isSending || !visitorId}
+                >
+                  {prompt}
+                </button>
+              ))}
             </div>
 
             <form className="chat-form" onSubmit={handleSubmit}>

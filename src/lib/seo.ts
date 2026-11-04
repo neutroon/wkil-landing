@@ -64,7 +64,7 @@ export function buildLandingJsonLd({
         potentialAction: {
           "@type": "RegisterAction",
           target: getAuthPath(locale, "signup"),
-          name: locale === "ar" ? "ابدأ مجانًا" : "Start free",
+          name: locale === "ar" ? "ابدأ ببلاش" : "Start free",
         },
       },
       {

@@ -46,26 +46,30 @@ test("localDemoReply handles pricing keywords", () => {
   assert.ok(localDemoReply("سعر", "ar").length > 0);
 });
 
-test("localDemoReply answers every suggested prompt with the right topic", () => {
-  assert.ok(localDemoReply("وكيل بيعمل إيه؟", "ar").includes("يرد على عملائك"));
-  assert.ok(localDemoReply("What does Wkil do?", "en").includes("replies to your customers"));
-  assert.ok(localDemoReply("بيرد على عملائي فين؟", "ar").includes("شات الموقع"));
-  assert.ok(localDemoReply("Where does it reply to my customers?", "en").includes("web chat"));
-  assert.ok(localDemoReply("بينشر على فيسبوك؟", "ar").includes("تتجدول"));
-  assert.ok(localDemoReply("Does it publish on Facebook?", "en").includes("schedule"));
-  assert.ok(localDemoReply("أنهي خطة تناسبني؟", "ar").includes("1,999"));
-  assert.ok(localDemoReply("Which plan fits me?", "en").includes("1,999"));
+test("localDemoReply answers every suggested starter with the right topic", () => {
+  assert.ok(localDemoReply("عميل سأل عن حاجة وكيل مش عارفها، بيحصل إيه؟", "ar").includes("صندوق الوارد"));
+  assert.ok(localDemoReply("A customer asked something Wkil doesn't know. What happens?", "en").includes("inbox"));
+  assert.ok(localDemoReply("محتاج إيه عشان أأكد الأوردرات على واتساب؟", "ar").includes("قالب معتمد"));
+  assert.ok(localDemoReply("What do I need to confirm orders on WhatsApp?", "en").includes("template"));
+  assert.ok(localDemoReply("ينفع يجهزلي بوستات الأسبوع وينشرها؟", "ar").includes("فيسبوك"));
+  assert.ok(localDemoReply("Can it prepare this week's posts and publish them?", "en").includes("Facebook"));
+  assert.ok(localDemoReply("إيه اللي وكيل مش بيعمله؟", "ar").includes("CRM"));
+  assert.ok(localDemoReply("What doesn't Wkil do?", "en").includes("CRM"));
 });
 
-test("localDemoReply covers order confirmation and connected systems", () => {
-  assert.ok(localDemoReply("تأكيد الطلبات بيشتغل إزاي؟", "ar").includes("زرار تأكيد"));
-  assert.ok(localDemoReply("Do you work with EasyOrders?", "en").includes("connects directly"));
-  assert.ok(localDemoReply("Can it use our internal system?", "en").includes("your own systems"));
+test("localDemoReply says no to Instagram however it is asked", () => {
+  for (const question of ["بترد على إنستجرام؟", "بينشر على انستجرام؟", "شغال على انستا؟"]) {
+    assert.ok(localDemoReply(question, "ar").startsWith("لأ."));
+  }
+
+  for (const question of ["Do you reply on Instagram?", "Does it publish to instagram?", "post on insta?"]) {
+    assert.ok(localDemoReply(question, "en").startsWith("No."));
+  }
 });
 
-test("localDemoReply does not offer Instagram as a channel", () => {
-  assert.equal(/instagram/i.test(localDemoReply("Do you reply on Instagram?", "en")), false);
-  assert.equal(/إنستجرام/.test(localDemoReply("بترد على إنستجرام؟", "ar")), false);
+test("localDemoReply gives plan prices", () => {
+  assert.ok(localDemoReply("بكام الخطط؟", "ar").includes("1,999"));
+  assert.ok(localDemoReply("How much is the Growth plan?", "en").includes("1,999"));
 });
 
 test("localDemoReply defaults to generic for unknown input", () => {

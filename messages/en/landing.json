@@ -1,17 +1,16 @@
 {
   "seo": {
-    "title": "Wkil | Your AI operator for business and social media",
-    "description": "Tell Wkil what your business needs. It plans content, writes and publishes posts, replies to customers on WhatsApp, Messenger and web chat, and confirms store orders.",
+    "title": "Wkil | AI assistant for customer replies, order confirmation and Facebook posts",
+    "description": "Wkil answers your customers on WhatsApp, Messenger, your site chat and Facebook comments, sends order confirmation messages, and writes your posts and publishes them to Facebook after you approve.",
     "keywords": [
       "Wkil",
-      "AI business assistant",
-      "social media automation",
-      "customer conversations",
-      "WhatsApp customer replies",
-      "WhatsApp order confirmation"
+      "customer replies",
+      "comment replies",
+      "WhatsApp order confirmation",
+      "Facebook post scheduling"
     ],
     "openGraphTitle": "Wkil | Tell it what to do. It gets the work done.",
-    "openGraphDescription": "Your AI teammate for business and social media: content, posts, customer conversations and order confirmation from one chat.",
+    "openGraphDescription": "An AI assistant for customer replies, order confirmation and Facebook posts. Try it without an account.",
     "imageAlt": "Wkil logo"
   },
   "brand": {
@@ -20,108 +19,129 @@
   "nav": {
     "skip": "Skip to content",
     "ariaLabel": "Main navigation",
-    "how": "How it works",
-    "agent": "What it does",
+    "capabilities": "What it does",
+    "where": "Where it works",
     "demo": "Try it",
     "pricing": "Pricing",
-    "login": "Sign in",
+    "login": "Log in",
     "startFree": "Start free",
     "switchLanguage": "العربية",
     "menu": "Menu"
   },
   "hero": {
-    "title": "Tell Wkil what to do. It gets the work done.",
-    "subtitle": "Your AI teammate for business and social media. Wkil plans your content, writes and publishes posts, replies to your customers and confirms your store orders. When you ask it for something, it shows you first and acts once you approve.",
+    "title": "Tell Wkil what you need, and it takes messages, comments, order confirmation and Facebook posts off your hands.",
+    "subtitle": "An AI assistant for business owners in Egypt. It answers your customers on its own, from what you've told it. When you ask it for something in the chat, nothing gets published, sent or changed until you approve.",
     "primaryCta": "Start free",
-    "secondaryCta": "Try the agent",
-    "channels": "Works on WhatsApp, Messenger, Facebook comments and web chat."
+    "secondaryCta": "Try it without an account",
+    "belowButtons": "The free plan includes 100 conversations a month on Messenger and your site chat, with nothing to pay. WhatsApp and order confirmation are on paid plans.",
+    "supporting": "A moderator's work, in one place. Your number can stay on the WhatsApp Business app if you like, with Wkil replying alongside you."
   },
-  "copilotDemo": {
-    "ariaLabel": "Example of asking Wkil for something in the dashboard",
-    "title": "Chat in the dashboard",
-    "exampleTag": "Example",
-    "request": "Prepare next week's post plan for our winter offer.",
-    "reply": "Sure. This is the plan I'll prepare, and I need your approval first.",
-    "actionTitle": "Generate this content plan?",
-    "details": [
+  "proof": {
+    "title": "Example requests, and what happens",
+    "groups": [
       {
-        "label": "Goal",
-        "value": "Promote the winter offer"
+        "title": "When your customer writes",
+        "cards": [
+          {
+            "input": "A comment on a post on your page: \"How much?\"",
+            "result": "A short public reply, with the details on Messenger.",
+            "status": "On its own"
+          },
+          {
+            "input": "A voice note on WhatsApp: \"Do you have a large size?\"",
+            "result": "Wkil understands the voice note and replies on WhatsApp from your information.",
+            "status": "On its own"
+          }
+        ]
       },
       {
-        "label": "Posts",
-        "value": "5 posts on Facebook"
-      }
-    ],
-    "allow": "Allow",
-    "deny": "Deny",
-    "allowedResult": "Done. The plan is ready as a draft for you to review and approve its posts.",
-    "deniedResult": "Rejected. Nothing was changed.",
-    "hint": "Press Allow or Deny, the way you would in the dashboard.",
-    "reset": "Try again"
-  },
-  "how": {
-    "title": "How it works",
-    "steps": [
-      {
-        "title": "Introduce your business",
-        "text": "Give it your website link and it reads the site and drafts your business profile. Then add your services, common questions, policies and tone."
-      },
-      {
-        "title": "Connect your channels",
-        "text": "A WhatsApp number, your Facebook page and Messenger, and web chat. Your number can stay in the WhatsApp Business app while the agent replies alongside it."
-      },
-      {
-        "title": "Tell it what to do",
-        "text": "From the chat in your dashboard, ask for a content plan, a reply to a customer or a summary of your business. Meanwhile the agent answers customers on your channels."
+        "title": "When you write to Wkil",
+        "cards": [
+          {
+            "input": "\"Schedule the winter offer post for Thursday at 8 pm.\"",
+            "result": "The post is scheduled on your Facebook page.",
+            "status": "After your approval"
+          },
+          {
+            "input": "\"Which orders are still unconfirmed?\"",
+            "result": "The list of orders, straight away.",
+            "status": "Read only"
+          }
+        ]
       }
     ]
   },
-  "agent": {
-    "title": "Everything Wkil does",
+  "capabilities": {
+    "title": "What Wkil takes off your hands",
     "items": [
       {
-        "title": "A chat that does the work",
-        "text": "From your dashboard, ask it for a business overview, to change the agent's knowledge and settings, to write and send a reply, to update a customer or to generate an image. Any step that changes something waits for your approval."
+        "id": "messages",
+        "title": "Messages and comments",
+        "intro": "A customer asks, and Wkil answers from what you've told it. When it doesn't know, the conversation waits for you in the inbox.",
+        "points": [
+          "On WhatsApp, Messenger and your site chat. Voice notes and images on WhatsApp and Messenger only.",
+          "Facebook comments: a short public reply, with the details on Messenger. You set this per page.",
+          "Following up with people who went quiet: off until you turn it on. Wkil goes back to the customer after the delay you set, and stops if anyone writes. On WhatsApp, only within the time Meta allows.",
+          "Customer memory: it saves from the conversation, and you choose what, like size and address."
+        ],
+        "tryIt": "Try telling it: \"Reply to Ahmed's comment and say the offer runs until Thursday.\" (After your approval)"
       },
       {
-        "title": "Replies to your customers",
-        "text": "On WhatsApp, Messenger and web chat, from what you taught it about your business and in the tone you set. On WhatsApp and Messenger it understands voice notes and images. When someone comments on your Facebook page, it replies and sends them the details in Messenger."
+        "id": "orders",
+        "title": "Order confirmation",
+        "intro": "Each new order from your store triggers a WhatsApp message to the customer with confirm and cancel buttons, so you know who confirmed and who canceled before you hand over to the courier.",
+        "points": [
+          "See each order's status, and whether the message arrived. The result goes back to your store.",
+          "A daily limit for new customers on each number, and extra messages wait. Sending pauses if Meta raises a flag. This is protection, not a guarantee.",
+          "You'll need a store on EasyOrders or one that sends to a webhook, a connected WhatsApp number, and a Meta-approved template of the service type, not an ad."
+        ],
+        "tryIt": "Try telling it: \"Who canceled their order today?\" (Read only)"
       },
       {
-        "title": "Hands off and follows up",
-        "text": "When a conversation needs a person, the agent pauses and your team gets a notification. If you turn on follow-ups, it goes back to customers who went quiet at the times you set."
+        "id": "posts",
+        "title": "Posts, from idea to your Facebook page",
+        "intro": "Give it the goal, dates and number of posts, and it makes a plan saved as a draft. Publishing is Facebook only.",
+        "points": [
+          "It writes the text for each post, and makes an image or edits one you have. Images use your credits.",
+          "It looks for ideas on websites or in posts you paste in.",
+          "It publishes or schedules to your page after you approve."
+        ],
+        "tryIt": "Try telling it: \"Make me a plan for 5 posts next week about the winter offer.\" (After your approval)"
       },
       {
-        "title": "Prepares and publishes content",
-        "text": "A content plan, written posts and post images. You approve them, they publish or schedule on your Facebook page, and you reply to comments from the same place."
+        "id": "teach",
+        "title": "Teach it your business",
+        "intro": "Wkil answers from what it knows about your business, so that's where you start.",
+        "points": [
+          "Send your website link and it suggests a name, a way of talking and policies, if the site can be read.",
+          "Add your services, your customers' questions, and files for it to send, like a catalog or price list."
+        ],
+        "tryIt": "Try telling it: \"Read our website and prepare the business details.\" (Saved after your approval)"
       },
       {
-        "title": "One inbox for your team",
-        "text": "Every conversation from every channel in one place, with memory for each customer and team notes. Invite your team to the workspace, and follow the inbox, customers and orders from the mobile app."
-      },
-      {
-        "title": "Connects to your systems",
-        "text": "Connect the agent to your own systems so it can check a price, availability or order status, or book or cancel something during the conversation."
-      },
-      {
-        "title": "Clear reports",
-        "text": "Conversation counts, the share of replies sent by the agent, conversations handed to your team and why, and average reply time."
-      },
-      {
-        "title": "If you run more than one business",
-        "text": "Each business gets its own agent profile. Agencies get a manager console that brings client accounts and their reports together, which we turn on with you."
+        "id": "inbox",
+        "title": "All your conversations in one place",
+        "intro": "All four channels in one inbox. Reply yourself, and turn Wkil off in any conversation.",
+        "points": [
+          "If someone works with you, invite them by email or link.",
+          "Reports: conversations, Wkil's replies, what waited for you and why, and average reply time, for the last 7 or 30 days."
+        ],
+        "tryIt": "Try telling it: \"How's business this week?\" (Read only)"
       }
-    ]
-  },
-  "orders": {
-    "title": "And it confirms your store orders on WhatsApp",
-    "text": "Every new order reaches the customer as a message from your number, with a Confirm and a Cancel button, and its status updates on the orders page.",
-    "points": [
-      "Direct EasyOrders connection, plus any other store that can send orders to a webhook.",
-      "Messages go out using Meta-approved templates.",
-      "You set the daily limit for new customers, and extra messages wait and go out when the limit resets. If Meta lowers your number's quality, sending stops to reduce the risk of a restriction."
-    ]
+    ],
+    "advanced": {
+      "title": "Advanced things most merchants don't need",
+      "items": [
+        {
+          "label": "Connect Wkil to your system",
+          "text": "If your system has an API, define actions that look up a price or order status, or that book or cancel. They run only when a customer asks in chat, in the background, with an 8-second timeout. Lookups need you to add a required customer detail. You'll need someone technical."
+        },
+        {
+          "label": "Connect any store by webhook",
+          "text": "If your store isn't on EasyOrders but can send orders to a webhook, connect it with a key and a signing secret."
+        }
+      ]
+    }
   },
   "orderDemo": {
     "ariaLabel": "Example of a WhatsApp order confirmation",
@@ -130,8 +150,8 @@
     "message": "Hi Sara, we received order 1042: a mug set, EGP 450, cash on delivery. Shall we confirm it?",
     "confirmButton": "Confirm order",
     "cancelButton": "Cancel order",
-    "confirmedReply": "Your order is confirmed. We will let you know when it ships.",
-    "canceledReply": "Your order is canceled. If you change your mind, message us here.",
+    "confirmedReply": "Your order is confirmed.",
+    "canceledReply": "Your order is canceled.",
     "ordersTitle": "Orders page in Wkil",
     "orderLabel": "Order 1042",
     "customer": "Sara M.",
@@ -144,133 +164,196 @@
     "hint": "Tap a button in the message, the way a customer would.",
     "reset": "Try again"
   },
+  "where": {
+    "title": "Where it works",
+    "intro": "It answers in 4 places and publishes in 1. There are no others.",
+    "items": [
+      {
+        "name": "WhatsApp",
+        "text": "Replies, voice notes and images, and order confirmation messages. Your number can stay on the WhatsApp Business app, which suits a moderate number of orders, or you can use a dedicated number."
+      },
+      {
+        "name": "Messenger",
+        "text": "Replies, voice notes and images."
+      },
+      {
+        "name": "Site chat",
+        "text": "Install it on your website."
+      },
+      {
+        "name": "Facebook comments",
+        "text": "Needs a connected page."
+      },
+      {
+        "name": "Facebook page",
+        "text": "Publishing and scheduling posts."
+      }
+    ]
+  },
+  "control": {
+    "title": "What it does on its own, and what waits for you",
+    "items": [
+      {
+        "label": "On its own",
+        "text": "Wkil's replies to your customers, order confirmation messages, and follow-ups if you've turned them on. Wkil can get things wrong, so check its replies early on."
+      },
+      {
+        "label": "Waits for your approval",
+        "text": "In the dashboard chat, it reads straight away. But a message to a customer, publishing a post, replying to a comment or changing a setting doesn't happen until you approve."
+      },
+      {
+        "label": "When it doesn't know",
+        "text": "Wkil stops, and the conversation waits in the inbox until you open it, labeled sales, support, complaint or other. The customer waits until you reply."
+      },
+      {
+        "label": "When credits run out",
+        "text": "The chat stops, Wkil stops replying, and conversations wait for you in the inbox."
+      }
+    ],
+    "notDoTitle": "What Wkil doesn't do",
+    "notDo": [
+      "It doesn't reply or publish on Instagram. Publishing is Facebook only.",
+      "It has no ready-made CRM integration.",
+      "It has no ready-made store connections other than EasyOrders.",
+      "Order confirmation works on orders that come from a connected store, not ones you take in messages.",
+      "It doesn't understand voice notes and images in comments or the site chat.",
+      "It's no guarantee your number won't be restricted. Meta's rules still apply to you."
+    ]
+  },
   "chat": {
-    "ariaLabel": "Agent chat demo",
-    "title": "Try talking to the agent",
-    "subtitle": "Ask it about Wkil and see how it replies. On your account, the agent answers your customers from what you taught it about your business.",
+    "title": "Ask it before you open an account",
+    "limits": "This is a demo that only answers about Wkil. It isn't connected to your business, doesn't publish or send anything to anyone, and it can get things wrong.",
+    "initialMessage": "Hi. Ask me what Wkil does, and what it doesn't.",
+    "prompts": [
+      "A customer asked something Wkil doesn't know. What happens?",
+      "What do I need to confirm orders on WhatsApp?",
+      "Can it prepare this week's posts and publish them?",
+      "What doesn't Wkil do?"
+    ],
+    "inputPlaceholder": "Type your question…",
+    "ctaButton": "Start free",
+    "ariaLabel": "Wkil chat demo",
     "agentName": "Wkil",
     "liveLabel": "Demo",
     "statusReady": "Ready",
     "statusThinking": "Typing…",
-    "assistantLabel": "Agent",
+    "assistantLabel": "Wkil",
     "customerLabel": "You",
-    "initialMessage": "Hi. Ask me what Wkil does, where it replies, or which plan fits you.",
-    "promptLabel": "Try one of these",
-    "prompts": [
-      "What does Wkil do?",
-      "Where does it reply to my customers?",
-      "Does it publish on Facebook?",
-      "Which plan fits me?"
-    ],
-    "inputLabel": "Your message",
-    "inputPlaceholder": "Type your question…",
+    "inputLabel": "Your question",
     "sendLabel": "Send",
     "sendingLabel": "Sending…",
-    "errorText": "Could not send your message. Try again.",
-    "ctaText": "Want the agent answering your customers?",
-    "ctaButton": "Start free"
+    "errorText": "Could not send your message. Try again."
   },
   "pricing": {
-    "title": "Clear pricing in EGP. Meta fees go straight to Meta.",
-    "subtitle": "A conversation is one customer within 24 hours, however many messages they send.",
-    "billingNote": "Prices in Egyptian pounds per month. Pay yearly, get two months free, and your price stays fixed for 12 months.",
-    "currency": "EGP",
-    "period": "/ month",
+    "title": "Prices in EGP. Meta's WhatsApp fees are separate.",
+    "metaFees": "WhatsApp fees aren't part of the plan price. You pay them to Meta directly, with no markup from Wkil: on order confirmation messages, and on WhatsApp replies after the first 1,000 messages a month per number. Without a payment method on Meta, messages after the first 1,000 won't be delivered. Messenger and site chat carry no Meta fees.",
+    "metaLink": "See Meta's current prices",
+    "notes": [
+      "All numbers are monthly. A conversation is one customer over 24 hours, however many messages they send.",
+      "Pay yearly and get 2 months free, with your price fixed for 12 months.",
+      "You don't pay on this site. Request a plan, and the Wkil team will contact you to turn it on and arrange payment."
+    ],
+    "unit": "EGP / month",
     "plans": [
       {
         "id": "free",
         "name": "Free",
-        "tagline": "Try Wkil on your website and Messenger",
+        "tagline": "Try Wkil on Messenger and your website.",
         "price": "0",
         "cta": "Start free",
         "features": [
-          "100 agent conversations per month",
-          "Web chat + Messenger",
+          "100 Wkil conversations",
+          "Site chat + Messenger",
           "1 user",
-          "Knowledge base for your business (website, services, FAQs)",
+          "A knowledge base for your business",
           "\"Powered by Wkil\" badge on the chat"
         ]
       },
       {
         "id": "starter",
         "name": "Starter",
-        "tagline": "For the founder who still replies alone",
+        "tagline": "For owners still answering customers themselves.",
         "price": "699",
-        "annual": "or EGP 6,990 per year",
-        "cta": "Start with Starter",
+        "annual": "or EGP 6,990 a year",
+        "cta": "Request Starter",
         "features": [
-          "600 agent conversations per month",
-          "WhatsApp (1 number) + Messenger + web chat",
-          "300 WhatsApp order confirmations per month (up to 10 orders a day) with Confirm and Cancel buttons",
-          "Automatic follow-ups for customers who went quiet",
+          "600 Wkil conversations",
+          "WhatsApp (1 number) + Messenger + site chat + Facebook comments",
+          "300 WhatsApp order confirmations (up to 10 a day)",
+          "Follow-ups with people who went quiet, if you turn them on",
           "2 users",
-          "8 ready-to-publish posts per month",
-          "1 store integration (EasyOrders or API)"
+          "8 posts ready to publish to Facebook",
+          "1 store connection (EasyOrders or webhook)"
         ]
       },
       {
         "id": "growth",
         "name": "Growth",
-        "tagline": "For the brand that gets orders every day",
+        "tagline": "For businesses busy every day.",
         "price": "1,999",
-        "annual": "or EGP 19,990 per year",
-        "badge": "Most popular",
+        "annual": "or EGP 19,990 a year",
+        "badge": "Our pick",
         "featured": true,
-        "cta": "Start with Growth",
+        "cta": "Request Growth",
         "features": [
-          "3,000 agent conversations per month",
-          "All channels: WhatsApp + Messenger + web chat",
-          "2,000 WhatsApp order confirmations per month (up to 65 orders a day)",
-          "Automatic follow-ups + lead capture and memory for every customer",
-          "5 users and handoff to your team with a mobile notification",
-          "30 ready-to-publish posts per month",
-          "Your own systems: the agent runs actions during the chat",
-          "Priority support on WhatsApp"
+          "3,000 Wkil conversations",
+          "All channels: WhatsApp + Messenger + site chat + Facebook comments",
+          "2,000 WhatsApp order confirmations (up to 65 a day)",
+          "Follow-ups if you turn them on, and memory for each customer",
+          "5 users",
+          "30 posts ready to publish to Facebook",
+          "Connect your system that has an API, when a customer asks in chat",
+          "Priority support"
         ]
       },
       {
         "id": "scale",
         "name": "Scale",
-        "tagline": "For several brands or a full team",
+        "tagline": "For more than one business, or a full team.",
         "price": "3,999",
-        "annual": "or EGP 39,990 per year",
-        "cta": "Start with setup help",
+        "annual": "or EGP 39,990 a year",
+        "cta": "Request Scale",
         "features": [
-          "8,000 agent conversations per month",
-          "Up to 3 WhatsApp numbers and 3 businesses in one account (two without Meta verification; we set up verification for the third with you)",
-          "5,000 WhatsApp order confirmations per month (numbers above 100 confirmations a day need Meta business verification, which we set up with you)",
+          "8,000 Wkil conversations",
+          "Up to 3 WhatsApp numbers and 3 businesses in one account (the third number needs Meta verification, and we help with it)",
+          "5,000 WhatsApp order confirmations (above 100 a day needs Meta verification, and we help with it)",
           "Unlimited users",
-          "90 ready-to-publish posts per month",
-          "API access",
+          "90 posts ready to publish to Facebook",
           "Custom setup with the Wkil team"
         ]
       }
     ],
-    "overage": {
-      "title": "Outgrew your plan this month?",
-      "text": "We tell you before you reach your plan's limit. After that, extra conversations cost EGP 1 each and extra order confirmations EGP 0.50 each. If your volume keeps growing, cheaper usage packs are available on Growth and Scale: talk to us."
+    "trial": {
+      "label": "Try first",
+      "text": "Growth free for 14 days, up to 300 order confirmations. You pay Wkil nothing, and Meta's message fees are yours. The Wkil team turns it on for you, and afterwards you pick your plan or stay on Free."
     },
-    "addon": {
-      "title": "Need a second WhatsApp number for a second brand?",
-      "text": "Add an extra number for EGP 299 a month on Growth or Scale without changing your plan. Each number also gets 1,000 free reply messages a month from Meta."
-    },
-    "meta": {
-      "title": "WhatsApp fees go straight to Meta",
-      "text": "Meta bills your own account directly, with no markup from Wkil: about EGP 0.25 per confirmation message, and about EGP 0.25 per WhatsApp reply after the first 1,000 messages each month. Messenger and web chat carry no Meta fees."
-    },
-    "agency": {
-      "title": "Agency, company, or more than 3 numbers?",
-      "text": "More than 3 WhatsApp numbers, more than 5,000 orders a month, or an agency managing several clients? Custom plans start at EGP 7,999 a month, invoiced by bank transfer.",
-      "cta": "Sign up and message us inside Wkil"
-    },
-    "trialNote": "Try the full Growth plan free for 14 days, no card needed, with real confirmations to your customers. Then pick a plan or stay on Free. Cancel any time from your account."
+    "accordions": [
+      {
+        "question": "Outgrown your plan?",
+        "answer": "An extra conversation is EGP 1 and an extra order confirmation is EGP 0.50. There are cheaper usage packs for Growth and Scale, so contact us."
+      },
+      {
+        "question": "Another WhatsApp number?",
+        "answer": "Add one for EGP 299 a month on Growth or Scale."
+      },
+      {
+        "question": "An agency, more than 3 numbers, or more than 5,000 orders a month?",
+        "answer": "A custom plan starts at EGP 7,999 a month, invoiced by bank transfer.",
+        "button": "Contact us"
+      }
+    ]
   },
   "signup": {
-    "title": "Try Wkil on your work",
-    "subtitle": "Create an account, introduce your business and tell it where to start. The Free plan includes web chat and Messenger.",
-    "button": "Start free"
+    "title": "Start free on Messenger and your site chat. Add WhatsApp and order confirmation when you need them.",
+    "primary": "Start free",
+    "secondary": "Try it without an account"
   },
   "footer": {
-    "privacy": "Privacy"
+    "tagline": "Wkil. An AI assistant for businesses in Egypt.",
+    "contactLabel": "Contact us",
+    "pricing": "Pricing",
+    "demo": "Try it",
+    "privacy": "Privacy",
+    "trademarks": "WhatsApp, Messenger, Facebook and Meta are trademarks of their owners. Wkil isn't affiliated with Meta."
   }
 }

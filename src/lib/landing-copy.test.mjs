@@ -66,7 +66,7 @@ test("Growth is the only featured plan and carries the badge", () => {
 
 test("web chat stays on the Free plan", () => {
   assert.match(ar.pricing.plans[0].features.join(" "), /شات الموقع/);
-  assert.match(en.pricing.plans[0].features.join(" "), /Web chat/);
+  assert.match(en.pricing.plans[0].features.join(" "), /Site chat/);
 });
 
 test("copy avoids promises the product cannot back up", () => {
@@ -87,20 +87,30 @@ test("copy avoids promises the product cannot back up", () => {
   }
 });
 
-// Instagram is not offered as a channel. Remove this test in the same change
-// that adds it to the copy.
-test("copy does not offer Instagram as a channel", () => {
-  assert.doesNotMatch(JSON.stringify(ar), /إنستجرام|انستجرام/);
-  assert.doesNotMatch(JSON.stringify(en), /instagram/i);
+// Instagram is not a channel. It may only appear in the list of what Wkil doesn't do.
+test("Instagram appears only as something Wkil doesn't do", () => {
+  for (const [copy, pattern] of [[ar, /إنستجرام|انستجرام/], [en, /instagram/i]]) {
+    const { notDo, ...restOfControl } = copy.control;
+
+    assert.doesNotMatch(JSON.stringify({ ...copy, control: restOfControl }), pattern);
+    assert.equal(notDo.filter((item) => pattern.test(item)).length, 1);
+  }
 });
 
-test("the hero describes the whole product in both locales", () => {
-  assert.match(ar.hero.subtitle, /المحتوى/);
-  assert.match(ar.hero.subtitle, /عملائك/);
-  assert.match(ar.hero.subtitle, /طلبات/);
-  assert.match(en.hero.subtitle, /content/);
-  assert.match(en.hero.subtitle, /customers/);
-  assert.match(en.hero.subtitle, /orders/);
+test("Meta fees are stated in the open on the pricing section", () => {
+  assert.match(ar.pricing.metaFees, /لميتا مباشرة/);
+  assert.match(en.pricing.metaFees, /to Meta directly/);
+});
+
+test("paid plans are requested and only Free starts straight away", () => {
+  for (const copy of [ar, en]) {
+    const [free, ...paid] = copy.pricing.plans;
+
+    assert.equal(free.cta, copy.hero.primaryCta);
+    for (const plan of paid) {
+      assert.notEqual(plan.cta, copy.hero.primaryCta);
+    }
+  }
 });
 
 test("Arabic copy follows the glossary", () => {
@@ -110,7 +120,6 @@ test("Arabic copy follows the glossary", () => {
     /(^|[\s"])قم ب/,
     /الخاص بك/,
     /بنجاح/,
-    /بوست/,
     /Wkil/,
     /!/,
     /\.\.\./,

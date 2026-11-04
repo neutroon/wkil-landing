@@ -1,3 +1,4 @@
+import { metaPricingUrl, supportEmail } from "@/lib/routes";
 import type { LandingCopy } from "@/types/landing";
 
 interface LandingPricingProps {
@@ -5,15 +6,33 @@ interface LandingPricingProps {
   signupPath: string;
 }
 
-export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
-  const notes = [pricing.meta, pricing.overage, pricing.addon];
+function contactHref(subject: string) {
+  return `mailto:${supportEmail}?subject=${encodeURIComponent(subject)}`;
+}
 
+export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
   return (
-    <section className="section section-surface" id="pricing">
+    <section className="section" id="pricing">
       <div className="shell">
         <h2 className="section-title">{pricing.title}</h2>
-        <p className="section-text">{pricing.subtitle}</p>
-        <p className="pricing-billing-note">{pricing.billingNote}</p>
+
+        <div className="pricing-meta">
+          <p>{pricing.metaFees}</p>
+          <a
+            className="text-link"
+            href={metaPricingUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {pricing.metaLink}
+          </a>
+        </div>
+
+        <ul className="pricing-notes">
+          {pricing.notes.map((note) => (
+            <li key={note}>{note}</li>
+          ))}
+        </ul>
 
         <div className="pricing-grid">
           {pricing.plans.map((plan) => (
@@ -33,17 +52,16 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
 
               <p className="pricing-price">
                 <span className="pricing-amount">{plan.price}</span>
-                <span className="pricing-unit">
-                  {pricing.currency} {pricing.period}
-                </span>
+                <span className="pricing-unit">{pricing.unit}</span>
               </p>
               <p className="pricing-annual">{plan.annual ?? " "}</p>
 
+              {/* Paid plans go to the team by email: there is no checkout on this site. */}
               <a
                 className={`button pricing-cta ${
                   plan.featured ? "button-primary" : "button-secondary"
                 }`}
-                href={signupPath}
+                href={plan.id === "free" ? signupPath : contactHref(plan.cta)}
               >
                 {plan.cta}
               </a>
@@ -71,26 +89,28 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
           ))}
         </div>
 
-        <div className="pricing-agency">
-          <div>
-            <h3>{pricing.agency.title}</h3>
-            <p>{pricing.agency.text}</p>
-          </div>
-          <a className="button button-secondary" href={signupPath}>
-            {pricing.agency.cta}
-          </a>
-        </div>
+        <p className="pricing-trial">
+          <strong>{pricing.trial.label}:</strong> {pricing.trial.text}
+        </p>
 
-        <div className="pricing-notes">
-          {notes.map((note) => (
-            <div className="pricing-note" key={note.title}>
-              <h3>{note.title}</h3>
-              <p>{note.text}</p>
-            </div>
+        <div className="accordion-group">
+          {pricing.accordions.map((item) => (
+            <details className="accordion" key={item.question}>
+              <summary>{item.question}</summary>
+              <div className="accordion-body">
+                <p>{item.answer}</p>
+                {item.button ? (
+                  <a
+                    className="button button-secondary button-small"
+                    href={contactHref(item.question)}
+                  >
+                    {item.button}
+                  </a>
+                ) : null}
+              </div>
+            </details>
           ))}
         </div>
-
-        <p className="pricing-trial">{pricing.trialNote}</p>
       </div>
     </section>
   );

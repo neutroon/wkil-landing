@@ -18,8 +18,8 @@ export function LandingHeader({
   signupPath,
 }: LandingHeaderProps) {
   const sectionLinks = [
-    { href: "#how", label: copy.nav.how },
-    { href: "#benefits", label: copy.nav.agent },
+    { href: "#benefits", label: copy.nav.capabilities },
+    { href: "#where", label: copy.nav.where },
     { href: "#chat", label: copy.nav.demo },
     { href: "#pricing", label: copy.nav.pricing },
   ];

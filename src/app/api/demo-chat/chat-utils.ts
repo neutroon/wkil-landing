@@ -41,6 +41,11 @@ export function isRateLimited(key: string) {
 }
 
 
+const unknownReply = {
+  ar: "وكيل بيقف، والمحادثة تستناك في صندوق الوارد لحد ما تفتحها، ومعاها نوعها: مبيعات، دعم، شكوى، أو غيره. والعميل بيستنى لحد ما ترد.",
+  en: "Wkil stops, and the conversation waits in the inbox until you open it, labeled sales, support, complaint or other. The customer waits until you reply.",
+};
+
 export function localDemoReply(message: string, locale: Locale) {
   const text = message.toLowerCase();
   // original uses module-level requestBuckets; pure behavior verified in sequence
@@ -48,55 +53,69 @@ export function localDemoReply(message: string, locale: Locale) {
 
   const hasAny = (terms: string[]) => terms.some((term) => text.includes(term));
 
-  if (hasAny(["content", "post", "publish", "schedule", "caption", "ideas", "strategy", "محتوى", "منشور", "نشر", "ينشر", "بينشر", "بوست", "كابشن", "أفكار"])) {
+  if (hasAny(["instagram", "insta", "إنستجرام", "انستجرام", "إنستا", "انستا"])) {
     return isArabic
-      ? "الوكيل بيجهز خطة محتوى ويكتب المنشورات ويولّد صور ليها. بعد ما تعتمدها، تتنشر أو تتجدول على صفحتك في فيسبوك."
-      : "The agent drafts a content plan, writes the posts and generates images for them. After you approve them, they publish or schedule on your Facebook page.";
+      ? "لأ. وكيل مش بيرد ولا بينشر على إنستجرام. والنشر على فيسبوك بس."
+      : "No. Wkil doesn't reply or publish on Instagram. Publishing is Facebook only.";
   }
 
-  if (hasAny(["price", "pricing", "cost", "plan", "free", "سعر", "أسعار", "خطة", "خطط", "باقة", "باقات", "مجاني", "تكلف"])) {
+  if (hasAny(["doesn't", "does not", "can't do", "مش بيعمل", "ميعملش", "مبيعملش"])) {
+    if (hasAny(["doesn't know", "does not know", "doesn’t know"])) {
+      return isArabic ? unknownReply.ar : unknownReply.en;
+    }
+
     return isArabic
-      ? "فيه 4 خطط: مجانية لشات الموقع وماسنجر، البداية بـ 699 ج.م في الشهر، النمو بـ 1,999 ج.م وهي الأكثر طلبًا، والتوسّع بـ 3,999 ج.م. والتفاصيل في قسم الأسعار."
-      : "There are 4 plans: Free for web chat and Messenger, Starter at EGP 699 a month, Growth at EGP 1,999, the most popular, and Scale at EGP 3,999. The details are in the pricing section.";
+      ? "مش بيرد ولا بينشر على إنستجرام، والنشر على فيسبوك بس. مش مربوط بأي CRM جاهز، ومفيش ربط جاهز مع متاجر غير EasyOrders. تأكيد الأوردرات شغال على الأوردرات اللي بتيجي من متجر مربوط. ومش بيفهم الفويس والصور في الكومنتات وشات الموقع."
+      : "It doesn't reply or publish on Instagram, and publishing is Facebook only. It has no ready-made CRM integration, and no ready-made store connections other than EasyOrders. Order confirmation works on orders from a connected store. It doesn't understand voice notes and images in comments or the site chat.";
   }
 
-  if (hasAny(["easyorders", "store", "shop", "webhook", "متجر", "ويب هوك"])) {
-    return isArabic
-      ? "EasyOrders بيتربط مباشرة. وأي متجر تاني بيقدر يبعت الطلبات لويب هوك بيتربط برضه."
-      : "EasyOrders connects directly. Any other store that can send orders to a webhook can connect too.";
+  if (hasAny(["مش عارف", "ميعرفش", "doesn’t know", "don't know", "unknown"])) {
+    return isArabic ? unknownReply.ar : unknownReply.en;
   }
 
-  if (hasAny(["order", "confirm", "cancel", "طلب", "تأكيد", "أكد", "إلغاء", "شحن"])) {
+  if (hasAny(["content", "post", "publish", "schedule", "caption", "ideas", "strategy", "محتوى", "منشور", "نشر", "ينشر", "بوست", "كابشن", "أفكار", "جدول"])) {
     return isArabic
-      ? "كل طلب جديد من متجرك بيوصل للعميل كرسالة على واتساب، فيها زرار تأكيد وزرار إلغاء. ولما يرد، حالة الطلب بتتحدث في صفحة الطلبات."
-      : "Every new order from your store reaches the customer as a WhatsApp message with a Confirm and a Cancel button. When they answer, the status updates on the orders page.";
+      ? "أيوه، بس على فيسبوك. قوله الهدف والتواريخ وعدد البوستات، يعملك خطة وتتحفظ مسودة، ويكتب نص كل بوست. وبعد موافقتك بينشر أو يجدول على صفحتك."
+      : "Yes, on Facebook only. Give it the goal, dates and number of posts, and it makes a plan saved as a draft and writes each post. After you approve, it publishes or schedules to your page.";
   }
 
-  if (hasAny(["whatsapp", "messenger", "facebook", "channel", "reply", "replies", "واتساب", "ماسنجر", "فيسبوك", "قنوات", "قناة", "بيرد", "يرد"])) {
+  if (hasAny(["price", "pricing", "cost", "plan", "free", "pay", "سعر", "أسعار", "بكام", "خطة", "خطط", "باقة", "باقات", "مجاني", "ببلاش", "دفع", "تكلف"])) {
     return isArabic
-      ? "الوكيل بيرد على واتساب وماسنجر وشات الموقع. ولما حد يعلّق على صفحتك في فيسبوك، بيرد عليه ويبعتله التفاصيل على ماسنجر."
-      : "The agent replies on WhatsApp, Messenger and web chat. When someone comments on your Facebook page, it replies and sends them the details in Messenger.";
+      ? "فيه 4 خطط: مجانية على ماسنجر وشات الموقع، البداية بـ 699 ج.م في الشهر، النمو بـ 1,999 ج.م، والتوسّع بـ 3,999 ج.م. ورسوم ميتا على واتساب منفصلة."
+      : "There are 4 plans: Free on Messenger and your site chat, Starter at EGP 699 a month, Growth at EGP 1,999 and Scale at EGP 3,999. Meta's WhatsApp fees are separate.";
   }
 
-  if (hasAny(["system", "crm", "integration", "api", "نظام", "أنظمة", "ربط"])) {
+  if (hasAny(["order", "confirm", "cancel", "طلب", "أوردر", "اوردر", "تأكيد", "أكد", "إلغاء", "شحن", "easyorders", "store", "shop", "webhook", "متجر", "ويب هوك"])) {
     return isArabic
-      ? "تقدر تربط الوكيل بأنظمتك الخارجية، فيتأكد من سعر أو توفر أو حالة طلب، أو ينفّذ حجز أو إلغاء أثناء المحادثة."
-      : "You can connect the agent to your own systems so it can check a price, availability or order status, or book or cancel something during the conversation.";
+      ? "هتحتاج خطة مدفوعة، ومتجر على EasyOrders أو بيبعت لويب هوك، ورقم واتساب متصل، وقالب معتمد من ميتا من النوع الخدمي، مش إعلان. وبعدها كل أوردر جديد بتروح عليه رسالة للعميل فيها زرار تأكيد وزرار إلغاء."
+      : "You'll need a paid plan, a store on EasyOrders or one that sends to a webhook, a connected WhatsApp number, and a Meta-approved template of the service type, not an ad. Then each new order triggers a message to the customer with confirm and cancel buttons.";
   }
 
-  if (hasAny(["report", "analytic", "تقرير", "تقارير", "تحليلات"])) {
+  if (hasAny(["whatsapp", "messenger", "facebook", "channel", "reply", "replies", "واتساب", "ماسنجر", "فيسبوك", "قنوات", "قناة", "بيرد", "يرد", "كومنت"])) {
     return isArabic
-      ? "التقارير بتوريك عدد المحادثات، نسبة الردود اللي بعتها الوكيل، المحادثات اللي اتحولت لفريقك وأسبابها، ومتوسط وقت الرد."
-      : "Reports show conversation counts, the share of replies sent by the agent, conversations handed to your team and why, and average reply time.";
+      ? "بيرد في 4 أماكن: واتساب، ماسنجر، شات الموقع، وكومنتات فيسبوك. وبينشر في مكان واحد: صفحة فيسبوك."
+      : "It answers in 4 places: WhatsApp, Messenger, your site chat and Facebook comments. It publishes in 1: your Facebook page.";
+  }
+
+  if (hasAny(["system", "crm", "integration", "api", "نظام", "ربط"])) {
+    return isArabic
+      ? "لو نظامك ليه API، تعرّف إجراءات تستعلم عن سعر أو حالة أوردر، أو تحجز أو تلغي. بتشتغل لما العميل يطلب في الشات بس، وهتحتاج حد فني. ومفيش ربط جاهز مع أي CRM."
+      : "If your system has an API, you can define actions that look up a price or order status, or that book or cancel. They run only when a customer asks in chat, and you'll need someone technical. There is no ready-made CRM integration.";
+  }
+
+  if (hasAny(["report", "analytic", "تقرير", "تقارير"])) {
+    return isArabic
+      ? "التقارير: المحادثات، ردود وكيل، اللي استناك وليه، ومتوسط وقت الرد، لآخر 7 أو 30 يوم."
+      : "Reports show conversations, Wkil's replies, what waited for you and why, and average reply time, for the last 7 or 30 days.";
   }
 
   if (hasAny(["lead", "customer", "follow", "team", "data", "عميل", "عملاء", "عملائ", "متابعة", "فريق", "بيانات"])) {
     return isArabic
-      ? "الوكيل بيحفظ البيانات المهمة من المحادثة في ذاكرة العميل، وبيتابع اللي ما ردّش لو فعّلت المتابعة، وبيحوّل المحادثة لفريقك لما تحتاج موظف."
-      : "The agent keeps the important details from each conversation in customer memory, follows up with customers who went quiet if you turn that on, and hands off to your team when a conversation needs a person.";
+      ? "بيحفظ من المحادثة في ذاكرة العميل، وإنت تحدد يحفظ إيه. والمتابعة مقفولة لحد ما تشغّلها. ولو معاك حد، ادعيه بالإيميل أو بلينك."
+      : "It saves from the conversation into customer memory, and you choose what. Follow-ups are off until you turn them on. If someone works with you, invite them by email or link.";
   }
 
   return isArabic
-    ? "قول لوكيل تعمل إيه، وهو يخلّص الشغل: يجهز المحتوى وينشره، يرد على عملائك، يأكد طلبات متجرك، ويوصل لأنظمتك. ولما تطلب منه حاجة، بيعرضها عليك الأول."
-    : "Tell Wkil what to do and it gets the work done: it plans and publishes content, replies to your customers, confirms your store orders and connects to your own systems. When you ask it for something, it shows you first.";
+    ? "قول لوكيل عايز إيه، وهو يشيل عنك الرسايل والكومنتات وتأكيد الأوردرات وبوستات فيسبوك. اسألني عن أي حاجة فيهم، أو عن اللي مش بيعمله."
+    : "Tell Wkil what you need, and it takes messages, comments, order confirmation and Facebook posts off your hands. Ask me about any of them, or about what it doesn't do.";
 }

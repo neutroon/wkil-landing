@@ -19,6 +19,11 @@ export interface LandingSeoCopy {
   imageAlt: string;
 }
 
+export interface LandingLabelledText {
+  label: string;
+  text: string;
+}
+
 export interface LandingCopy {
   seo: LandingSeoCopy;
   brand: {
@@ -27,8 +32,8 @@ export interface LandingCopy {
   nav: {
     skip: string;
     ariaLabel: string;
-    how: string;
-    agent: string;
+    capabilities: string;
+    where: string;
     demo: string;
     pricing: string;
     login: string;
@@ -41,25 +46,33 @@ export interface LandingCopy {
     subtitle: string;
     primaryCta: string;
     secondaryCta: string;
-    channels: string;
+    belowButtons: string;
+    supporting: string;
   };
-  copilotDemo: {
-    ariaLabel: string;
+  proof: {
     title: string;
-    exampleTag: string;
-    request: string;
-    reply: string;
-    actionTitle: string;
-    details: Array<{
-      label: string;
-      value: string;
+    groups: Array<{
+      title: string;
+      cards: Array<{
+        input: string;
+        result: string;
+        status: string;
+      }>;
     }>;
-    allow: string;
-    deny: string;
-    allowedResult: string;
-    deniedResult: string;
-    hint: string;
-    reset: string;
+  };
+  capabilities: {
+    title: string;
+    items: Array<{
+      id: string;
+      title: string;
+      intro: string;
+      points: string[];
+      tryIt: string;
+    }>;
+    advanced: {
+      title: string;
+      items: LandingLabelledText[];
+    };
   };
   orderDemo: {
     ariaLabel: string;
@@ -82,78 +95,64 @@ export interface LandingCopy {
     hint: string;
     reset: string;
   };
-  how: {
+  where: {
     title: string;
-    steps: Array<{
-      title: string;
-      text: string;
-    }>;
-  };
-  agent: {
-    title: string;
+    intro: string;
     items: Array<{
-      title: string;
+      name: string;
       text: string;
     }>;
   };
-  orders: {
+  control: {
     title: string;
-    text: string;
-    points: string[];
+    items: LandingLabelledText[];
+    notDoTitle: string;
+    notDo: string[];
   };
   chat: {
-    ariaLabel: string;
     title: string;
-    subtitle: string;
+    limits: string;
+    initialMessage: string;
+    prompts: string[];
+    inputPlaceholder: string;
+    ctaButton: string;
+    ariaLabel: string;
     agentName: string;
     liveLabel: string;
     statusReady: string;
     statusThinking: string;
     assistantLabel: string;
     customerLabel: string;
-    initialMessage: string;
-    promptLabel: string;
-    prompts: string[];
     inputLabel: string;
-    inputPlaceholder: string;
     sendLabel: string;
     sendingLabel: string;
     errorText: string;
-    ctaText: string;
-    ctaButton: string;
   };
   pricing: {
     title: string;
-    subtitle: string;
-    billingNote: string;
-    currency: string;
-    period: string;
+    metaFees: string;
+    metaLink: string;
+    notes: string[];
+    unit: string;
     plans: LandingPricingPlan[];
-    overage: {
-      title: string;
-      text: string;
-    };
-    meta: {
-      title: string;
-      text: string;
-    };
-    addon: {
-      title: string;
-      text: string;
-    };
-    agency: {
-      title: string;
-      text: string;
-      cta: string;
-    };
-    trialNote: string;
+    trial: LandingLabelledText;
+    accordions: Array<{
+      question: string;
+      answer: string;
+      button?: string;
+    }>;
   };
   signup: {
     title: string;
-    subtitle: string;
-    button: string;
+    primary: string;
+    secondary: string;
   };
   footer: {
+    tagline: string;
+    contactLabel: string;
+    pricing: string;
+    demo: string;
     privacy: string;
+    trademarks: string;
   };
 }
