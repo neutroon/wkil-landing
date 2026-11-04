@@ -91,6 +91,10 @@ export interface LandingCopy {
       title: string;
       text: string;
     };
+    addon: {
+      title: string;
+      text: string;
+    };
     agency: {
       title: string;
       text: string;

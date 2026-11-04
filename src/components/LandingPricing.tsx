@@ -80,6 +80,10 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
             <strong>{pricing.meta.title}</strong>
             <p>{pricing.meta.text}</p>
           </div>
+          <div className="pricing-note">
+            <strong>{pricing.addon.title}</strong>
+            <p>{pricing.addon.text}</p>
+          </div>
           <div className="pricing-note pricing-note-agency">
             <strong>{pricing.agency.title}</strong>
             <p>{pricing.agency.text}</p>

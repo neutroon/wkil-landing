@@ -152,9 +152,9 @@
         "cta": "Start and we set it up with you",
         "features": [
           "8,000 AI conversations per month",
-          "3 WhatsApp numbers and 3 businesses in one account",
+          "Up to 3 WhatsApp numbers and 3 businesses in one account (two without Meta verification; we set up verification for the third with you)",
           "5,000 WhatsApp order confirmations per month (numbers above 100 confirmations a day need Meta business verification, which we set up with you)",
-          "15 users",
+          "Unlimited users",
           "90 ready-to-publish posts per month",
           "API access",
           "Custom setup with the Wkil team"
@@ -163,18 +163,22 @@
     ],
     "overage": {
       "title": "Outgrew your plan this month?",
-      "text": "We tell you before you reach your plan's limit. After that, extra conversations cost EGP 1 each and extra order confirmations EGP 0.50 each. More than 5,000 orders a month? Talk to us."
+      "text": "We tell you before you reach your plan's limit. After that, extra conversations cost EGP 1 each and extra order confirmations EGP 0.50 each. If your volume keeps growing, cheaper usage packs are available on Growth and Scale: talk to us."
+    },
+    "addon": {
+      "title": "Need a second WhatsApp number for a second brand?",
+      "text": "Add an extra number for EGP 299 a month on Growth or Scale without changing your plan. Each number also gets 1,000 free reply messages a month from Meta."
     },
     "meta": {
       "title": "WhatsApp fees go straight to Meta",
       "text": "Meta bills your own account directly, with no markup from Wkil: about EGP 0.25 per confirmation message, and about EGP 0.25 per WhatsApp reply after the first 1,000 messages each month. Messenger, Instagram and web chat carry no Meta fees."
     },
     "agency": {
-      "title": "An agency or managing several clients?",
-      "text": "If you run pages for several clients, talk to us and we will price a plan by the number of clients.",
+      "title": "Enterprise, agency, or more than 3 numbers?",
+      "text": "More than 3 WhatsApp numbers, more than 5,000 orders a month, or an agency managing several clients? Custom plans start at EGP 7,999 a month, invoiced by bank transfer.",
       "cta": "Sign up and message us inside Wkil"
     },
-    "trialNote": "Try Starter or Growth free for 14 days, no card needed. Cancel any time from your account."
+    "trialNote": "Try the full Growth plan free for 14 days, no card needed, with real confirmations to your customers. Then pick a plan or stay on Free. Cancel any time from your account."
   },
   "cta": {
     "eyebrow": "Start with a conversation",
