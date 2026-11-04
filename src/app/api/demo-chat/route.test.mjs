@@ -47,17 +47,20 @@ test("localDemoReply handles pricing keywords", () => {
 });
 
 test("localDemoReply answers every suggested prompt with the right topic", () => {
-  assert.ok(localDemoReply("تأكيد الطلبات بيشتغل إزاي؟", "ar").includes("زرار تأكيد"));
-  assert.ok(localDemoReply("How does order confirmation work?", "en").includes("Confirm"));
-  assert.ok(localDemoReply("عندي 50 طلب في اليوم، أختار أنهي خطة؟", "ar").includes("1,999"));
-  assert.ok(localDemoReply("I get 50 orders a day. Which plan fits?", "en").includes("1,999"));
-  assert.ok(localDemoReply("بتشتغلوا مع EasyOrders؟", "ar").includes("بيتربط مباشرة"));
-  assert.ok(localDemoReply("Do you work with EasyOrders?", "en").includes("connects directly"));
+  assert.ok(localDemoReply("وكيل بيعمل إيه؟", "ar").includes("يرد على عملائك"));
+  assert.ok(localDemoReply("What does Wkil do?", "en").includes("replies to your customers"));
+  assert.ok(localDemoReply("بيرد على عملائي فين؟", "ar").includes("شات الموقع"));
+  assert.ok(localDemoReply("Where does it reply to my customers?", "en").includes("web chat"));
+  assert.ok(localDemoReply("بينشر على فيسبوك؟", "ar").includes("تتجدول"));
+  assert.ok(localDemoReply("Does it publish on Facebook?", "en").includes("schedule"));
+  assert.ok(localDemoReply("أنهي خطة تناسبني؟", "ar").includes("1,999"));
+  assert.ok(localDemoReply("Which plan fits me?", "en").includes("1,999"));
 });
 
-test("localDemoReply says Zammit has no direct connection yet", () => {
-  assert.ok(localDemoReply("Zammit?", "en").includes("no direct connection"));
-  assert.ok(localDemoReply("Zammit؟", "ar").includes("مفيش معاه ربط مباشر"));
+test("localDemoReply covers order confirmation and connected systems", () => {
+  assert.ok(localDemoReply("تأكيد الطلبات بيشتغل إزاي؟", "ar").includes("زرار تأكيد"));
+  assert.ok(localDemoReply("Do you work with EasyOrders?", "en").includes("connects directly"));
+  assert.ok(localDemoReply("Can it use our internal system?", "en").includes("your own systems"));
 });
 
 test("localDemoReply does not offer Instagram as a channel", () => {

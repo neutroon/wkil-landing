@@ -39,13 +39,13 @@ export function LandingOrderDemo({ demo }: LandingOrderDemoProps) {
   const hasAnswered = status !== "awaiting";
 
   return (
-    <section className="order-demo" aria-label={demo.ariaLabel}>
-      <div className="order-demo-head">
+    <section className="demo-panel" aria-label={demo.ariaLabel}>
+      <div className="demo-panel-head">
         <span>{demo.messageTitle}</span>
-        <span className="order-demo-tag">{demo.exampleTag}</span>
+        <span className="demo-panel-tag">{demo.exampleTag}</span>
       </div>
 
-      <div className="order-demo-thread">
+      <div className="demo-panel-thread">
         <div className="order-bubble">
           <p className="order-bubble-text">{demo.message}</p>
           <div className="order-bubble-buttons">
@@ -79,8 +79,8 @@ export function LandingOrderDemo({ demo }: LandingOrderDemoProps) {
         ) : null}
       </div>
 
-      <div className="order-demo-orders">
-        <div className="order-demo-orders-head">
+      <div className="demo-orders">
+        <div className="demo-orders-head">
           <span>{demo.ordersTitle}</span>
         </div>
         <div className="order-row">
@@ -97,7 +97,7 @@ export function LandingOrderDemo({ demo }: LandingOrderDemoProps) {
         </div>
         {hasAnswered ? (
           <button
-            className="order-demo-reset"
+            className="demo-panel-reset"
             onClick={() => changeStatus("awaiting")}
             ref={resetRef}
             type="button"
@@ -105,7 +105,7 @@ export function LandingOrderDemo({ demo }: LandingOrderDemoProps) {
             {demo.reset}
           </button>
         ) : (
-          <p className="order-demo-hint">{demo.hint}</p>
+          <p className="demo-panel-hint">{demo.hint}</p>
         )}
       </div>
     </section>

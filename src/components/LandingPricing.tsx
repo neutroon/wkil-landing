@@ -9,7 +9,7 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
   const notes = [pricing.meta, pricing.overage, pricing.addon];
 
   return (
-    <section className="section" id="pricing">
+    <section className="section section-surface" id="pricing">
       <div className="shell">
         <h2 className="section-title">{pricing.title}</h2>
         <p className="section-text">{pricing.subtitle}</p>

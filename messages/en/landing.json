@@ -1,17 +1,17 @@
 {
   "seo": {
-    "title": "Wkil | WhatsApp order confirmation for cash-on-delivery brands",
-    "description": "Wkil sends a WhatsApp confirmation for every new order from your store and replies to customers on WhatsApp, Messenger and web chat. Direct EasyOrders connection.",
+    "title": "Wkil | Your AI operator for business and social media",
+    "description": "Tell Wkil what your business needs. It plans content, writes and publishes posts, replies to customers on WhatsApp, Messenger and web chat, and confirms store orders.",
     "keywords": [
       "Wkil",
-      "WhatsApp order confirmation",
-      "cash on delivery Egypt",
-      "EasyOrders",
-      "WhatsApp Business",
-      "customer replies"
+      "AI business assistant",
+      "social media automation",
+      "customer conversations",
+      "WhatsApp customer replies",
+      "WhatsApp order confirmation"
     ],
-    "openGraphTitle": "Wkil | Get customers to confirm on WhatsApp before you ship",
-    "openGraphDescription": "A WhatsApp confirmation for every new order, with Confirm and Cancel buttons, and an agent that answers customers from what you taught it about your business.",
+    "openGraphTitle": "Wkil | Tell it what to do. It gets the work done.",
+    "openGraphDescription": "Your AI teammate for business and social media: content, posts, customer conversations and order confirmation from one chat.",
     "imageAlt": "Wkil logo"
   },
   "brand": {
@@ -21,7 +21,7 @@
     "skip": "Skip to content",
     "ariaLabel": "Main navigation",
     "how": "How it works",
-    "agent": "The agent",
+    "agent": "What it does",
     "demo": "Try it",
     "pricing": "Pricing",
     "login": "Sign in",
@@ -30,11 +30,98 @@
     "menu": "Menu"
   },
   "hero": {
-    "title": "Get customers to confirm on WhatsApp before you ship.",
-    "subtitle": "Wkil sends a confirmation message for every new order from your store, with a Confirm and a Cancel button, and the order status updates as soon as the customer answers. If the customer has a question, the agent answers from what you taught it about your business.",
+    "title": "Tell Wkil what to do. It gets the work done.",
+    "subtitle": "Your AI teammate for business and social media. Wkil plans your content, writes and publishes posts, replies to your customers and confirms your store orders. When you ask it for something, it shows you first and acts once you approve.",
     "primaryCta": "Start free",
     "secondaryCta": "Try the agent",
-    "note": "For cash-on-delivery brands handling 30 to 100 orders a day, and agencies running stores for their clients."
+    "channels": "Works on WhatsApp, Messenger, Facebook comments and web chat."
+  },
+  "copilotDemo": {
+    "ariaLabel": "Example of asking Wkil for something in the dashboard",
+    "title": "Chat in the dashboard",
+    "exampleTag": "Example",
+    "request": "Prepare next week's post plan for our winter offer.",
+    "reply": "Sure. This is the plan I'll prepare, and I need your approval first.",
+    "actionTitle": "Generate this content plan?",
+    "details": [
+      {
+        "label": "Goal",
+        "value": "Promote the winter offer"
+      },
+      {
+        "label": "Posts",
+        "value": "5 posts on Facebook"
+      }
+    ],
+    "allow": "Allow",
+    "deny": "Deny",
+    "allowedResult": "Done. The plan is ready as a draft for you to review and approve its posts.",
+    "deniedResult": "Rejected. Nothing was changed.",
+    "hint": "Press Allow or Deny, the way you would in the dashboard.",
+    "reset": "Try again"
+  },
+  "how": {
+    "title": "How it works",
+    "steps": [
+      {
+        "title": "Introduce your business",
+        "text": "Give it your website link and it reads the site and drafts your business profile. Then add your services, common questions, policies and tone."
+      },
+      {
+        "title": "Connect your channels",
+        "text": "A WhatsApp number, your Facebook page and Messenger, and web chat. Your number can stay in the WhatsApp Business app while the agent replies alongside it."
+      },
+      {
+        "title": "Tell it what to do",
+        "text": "From the chat in your dashboard, ask for a content plan, a reply to a customer or a summary of your business. Meanwhile the agent answers customers on your channels."
+      }
+    ]
+  },
+  "agent": {
+    "title": "Everything Wkil does",
+    "items": [
+      {
+        "title": "A chat that does the work",
+        "text": "From your dashboard, ask it for a business overview, to change the agent's knowledge and settings, to write and send a reply, to update a customer or to generate an image. Any step that changes something waits for your approval."
+      },
+      {
+        "title": "Replies to your customers",
+        "text": "On WhatsApp, Messenger and web chat, from what you taught it about your business and in the tone you set. On WhatsApp and Messenger it understands voice notes and images. When someone comments on your Facebook page, it replies and sends them the details in Messenger."
+      },
+      {
+        "title": "Hands off and follows up",
+        "text": "When a conversation needs a person, the agent pauses and your team gets a notification. If you turn on follow-ups, it goes back to customers who went quiet at the times you set."
+      },
+      {
+        "title": "Prepares and publishes content",
+        "text": "A content plan, written posts and post images. You approve them, they publish or schedule on your Facebook page, and you reply to comments from the same place."
+      },
+      {
+        "title": "One inbox for your team",
+        "text": "Every conversation from every channel in one place, with memory for each customer and team notes. Invite your team to the workspace, and follow the inbox, customers and orders from the mobile app."
+      },
+      {
+        "title": "Connects to your systems",
+        "text": "Connect the agent to your own systems so it can check a price, availability or order status, or book or cancel something during the conversation."
+      },
+      {
+        "title": "Clear reports",
+        "text": "Conversation counts, the share of replies sent by the agent, conversations handed to your team and why, and average reply time."
+      },
+      {
+        "title": "If you run more than one business",
+        "text": "Each business gets its own agent profile. Agencies get a manager console that brings client accounts and their reports together, which we turn on with you."
+      }
+    ]
+  },
+  "orders": {
+    "title": "And it confirms your store orders on WhatsApp",
+    "text": "Every new order reaches the customer as a message from your number, with a Confirm and a Cancel button, and its status updates on the orders page.",
+    "points": [
+      "Direct EasyOrders connection, plus any other store that can send orders to a webhook.",
+      "Messages go out using Meta-approved templates.",
+      "You set the daily limit for new customers, and extra messages wait and go out when the limit resets. If Meta lowers your number's quality, sending stops to reduce the risk of a restriction."
+    ]
   },
   "orderDemo": {
     "ariaLabel": "Example of a WhatsApp order confirmation",
@@ -57,73 +144,23 @@
     "hint": "Tap a button in the message, the way a customer would.",
     "reset": "Try again"
   },
-  "how": {
-    "title": "An order canceled before shipping costs less than one that comes back.",
-    "steps": [
-      {
-        "title": "Connect your store and WhatsApp number",
-        "text": "EasyOrders connects directly. If your store is on another platform that can send orders to a webhook, you can connect that too."
-      },
-      {
-        "title": "The customer gets the confirmation message",
-        "text": "Every new order reaches its customer on WhatsApp from your number, using a Meta-approved template with a Confirm and a Cancel button."
-      },
-      {
-        "title": "See who confirmed and who canceled",
-        "text": "The orders page shows the status of each order, so you know what to ship and what to hold before handing over to the courier."
-      }
-    ],
-    "storeNote": {
-      "title": "Is your store on Zammit?",
-      "text": "There is no direct connection yet. If your store can send orders to a webhook you can connect it today. If you are not sure, write to support@wkil.app."
-    }
-  },
-  "agent": {
-    "title": "After the confirmation, the agent keeps going",
-    "subtitle": "The agent replies with AI, using what you tell it about your business: your services, common questions, policies and the tone you prefer.",
-    "items": [
-      {
-        "title": "Replies to your customers",
-        "text": "On WhatsApp, Messenger and web chat. When someone comments on your Facebook page, it sends them the details in Messenger."
-      },
-      {
-        "title": "Hands off to your team when needed",
-        "text": "When a conversation needs a person, the agent pauses and your team gets a mobile notification."
-      },
-      {
-        "title": "Follows up with customers who went quiet",
-        "text": "Automatic follow-ups, without anyone on your team having to remember them."
-      },
-      {
-        "title": "Remembers every customer",
-        "text": "Customer memory keeps the important details from each conversation, so anyone on your team can pick up where it stopped."
-      },
-      {
-        "title": "Looks after your number",
-        "text": "You set the daily limit for new customers, and extra messages wait and go out when the limit resets. If Meta lowers your number's quality, sending stops to reduce the risk of a restriction."
-      },
-      {
-        "title": "Prepares your posts",
-        "text": "A content plan and written posts that you approve, then publish or schedule on your Facebook page."
-      }
-    ]
-  },
   "chat": {
     "ariaLabel": "Agent chat demo",
-    "title": "Ask the agent and see how it replies",
-    "subtitle": "This demo answers questions about Wkil itself. On your account, the agent answers from what you taught it about your business.",
+    "title": "Try talking to the agent",
+    "subtitle": "Ask it about Wkil and see how it replies. On your account, the agent answers your customers from what you taught it about your business.",
     "agentName": "Wkil",
     "liveLabel": "Demo",
     "statusReady": "Ready",
     "statusThinking": "Typing…",
     "assistantLabel": "Agent",
     "customerLabel": "You",
-    "initialMessage": "Hi. Ask me about order confirmation, plans, or the channels we reply on.",
+    "initialMessage": "Hi. Ask me what Wkil does, where it replies, or which plan fits you.",
     "promptLabel": "Try one of these",
     "prompts": [
-      "How does order confirmation work?",
-      "I get 50 orders a day. Which plan fits?",
-      "Do you work with EasyOrders?"
+      "What does Wkil do?",
+      "Where does it reply to my customers?",
+      "Does it publish on Facebook?",
+      "Which plan fits me?"
     ],
     "inputLabel": "Your message",
     "inputPlaceholder": "Type your question…",
@@ -135,7 +172,7 @@
   },
   "pricing": {
     "title": "Clear pricing in EGP. Meta fees go straight to Meta.",
-    "subtitle": "A conversation is one customer within 24 hours, however many messages they send. Up to 65 orders a day? Growth fits. More than that? Scale.",
+    "subtitle": "A conversation is one customer within 24 hours, however many messages they send.",
     "billingNote": "Prices in Egyptian pounds per month. Pay yearly, get two months free, and your price stays fixed for 12 months.",
     "currency": "EGP",
     "period": "/ month",
@@ -187,7 +224,7 @@
           "Automatic follow-ups + lead capture and memory for every customer",
           "5 users and handoff to your team with a mobile notification",
           "30 ready-to-publish posts per month",
-          "CRM and external systems: the agent runs actions during the chat",
+          "Your own systems: the agent runs actions during the chat",
           "Priority support on WhatsApp"
         ]
       },
@@ -229,8 +266,8 @@
     "trialNote": "Try the full Growth plan free for 14 days, no card needed, with real confirmations to your customers. Then pick a plan or stay on Free. Cancel any time from your account."
   },
   "signup": {
-    "title": "Start free, and upgrade when you need order confirmation",
-    "subtitle": "The Free plan includes web chat and Messenger. WhatsApp order confirmation starts on the Starter plan.",
+    "title": "Try Wkil on your work",
+    "subtitle": "Create an account, introduce your business and tell it where to start. The Free plan includes web chat and Messenger.",
     "button": "Start free"
   },
   "footer": {

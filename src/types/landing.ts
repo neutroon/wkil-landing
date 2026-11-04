@@ -41,7 +41,25 @@ export interface LandingCopy {
     subtitle: string;
     primaryCta: string;
     secondaryCta: string;
-    note: string;
+    channels: string;
+  };
+  copilotDemo: {
+    ariaLabel: string;
+    title: string;
+    exampleTag: string;
+    request: string;
+    reply: string;
+    actionTitle: string;
+    details: Array<{
+      label: string;
+      value: string;
+    }>;
+    allow: string;
+    deny: string;
+    allowedResult: string;
+    deniedResult: string;
+    hint: string;
+    reset: string;
   };
   orderDemo: {
     ariaLabel: string;
@@ -70,18 +88,18 @@ export interface LandingCopy {
       title: string;
       text: string;
     }>;
-    storeNote: {
-      title: string;
-      text: string;
-    };
   };
   agent: {
     title: string;
-    subtitle: string;
     items: Array<{
       title: string;
       text: string;
     }>;
+  };
+  orders: {
+    title: string;
+    text: string;
+    points: string[];
   };
   chat: {
     ariaLabel: string;

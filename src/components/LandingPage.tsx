@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 import { LandingBrand } from "./LandingBrand";
 import { LandingChatShowcase } from "./LandingChatShowcase";
+import { LandingCopilotDemo } from "./LandingCopilotDemo";
 import { LandingHeader } from "./LandingHeader";
 import { LandingOrderDemo } from "./LandingOrderDemo";
 import { LandingPricing } from "./LandingPricing";
@@ -49,14 +50,20 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
                 </a>
               </div>
 
-              <p className="hero-note">{copy.hero.note}</p>
+              <p className="hero-note">{copy.hero.channels}</p>
             </div>
 
-            <LandingOrderDemo demo={copy.orderDemo} />
+            <LandingCopilotDemo demo={copy.copilotDemo} />
           </div>
         </section>
 
-        <section className="section section-surface" id="how">
+        <LandingChatShowcase
+          chat={copy.chat}
+          locale={locale}
+          signupPath={signupPath}
+        />
+
+        <section className="section" id="how">
           <div className="shell">
             <h2 className="section-title">{copy.how.title}</h2>
 
@@ -71,20 +78,12 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
                 </li>
               ))}
             </ol>
-
-            <p className="store-note">
-              <strong>{copy.how.storeNote.title}</strong>{" "}
-              <span>{copy.how.storeNote.text}</span>
-            </p>
           </div>
         </section>
 
-        <section className="section" id="benefits">
-          <div className="shell split">
-            <div className="split-head">
-              <h2 className="section-title">{copy.agent.title}</h2>
-              <p className="section-text">{copy.agent.subtitle}</p>
-            </div>
+        <section className="section section-surface" id="benefits">
+          <div className="shell">
+            <h2 className="section-title">{copy.agent.title}</h2>
 
             <ul className="agent-list">
               {copy.agent.items.map((item) => (
@@ -97,15 +96,25 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
           </div>
         </section>
 
-        <LandingChatShowcase
-          chat={copy.chat}
-          locale={locale}
-          signupPath={signupPath}
-        />
+        <section className="section" id="orders">
+          <div className="shell split">
+            <div className="split-head">
+              <h2 className="section-title">{copy.orders.title}</h2>
+              <p className="section-text">{copy.orders.text}</p>
+              <ul className="orders-points">
+                {copy.orders.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
+
+            <LandingOrderDemo demo={copy.orderDemo} />
+          </div>
+        </section>
 
         <LandingPricing pricing={copy.pricing} signupPath={signupPath} />
 
-        <section className="section section-surface" id="signup">
+        <section className="section" id="signup">
           <div className="shell signup-grid">
             <div>
               <h2 className="section-title">{copy.signup.title}</h2>

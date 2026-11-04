@@ -94,15 +94,13 @@ test("copy does not offer Instagram as a channel", () => {
   assert.doesNotMatch(JSON.stringify(en), /instagram/i);
 });
 
-// Zammit has no direct integration yet, so it may only appear in the note that says so.
-test("Zammit appears only in the note that says it is not connected", () => {
-  for (const copy of [ar, en]) {
-    const { storeNote, ...restOfHow } = copy.how;
-    const rest = JSON.stringify({ ...copy, how: restOfHow });
-
-    assert.doesNotMatch(rest, /zammit/i);
-    assert.match(storeNote.title, /Zammit/);
-  }
+test("the hero describes the whole product in both locales", () => {
+  assert.match(ar.hero.subtitle, /المحتوى/);
+  assert.match(ar.hero.subtitle, /عملائك/);
+  assert.match(ar.hero.subtitle, /طلبات/);
+  assert.match(en.hero.subtitle, /content/);
+  assert.match(en.hero.subtitle, /customers/);
+  assert.match(en.hero.subtitle, /orders/);
 });
 
 test("Arabic copy follows the glossary", () => {

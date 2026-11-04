@@ -150,7 +150,7 @@ export function LandingChatShowcase({
                 <span>{isSending ? chat.statusThinking : chat.statusReady}</span>
               </div>
             </div>
-            <span className="order-demo-tag">{chat.liveLabel}</span>
+            <span className="demo-panel-tag">{chat.liveLabel}</span>
           </div>
 
           <div className="chat-log" ref={logRef} aria-live="polite">

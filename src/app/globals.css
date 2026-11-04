@@ -503,9 +503,9 @@ button:disabled {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   Order confirmation demo (the one memorable element on the page)
+   Example panels: the dashboard chat and the order confirmation
    ────────────────────────────────────────────────────────────────────────── */
-.order-demo {
+.demo-panel {
   background: var(--wk-surface);
   border: 1px solid var(--wk-border);
   border-radius: var(--wk-radius-2xl);
@@ -513,8 +513,8 @@ button:disabled {
   overflow: hidden;
 }
 
-.order-demo-head,
-.order-demo-orders-head {
+.demo-panel-head,
+.demo-orders-head {
   align-items: center;
   color: var(--wk-text-muted);
   display: flex;
@@ -524,12 +524,12 @@ button:disabled {
   justify-content: space-between;
 }
 
-.order-demo-head {
+.demo-panel-head {
   border-bottom: 1px solid var(--wk-border);
   padding: 0.75rem 1rem;
 }
 
-.order-demo-tag {
+.demo-panel-tag {
   background: var(--wk-bg-soft);
   border-radius: 999px;
   color: var(--wk-text-muted);
@@ -538,7 +538,7 @@ button:disabled {
   padding: 0.0625rem 0.625rem;
 }
 
-.order-demo-thread {
+.demo-panel-thread {
   background: var(--wk-bg-soft);
   display: flex;
   flex-direction: column;
@@ -601,7 +601,7 @@ button:disabled {
   padding: 0.5rem 0.875rem;
 }
 
-.order-demo-orders {
+.demo-orders {
   border-top: 1px solid var(--wk-border);
   display: grid;
   gap: 0.625rem;
@@ -676,7 +676,7 @@ button:disabled {
   background: var(--wk-danger);
 }
 
-.order-demo-reset {
+.demo-panel-reset {
   background: transparent;
   border: 0;
   border-radius: var(--wk-radius-lg);
@@ -689,14 +689,76 @@ button:disabled {
   width: fit-content;
 }
 
-.order-demo-reset:hover {
+.demo-panel-reset:hover {
   background: var(--wk-primary-softer);
 }
 
-.order-demo-hint {
+.demo-panel-hint {
   color: var(--wk-text-muted);
   font-size: 0.8125rem;
   min-height: 2.25rem;
+}
+
+.copilot-action {
+  background: var(--wk-surface);
+  border: 1px solid var(--wk-border-strong);
+  border-radius: var(--wk-radius-xl);
+  display: grid;
+  gap: 0.625rem;
+  padding: 0.875rem;
+}
+
+.copilot-action strong {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.copilot-action dl {
+  display: grid;
+  font-size: 0.875rem;
+  gap: 0.25rem;
+  margin: 0;
+}
+
+.copilot-action dl div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+}
+
+.copilot-action dt {
+  color: var(--wk-text-muted);
+}
+
+.copilot-action dd {
+  margin: 0;
+}
+
+.copilot-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.125rem;
+}
+
+.copilot-allow {
+  background: var(--wk-primary-soft);
+  color: var(--wk-primary-hover);
+}
+
+.copilot-allow:hover {
+  background: color-mix(in oklch, var(--wk-primary-soft), var(--wk-primary) 12%);
+}
+
+.copilot-result {
+  border-top: 1px solid var(--wk-border);
+  font-size: 0.875rem;
+  padding-top: 0.625rem;
+}
+
+.demo-panel-foot {
+  border-top: 1px solid var(--wk-border);
+  padding: 0.75rem 1rem;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -733,23 +795,6 @@ button:disabled {
   max-width: 44ch;
 }
 
-.store-note {
-  background: var(--wk-bg);
-  border: 1px solid var(--wk-border);
-  border-radius: var(--wk-radius-xl);
-  font-size: 0.9375rem;
-  margin-top: 2rem;
-  padding: 0.875rem 1rem;
-}
-
-.store-note strong {
-  font-weight: 600;
-}
-
-.store-note span {
-  color: var(--wk-text-muted);
-}
-
 @media (min-width: 768px) {
   .steps {
     gap: 2rem;
@@ -761,12 +806,20 @@ button:disabled {
    Agent capabilities
    ────────────────────────────────────────────────────────────────────────── */
 .agent-list {
-  border-bottom: 1px solid var(--wk-border);
+  display: grid;
+  gap: 0 2.5rem;
+  margin-top: 2.5rem;
 }
 
 .agent-item {
   border-top: 1px solid var(--wk-border);
-  padding-block: 1.125rem;
+  padding-block: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .agent-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .agent-item h3 {
@@ -779,6 +832,23 @@ button:disabled {
   font-size: 0.9375rem;
   margin-top: 0.25rem;
   max-width: 60ch;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Order confirmation
+   ────────────────────────────────────────────────────────────────────────── */
+.orders-points {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.orders-points li {
+  border-top: 1px solid var(--wk-border);
+  color: var(--wk-text-muted);
+  font-size: 0.9375rem;
+  max-width: 60ch;
+  padding-top: 0.75rem;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -1245,6 +1315,7 @@ button:disabled {
    Footer
    ────────────────────────────────────────────────────────────────────────── */
 .footer {
+  border-top: 1px solid var(--wk-border);
   padding-block: 1.5rem;
 }
 
