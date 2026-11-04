@@ -67,6 +67,41 @@ test("localDemoReply says no to Instagram however it is asked", () => {
   }
 });
 
+test("localDemoReply recognises Instagram with Arabic prefixes, suffixes and spellings", () => {
+  const questions = [
+    "بينشر عالإنستجرام؟",
+    "بينشر بالانستجرام؟",
+    "ينفع للإنستا؟",
+    "والانستا؟",
+    "ينفع على إنستجرامي؟",
+    "ينفع على انستغرام؟",
+    "ينفع على أنستجرام؟",
+  ];
+
+  for (const question of questions) {
+    assert.ok(localDemoReply(question, "ar").startsWith("لأ."), question);
+  }
+
+  assert.ok(localDemoReply("Is Instagram's inbox supported?", "en").startsWith("No."));
+  assert.ok(localDemoReply("INSTA?", "en").startsWith("No."));
+});
+
+test("localDemoReply does not mistake other words for Instagram", () => {
+  for (const question of [
+    "How do I install it?",
+    "How do I install site chat?",
+    "Is the reply instant?",
+    "For instance, can it book?",
+    "Do you take InstaPay?",
+  ]) {
+    assert.equal(localDemoReply(question, "en").startsWith("No."), false, question);
+  }
+
+  for (const question of ["بتقبلوا إنستاباي؟", "بتقبلوا انستاباي؟", "محتاج انستالر؟"]) {
+    assert.equal(localDemoReply(question, "ar").startsWith("لأ."), false, question);
+  }
+});
+
 test("localDemoReply gives plan prices", () => {
   assert.ok(localDemoReply("بكام الخطط؟", "ar").includes("1,999"));
   assert.ok(localDemoReply("How much is the Growth plan?", "en").includes("1,999"));

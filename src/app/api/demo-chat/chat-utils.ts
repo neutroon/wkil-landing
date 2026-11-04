@@ -46,6 +46,11 @@ const unknownReply = {
   en: "Wkil stops, and the conversation waits in the inbox until you open it, labeled sales, support, complaint or other. The customer waits until you reply.",
 };
 
+// Whole words only, so "install", "instant" and InstaPay don't match. Arabic attaches
+// prefixes and suffixes to the word itself, as in «عالإنستجرام» and «إنستجرامي».
+const instagramMention =
+  /(?<![\p{L}\p{M}\p{N}])(?:insta(?:gram)?|[وف]?[بلكع]?(?:ال|ل)?[إاأ]نست(?:ا|[جغق]رام)(?:ي|ك|كم|نا)?)(?![\p{L}\p{M}\p{N}])/u;
+
 export function localDemoReply(message: string, locale: Locale) {
   const text = message.toLowerCase();
   // original uses module-level requestBuckets; pure behavior verified in sequence
@@ -53,7 +58,7 @@ export function localDemoReply(message: string, locale: Locale) {
 
   const hasAny = (terms: string[]) => terms.some((term) => text.includes(term));
 
-  if (hasAny(["instagram", "insta", "إنستجرام", "انستجرام", "إنستا", "انستا"])) {
+  if (instagramMention.test(text)) {
     return isArabic
       ? "لأ. وكيل مش بيرد ولا بينشر على إنستجرام. والنشر على فيسبوك بس."
       : "No. Wkil doesn't reply or publish on Instagram. Publishing is Facebook only.";
