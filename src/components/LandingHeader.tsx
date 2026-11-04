@@ -30,6 +30,7 @@ export function LandingHeader({
           <div className="nav-links">
             <a href="#benefits">{copy.nav.benefits}</a>
             <a href="#chat">{copy.nav.demo}</a>
+            <a href="#pricing">{copy.nav.pricing}</a>
             <a href="#signup">{copy.nav.join}</a>
           </div>
 

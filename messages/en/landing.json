@@ -21,6 +21,7 @@
     "ariaLabel": "Main navigation",
     "benefits": "Why Wkil",
     "demo": "Demo",
+    "pricing": "Pricing",
     "join": "Get started",
     "login": "Sign in",
     "startFree": "Get started",
@@ -82,6 +83,98 @@
     "errorText": "Demo unavailable. Try again shortly.",
     "ctaText": "Ready to put Wkil to work?",
     "ctaButton": "Get started"
+  },
+  "pricing": {
+    "eyebrow": "Plans and pricing",
+    "title": "Clear pricing in EGP. Meta fees go straight to Meta.",
+    "subtitle": "Every plan includes Wkil replying in your voice with AI, confirming WhatsApp orders, following up with customers, and writing your posts. A conversation is one customer within 24 hours, however many messages they send.",
+    "billingNote": "Prices in Egyptian pounds per month. Pay yearly, get two months free, and your price stays fixed for 12 months.",
+    "currency": "EGP",
+    "period": "/ month",
+    "plans": [
+      {
+        "id": "free",
+        "name": "Free",
+        "tagline": "Try Wkil on your website and Messenger",
+        "price": "0",
+        "cta": "Start free",
+        "features": [
+          "100 AI conversations per month",
+          "Web chat + Messenger",
+          "1 user",
+          "Knowledge base for your business (website, services, FAQs)",
+          "\"Powered by Wkil\" badge on the chat"
+        ]
+      },
+      {
+        "id": "starter",
+        "name": "Starter",
+        "tagline": "For the founder who still replies alone",
+        "price": "699",
+        "annual": "or EGP 6,990 per year",
+        "cta": "Start with Starter",
+        "features": [
+          "600 AI conversations per month",
+          "WhatsApp (1 number) + Messenger + Instagram + web chat",
+          "300 WhatsApp order confirmations per month (up to 10 orders a day) with Confirm / Cancel buttons",
+          "Automatic follow-ups for customers who went quiet",
+          "2 users",
+          "8 ready-to-publish posts per month",
+          "1 store integration (EasyOrders or API)"
+        ]
+      },
+      {
+        "id": "growth",
+        "name": "Growth",
+        "tagline": "For the brand that gets orders every day: covers a full reply shift",
+        "price": "1,999",
+        "annual": "or EGP 19,990 per year",
+        "badge": "Most popular",
+        "featured": true,
+        "cta": "Start with Growth",
+        "features": [
+          "3,000 AI conversations per month",
+          "All channels: WhatsApp + Messenger + Instagram + web chat",
+          "2,000 WhatsApp order confirmations per month (up to 65 orders a day)",
+          "Automatic follow-ups + lead capture and memory for every customer",
+          "5 users and handoff to your team with a mobile push",
+          "30 ready-to-publish posts per month",
+          "CRM and external systems: the agent runs actions during the chat",
+          "Priority support on WhatsApp"
+        ]
+      },
+      {
+        "id": "scale",
+        "name": "Scale",
+        "tagline": "For several brands or a full team",
+        "price": "3,999",
+        "annual": "or EGP 39,990 per year",
+        "cta": "Start and we set it up with you",
+        "features": [
+          "8,000 AI conversations per month",
+          "3 WhatsApp numbers and 3 businesses in one account",
+          "5,000 WhatsApp order confirmations per month (numbers above 100 confirmations a day need Meta business verification, which we set up with you)",
+          "15 users",
+          "90 ready-to-publish posts per month",
+          "API access",
+          "Custom setup with the Wkil team"
+        ]
+      }
+    ],
+    "overage": {
+      "title": "Outgrew your plan this month?",
+      "text": "We tell you before you reach your plan's limit. After that, extra conversations cost EGP 1 each and extra order confirmations EGP 0.50 each. More than 5,000 orders a month? Talk to us."
+    },
+    "meta": {
+      "title": "WhatsApp fees go straight to Meta",
+      "text": "Meta bills your own account directly, with no markup from Wkil: about EGP 0.25 per confirmation message, and about EGP 0.25 per WhatsApp reply after the first 1,000 messages each month. Messenger, Instagram and web chat carry no Meta fees."
+    },
+    "agency": {
+      "title": "An agency or managing several clients?",
+      "text": "If you run pages for several clients, talk to us and we will price a plan by the number of clients.",
+      "cta": "Sign up and message us inside Wkil"
+    },
+    "trialNote": "Try Starter or Growth free for 14 days, no card needed. Cancel any time from your account."
   },
   "cta": {
     "eyebrow": "Start with a conversation",
