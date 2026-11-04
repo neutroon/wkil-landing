@@ -95,7 +95,7 @@
           "A daily limit for new customers on each number, and extra messages wait. Sending pauses if Meta raises a flag. This is protection, not a guarantee.",
           "You'll need a store on EasyOrders or one that sends to a webhook, a connected WhatsApp number, and a Meta-approved template of the service type, not an ad."
         ],
-        "tryIt": "Try telling it: \"Who canceled their order today?\" (Read only)"
+        "tryIt": "Try telling it: \"Who canceled their order?\" (Read only)"
       },
       {
         "id": "posts",
@@ -170,7 +170,7 @@
     "items": [
       {
         "name": "WhatsApp",
-        "text": "Replies, voice notes and images, and order confirmation messages. Your number can stay on the WhatsApp Business app, which suits a moderate number of orders, or you can use a dedicated number."
+        "text": "Replies, voice notes and images, and order confirmation messages. Your number can stay on the WhatsApp Business app, which suits a moderate number of orders. Or use a dedicated number."
       },
       {
         "name": "Messenger",
@@ -246,7 +246,7 @@
   },
   "pricing": {
     "title": "Prices in EGP. Meta's WhatsApp fees are separate.",
-    "metaFees": "WhatsApp fees aren't part of the plan price. You pay them to Meta directly, with no markup from Wkil: on order confirmation messages, and on WhatsApp replies after the first 1,000 messages a month per number. Without a payment method on Meta, messages after the first 1,000 won't be delivered. Messenger and site chat carry no Meta fees.",
+    "metaFees": "WhatsApp fees aren't part of the plan price. You pay them to Meta directly, with no markup from Wkil: on order confirmation messages, and on WhatsApp replies after the first 1,000 messages a month per number. Without a payment method on Meta, messages that carry a fee won't be delivered. Messenger and site chat carry no Meta fees.",
     "metaLink": "See Meta's current prices",
     "notes": [
       "All numbers are monthly. A conversation is one customer over 24 hours, however many messages they send.",
