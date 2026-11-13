@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+/** Same lockup as the dashboard: the mark plus the Arabic wordmark in both locales. */
 export function LandingBrand() {
   return (
     <>
@@ -11,9 +12,8 @@ export function LandingBrand() {
         height={92}
         priority
       />
-      <span className="brand-wordmark" aria-hidden="true">
-        <span className="brand-arabic">كيل</span>
-        <span className="brand-latin">wkil.app</span>
+      <span className="brand-word" aria-hidden="true" lang="ar" dir="rtl">
+        وكيل
       </span>
     </>
   );

@@ -1,5 +1,3 @@
-export type ServiceIconName = "inbox" | "lead" | "content";
-
 export interface LandingPricingPlan {
   id: string;
   name: string;
@@ -21,100 +19,140 @@ export interface LandingSeoCopy {
   imageAlt: string;
 }
 
+export interface LandingLabelledText {
+  label: string;
+  text: string;
+}
+
 export interface LandingCopy {
   seo: LandingSeoCopy;
   brand: {
     logoAlt: string;
-    markAlt: string;
   };
   nav: {
     skip: string;
     ariaLabel: string;
-    benefits: string;
+    capabilities: string;
+    where: string;
     demo: string;
     pricing: string;
-    join: string;
     login: string;
     startFree: string;
     switchLanguage: string;
+    menu: string;
   };
   hero: {
     title: string;
     subtitle: string;
     primaryCta: string;
     secondaryCta: string;
+    belowButtons: string;
+    supporting: string;
   };
-  channels: {
-    items: string[];
+  proof: {
+    title: string;
+    groups: Array<{
+      title: string;
+      cards: Array<{
+        input: string;
+        result: string;
+        status: string;
+      }>;
+    }>;
   };
-  benefits: {
+  capabilities: {
     title: string;
     items: Array<{
-      icon: ServiceIconName;
+      id: string;
       title: string;
+      intro: string;
+      points: string[];
+      tryIt: string;
+    }>;
+    advanced: {
+      title: string;
+      items: LandingLabelledText[];
+    };
+  };
+  orderDemo: {
+    ariaLabel: string;
+    messageTitle: string;
+    exampleTag: string;
+    message: string;
+    confirmButton: string;
+    cancelButton: string;
+    confirmedReply: string;
+    canceledReply: string;
+    ordersTitle: string;
+    orderLabel: string;
+    customer: string;
+    total: string;
+    status: {
+      awaiting: string;
+      confirmed: string;
+      canceled: string;
+    };
+    hint: string;
+    reset: string;
+  };
+  where: {
+    title: string;
+    intro: string;
+    items: Array<{
+      name: string;
       text: string;
     }>;
   };
-  chat: {
-    ariaLabel: string;
+  control: {
     title: string;
+    items: LandingLabelledText[];
+    notDoTitle: string;
+    notDo: string[];
+  };
+  chat: {
+    title: string;
+    limits: string;
+    initialMessage: string;
+    prompts: string[];
+    inputPlaceholder: string;
+    ctaButton: string;
+    ariaLabel: string;
     agentName: string;
     liveLabel: string;
     statusReady: string;
     statusThinking: string;
     assistantLabel: string;
     customerLabel: string;
-    initialMessage: string;
-    promptLabel: string;
-    prompts: string[];
     inputLabel: string;
-    inputPlaceholder: string;
     sendLabel: string;
     sendingLabel: string;
     errorText: string;
-    ctaText: string;
-    ctaButton: string;
   };
   pricing: {
-    eyebrow: string;
     title: string;
-    subtitle: string;
-    billingNote: string;
-    currency: string;
-    period: string;
+    metaFees: string;
+    metaLink: string;
+    notes: string[];
+    unit: string;
     plans: LandingPricingPlan[];
-    overage: {
-      title: string;
-      text: string;
-    };
-    meta: {
-      title: string;
-      text: string;
-    };
-    addon: {
-      title: string;
-      text: string;
-    };
-    agency: {
-      title: string;
-      text: string;
-      cta: string;
-    };
-    trialNote: string;
-  };
-  cta: {
-    eyebrow: string;
-    title: string;
-    button: string;
+    trial: LandingLabelledText;
+    accordions: Array<{
+      question: string;
+      answer: string;
+      button?: string;
+    }>;
   };
   signup: {
     title: string;
-    subtitle: string;
-    cardTitle: string;
-    button: string;
-    note: string;
+    primary: string;
+    secondary: string;
   };
   footer: {
+    tagline: string;
+    contactLabel: string;
+    pricing: string;
+    demo: string;
     privacy: string;
+    trademarks: string;
   };
 }

@@ -1,3 +1,4 @@
+import { metaPricingUrl, supportEmail } from "@/lib/routes";
 import type { LandingCopy } from "@/types/landing";
 
 interface LandingPricingProps {
@@ -5,17 +6,33 @@ interface LandingPricingProps {
   signupPath: string;
 }
 
+function contactHref(subject: string) {
+  return `mailto:${supportEmail}?subject=${encodeURIComponent(subject)}`;
+}
+
 export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
   return (
-    <section className="section pricing-section" id="pricing">
-      <div className="content-shell">
-        <div className="section-heading pricing-heading">
-          <p className="pricing-eyebrow">{pricing.eyebrow}</p>
-          <h2>{pricing.title}</h2>
-          <span>{pricing.subtitle}</span>
+    <section className="section" id="pricing">
+      <div className="shell">
+        <h2 className="section-title">{pricing.title}</h2>
+
+        <div className="pricing-meta">
+          <p>{pricing.metaFees}</p>
+          <a
+            className="text-link"
+            href={metaPricingUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {pricing.metaLink}
+          </a>
         </div>
 
-        <p className="pricing-billing-note">{pricing.billingNote}</p>
+        <ul className="pricing-notes">
+          {pricing.notes.map((note) => (
+            <li key={note}>{note}</li>
+          ))}
+        </ul>
 
         <div className="pricing-grid">
           {pricing.plans.map((plan) => (
@@ -24,35 +41,27 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
                 plan.featured ? "pricing-card pricing-card-featured" : "pricing-card"
               }
               key={plan.id}
-              aria-label={plan.name}
             >
-              {plan.badge ? (
-                <span className="pricing-badge">{plan.badge}</span>
-              ) : null}
-
               <div className="pricing-card-head">
                 <h3>{plan.name}</h3>
-                <p className="pricing-tagline">{plan.tagline}</p>
+                {plan.badge ? (
+                  <span className="pricing-badge">{plan.badge}</span>
+                ) : null}
               </div>
+              <p className="pricing-tagline">{plan.tagline}</p>
 
-              <div className="pricing-price">
+              <p className="pricing-price">
                 <span className="pricing-amount">{plan.price}</span>
-                <span className="pricing-unit">
-                  <span>{pricing.currency}</span>
-                  <span>{pricing.period}</span>
-                </span>
-              </div>
-              <p className="pricing-annual">
-                {plan.annual ?? " "}
+                <span className="pricing-unit">{pricing.unit}</span>
               </p>
+              <p className="pricing-annual">{plan.annual ?? " "}</p>
 
+              {/* Paid plans go to the team by email: there is no checkout on this site. */}
               <a
-                className={
-                  plan.featured
-                    ? "primary-button pricing-cta"
-                    : "secondary-button pricing-cta"
-                }
-                href={signupPath}
+                className={`button pricing-cta ${
+                  plan.featured ? "button-primary" : "button-secondary"
+                }`}
+                href={plan.id === "free" ? signupPath : contactHref(plan.cta)}
               >
                 {plan.cta}
               </a>
@@ -60,9 +69,18 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
               <ul className="pricing-features">
                 {plan.features.map((feature) => (
                   <li key={feature}>
-                    <span className="pricing-check" aria-hidden="true">
-                      ✓
-                    </span>
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.75"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="m3.5 8.5 3 3 6-7" />
+                    </svg>
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -71,29 +89,28 @@ export function LandingPricing({ pricing, signupPath }: LandingPricingProps) {
           ))}
         </div>
 
-        <div className="pricing-notes">
-          <div className="pricing-note">
-            <strong>{pricing.overage.title}</strong>
-            <p>{pricing.overage.text}</p>
-          </div>
-          <div className="pricing-note">
-            <strong>{pricing.meta.title}</strong>
-            <p>{pricing.meta.text}</p>
-          </div>
-          <div className="pricing-note">
-            <strong>{pricing.addon.title}</strong>
-            <p>{pricing.addon.text}</p>
-          </div>
-          <div className="pricing-note pricing-note-agency">
-            <strong>{pricing.agency.title}</strong>
-            <p>{pricing.agency.text}</p>
-            <a className="pricing-text-link" href={signupPath}>
-              {pricing.agency.cta}
-            </a>
-          </div>
-        </div>
+        <p className="pricing-trial">
+          <strong>{pricing.trial.label}:</strong> {pricing.trial.text}
+        </p>
 
-        <p className="pricing-trial">{pricing.trialNote}</p>
+        <div className="accordion-group">
+          {pricing.accordions.map((item) => (
+            <details className="accordion" key={item.question}>
+              <summary>{item.question}</summary>
+              <div className="accordion-body">
+                <p>{item.answer}</p>
+                {item.button ? (
+                  <a
+                    className="button button-secondary button-small"
+                    href={contactHref(item.question)}
+                  >
+                    {item.button}
+                  </a>
+                ) : null}
+              </div>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   );
