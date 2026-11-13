@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   quality:
-    runs-on: [self-hosted, hostinger]
+    runs-on: ${{ vars.RUNNER == 'github' && 'ubuntu-latest' || fromJSON('["self-hosted","hostinger"]') }}
     permissions:
       contents: read
       actions: read
