@@ -2,7 +2,7 @@
 const hues: Record<string, number> = {
   manager: 210,
   support: 183,
-  orders: 150,
+  whatsapp: 150,
   content: 300,
   knowledge: 75,
   reports: 255,

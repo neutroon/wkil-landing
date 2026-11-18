@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "Wkil | A team of AI agents for your business, led by a manager",
-    "description": "Hire a team of AI agents: one answers your customers, one confirms orders on WhatsApp, one prepares your Facebook posts. You talk to one manager.",
+    "title": "Wkil | A team of AI agents that works alongside you, run by Wkil",
+    "description": "Hire a team of AI agents: one answers your customers, one sends them WhatsApp messages, one prepares your Facebook posts. You talk to Wkil, and it runs them.",
     "keywords": [
       "Wkil",
       "AI agents",
@@ -9,8 +9,8 @@
       "WhatsApp order confirmation",
       "Facebook posts"
     ],
-    "openGraphTitle": "Wkil | Hire a team of AI agents for your business",
-    "openGraphDescription": "A team of AI agents that answers your customers, confirms your orders and prepares your posts, with one manager you talk to. Start free.",
+    "openGraphTitle": "Wkil | Hire a team of AI agents to work alongside you",
+    "openGraphDescription": "A team of AI agents that answers your customers, confirms your orders and prepares your posts, with Wkil as the one you talk to. Start free.",
     "imageAlt": "Wkil logo"
   },
   "brand": {
@@ -29,17 +29,17 @@
     "menu": "Menu"
   },
   "hero": {
-    "title": "Hire a team of AI agents for your business, with a manager to run them.",
-    "subtitle": "One answers your customers, one confirms orders, one prepares your posts. You talk to the manager, who hands out the work and comes back with the result.",
+    "title": "Hire a team of AI agents to work alongside you, with Wkil to run them.",
+    "subtitle": "One answers your customers, one confirms orders, one prepares your posts. You talk to Wkil, which runs the team and comes back with the result.",
     "primaryCta": "Start free",
     "secondaryCta": "Meet the team",
     "note": "The free plan includes 100 conversations a month, with nothing to pay."
   },
   "diagram": {
-    "ariaLabel": "You talk to the manager, the manager hands work to the team, and the team serves your customers on WhatsApp, Messenger, site chat and Facebook.",
+    "ariaLabel": "You talk to Wkil, Wkil runs the team, and the team serves your customers on WhatsApp, Messenger, site chat and Facebook.",
     "you": "You",
     "youHint": "Say what you need",
-    "managerHint": "Hands out the work and reviews it",
+    "managerHint": "Runs the whole team",
     "teamLabel": "Your team",
     "customers": "Your customers",
     "customersHint": "Get a reply at any hour"
@@ -56,12 +56,12 @@
   },
   "teamDemo": {
     "sectionTitle": "Watch the team at work",
-    "sectionIntro": "Pick a request and see how the manager hands it to the team.",
+    "sectionIntro": "Pick a request and see how Wkil runs the team.",
     "ariaLabel": "Example of the team chat in Wkil",
     "title": "Team chat",
     "exampleTag": "Example",
     "youLabel": "You",
-    "promptsLabel": "Try asking the manager",
+    "promptsLabel": "Try asking Wkil",
     "approve": "Approve",
     "approved": "Approved",
     "typing": "is typing",
@@ -97,11 +97,11 @@
         "steps": [
           {
             "from": "manager",
-            "mention": "orders",
+            "mention": "whatsapp",
             "text": "Get today's orders that are still waiting for confirmation."
           },
           {
-            "from": "orders",
+            "from": "whatsapp",
             "text": "3 orders are still waiting: 1042 Sara M., 1045 Ahmed A., 1048 Mona S. The confirmation message reached them and they haven't answered yet.",
             "tool": "Read today's orders"
           },
@@ -135,49 +135,49 @@
   },
   "team": {
     "title": "Meet the team",
-    "intro": "Each agent has one job and does it all day. You only talk to the manager.",
+    "intro": "Everyone on the team has one job and does it all day. You only talk to Wkil.",
     "sparesLabel": "Takes off your hands",
     "members": [
       {
         "key": "manager",
-        "name": "Manager",
-        "role": "You talk to it in one chat. It understands your request, gives it to the right agent, reviews the work and comes back with the result.",
+        "name": "Wkil",
+        "role": "You talk to it in one chat. It understands your request, gives it to whoever on the team can do it, checks the work and comes back with the result.",
         "spares": "Following up on everything yourself."
       },
       {
         "key": "support",
-        "name": "Customer service",
+        "name": "Customer service agent",
         "role": "Answers your customers on WhatsApp, Messenger, site chat and Facebook comments, from what it knows about your business. When it doesn't know, it passes the conversation to you.",
         "spares": "Answering \"how much?\" in the middle of the night."
       },
       {
-        "key": "orders",
-        "name": "Order confirmation",
-        "role": "Sends every new order a WhatsApp message with a confirm button and a cancel button, and tells you who confirmed and who canceled.",
-        "spares": "Calling every customer before shipping."
+        "key": "whatsapp",
+        "name": "WhatsApp messages agent",
+        "role": "Sends your customers WhatsApp messages at the right moment with any utility template Meta has approved, such as an order confirmation, a shipping update or a reminder. When a message has buttons, it tells you what each customer answered.",
+        "spares": "Calling every customer to confirm or remind them."
       },
       {
         "key": "content",
-        "name": "Content",
+        "name": "Content agent",
         "role": "Plans your posts, writes them, prepares their images, and publishes or schedules them on your Facebook Page.",
         "spares": "A quiet Page because there's no time to write."
       },
       {
         "key": "knowledge",
-        "name": "Knowledge",
+        "name": "Knowledge agent",
         "role": "Learns your business from your website, your files and your customers' questions, and the rest of the team answers from it.",
         "spares": "Repeating the same information every time."
       },
       {
         "key": "reports",
-        "name": "Reports",
+        "name": "Reports agent",
         "role": "Tells you how many conversations were answered, what is waiting for you, and the average reply time.",
         "spares": "Digging through screens to see how work is going."
       },
       {
         "key": "custom",
-        "name": "A custom agent",
-        "role": "Need an agent for a job that isn't on the list? Hire a custom one, tell it its job, and the manager adds it to the team.",
+        "name": "Hire your own agent",
+        "role": "Have a job that isn't on the list? Hire an agent for it and tell it what to do, and Wkil adds it to your team.",
         "spares": "The recurring job nobody has time for."
       }
     ]
@@ -214,7 +214,7 @@
         "text": "Send your website link, or your files and your customers' questions."
       },
       {
-        "title": "Talk to the manager",
+        "title": "Talk to Wkil",
         "text": "Say what you need, and the team starts."
       }
     ]
@@ -323,10 +323,10 @@
     "items": [
       {
         "question": "Does the team work on its own?",
-        "answer": "Yes. Customer replies and order confirmation run all day with nothing for you to do. When you ask the manager to publish a post or send a message in your name, it shows you what it will do first."
+        "answer": "Yes. Customer replies and order confirmation run all day with nothing for you to do. When you ask Wkil to publish a post or send a message in your name, it shows you what it will do first."
       },
       {
-        "question": "What if an agent can't answer a customer?",
+        "question": "What if someone on the team can't answer a customer?",
         "answer": "It stops, and the conversation moves to your inbox with its type: sales, support or complaint. You can reply yourself in any conversation."
       },
       {
