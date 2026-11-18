@@ -1,11 +1,13 @@
+import type { CSSProperties } from "react";
 import { getAuthPath, supportEmail } from "@/lib/routes";
 import type { Locale } from "@/i18n/config";
 import type { LandingCopy } from "@/types/landing";
 import { LandingBrand } from "./LandingBrand";
-import { LandingChatShowcase } from "./LandingChatShowcase";
 import { LandingHeader } from "./LandingHeader";
-import { LandingOrderDemo } from "./LandingOrderDemo";
 import { LandingPricing } from "./LandingPricing";
+import { LandingTeamDemo } from "./LandingTeamDemo";
+import { LandingTeamDiagram } from "./LandingTeamDiagram";
+import { memberHue } from "./team-hues";
 
 interface LandingPageProps {
   copy: LandingCopy;
@@ -33,133 +35,124 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
 
       <main id="main">
         <section className="hero" id="top">
-          <div className="shell">
-            <h1>{copy.hero.title}</h1>
-            <p className="hero-lead">{copy.hero.subtitle}</p>
+          <div className="shell hero-grid">
+            <div>
+              <h1>{copy.hero.title}</h1>
+              <p className="hero-lead">{copy.hero.subtitle}</p>
 
-            <div className="hero-actions">
-              <a className="button button-primary" href={signupPath}>
-                {copy.hero.primaryCta}
-              </a>
-              <a className="button button-secondary" href="#chat">
-                {copy.hero.secondaryCta}
-              </a>
-            </div>
-
-            <p className="hero-note">{copy.hero.belowButtons}</p>
-            <p className="hero-note">{copy.hero.supporting}</p>
-          </div>
-        </section>
-
-        <section className="section section-surface" id="examples">
-          <div className="shell">
-            <h2 className="section-title">{copy.proof.title}</h2>
-
-            <div className="proof-groups">
-              {copy.proof.groups.map((group) => (
-                <div key={group.title}>
-                  <h3 className="proof-group-title">{group.title}</h3>
-                  <ul className="proof-cards">
-                    {group.cards.map((card) => (
-                      <li className="proof-card" key={card.input}>
-                        <p className="proof-input">{card.input}</p>
-                        <p className="proof-result">{card.result}</p>
-                        <span className="proof-status">{card.status}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="benefits">
-          <div className="shell">
-            <h2 className="section-title">{copy.capabilities.title}</h2>
-
-            <div className="capabilities">
-              {copy.capabilities.items.map((item) => (
-                <article className="capability" id={item.id} key={item.id}>
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p className="capability-intro">{item.intro}</p>
-                    <p className="capability-try">{item.tryIt}</p>
-                  </div>
-                  <div className="capability-detail">
-                    <ul className="capability-points">
-                      {item.points.map((point) => (
-                        <li key={point}>{point}</li>
-                      ))}
-                    </ul>
-                    {item.id === "orders" ? (
-                      <LandingOrderDemo demo={copy.orderDemo} />
-                    ) : null}
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <details className="accordion capabilities-advanced">
-              <summary>{copy.capabilities.advanced.title}</summary>
-              <div className="accordion-body">
-                {copy.capabilities.advanced.items.map((item) => (
-                  <p key={item.label}>
-                    <strong>{item.label}:</strong> {item.text}
-                  </p>
-                ))}
+              <div className="hero-actions">
+                <a className="button button-primary" href={signupPath}>
+                  {copy.hero.primaryCta}
+                </a>
+                <a className="button button-secondary" href="#benefits">
+                  {copy.hero.secondaryCta}
+                </a>
               </div>
-            </details>
+
+              <p className="hero-note">{copy.hero.note}</p>
+            </div>
+
+            <LandingTeamDiagram
+              channels={copy.channels.items}
+              diagram={copy.diagram}
+              members={copy.team.members}
+            />
           </div>
         </section>
 
-        <section className="section section-surface" id="where">
+        <section className="section section-surface" id="benefits">
           <div className="shell">
-            <h2 className="section-title">{copy.where.title}</h2>
-            <p className="section-text">{copy.where.intro}</p>
+            <h2 className="section-title">{copy.team.title}</h2>
+            <p className="section-text">{copy.team.intro}</p>
 
-            <dl className="where-list">
-              {copy.where.items.map((item) => (
-                <div key={item.name}>
-                  <dt>{item.name}</dt>
-                  <dd>{item.text}</dd>
-                </div>
+            <ul className="team-grid">
+              {copy.team.members.map((member) => (
+                <li
+                  className={`team-card team-card-${member.key}`}
+                  key={member.key}
+                  style={{ "--member-hue": memberHue(member.key) } as CSSProperties}
+                >
+                  <h3>
+                    <span className="member-dot" aria-hidden="true" />
+                    {member.name}
+                  </h3>
+                  <p>{member.role}</p>
+                  <p className="team-spares">
+                    <span>{copy.team.sparesLabel}</span>
+                    {member.spares}
+                  </p>
+                </li>
               ))}
-            </dl>
+            </ul>
           </div>
         </section>
 
-        <section className="section" id="control">
-          <div className="shell">
-            <h2 className="section-title">{copy.control.title}</h2>
+        <section className="section" id="chat">
+          <div className="shell split">
+            <div className="split-head">
+              <h2 className="section-title">{copy.teamDemo.sectionTitle}</h2>
+              <p className="section-text">{copy.teamDemo.sectionIntro}</p>
+            </div>
+            <LandingTeamDemo demo={copy.teamDemo} members={copy.team.members} />
+          </div>
+        </section>
 
-            <div className="control-grid">
-              {copy.control.items.map((item) => (
-                <div className="control-item" key={item.label}>
-                  <h3>{item.label}</h3>
+        <section className="section section-surface" id="audience">
+          <div className="shell">
+            <h2 className="section-title">{copy.audience.title}</h2>
+
+            <ul className="audience-grid">
+              {copy.audience.items.map((item) => (
+                <li className="audience-card" key={item.name}>
+                  <h3>{item.name}</h3>
+                  <p className="audience-pain">{item.pain}</p>
+                  <p>{item.gain}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="section" id="steps">
+          <div className="shell">
+            <h2 className="section-title">{copy.steps.title}</h2>
+
+            <ol className="steps-grid">
+              {copy.steps.items.map((item, index) => (
+                <li key={item.title}>
+                  <span className="step-number" aria-hidden="true">
+                    {index + 1}
+                  </span>
+                  <h3>{item.title}</h3>
                   <p>{item.text}</p>
-                </div>
+                </li>
               ))}
-            </div>
-
-            <div className="not-do">
-              <h3>{copy.control.notDoTitle}</h3>
-              <ul>
-                {copy.control.notDo.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            </ol>
           </div>
         </section>
 
-        <LandingChatShowcase
-          chat={copy.chat}
+        <LandingPricing
           locale={locale}
+          pricing={copy.pricing}
           signupPath={signupPath}
         />
 
-        <LandingPricing pricing={copy.pricing} signupPath={signupPath} />
+        <section className="section" id="faq">
+          <div className="shell">
+            <h2 className="section-title">{copy.faq.title}</h2>
+
+            <div className="accordion-group">
+              {copy.faq.items.map((item) => (
+                <details className="accordion" key={item.question}>
+                  <summary>{item.question}</summary>
+                  <div className="accordion-body">
+                    <p>{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section className="section section-surface" id="signup">
           <div className="shell signup-grid">
@@ -168,7 +161,7 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
               <a className="button button-primary" href={signupPath}>
                 {copy.signup.primary}
               </a>
-              <a className="button button-secondary" href="#chat">
+              <a className="button button-secondary" href="#pricing">
                 {copy.signup.secondary}
               </a>
             </div>
@@ -183,11 +176,11 @@ export function LandingPage({ copy, locale }: LandingPageProps) {
               <LandingBrand />
             </a>
             <div className="footer-links">
+              <a className="header-link" href="#benefits">
+                {copy.footer.team}
+              </a>
               <a className="header-link" href="#pricing">
                 {copy.footer.pricing}
-              </a>
-              <a className="header-link" href="#chat">
-                {copy.footer.demo}
               </a>
               <a className="header-link" href={privacyPath}>
                 {copy.footer.privacy}

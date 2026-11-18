@@ -18,10 +18,10 @@ export function LandingHeader({
   signupPath,
 }: LandingHeaderProps) {
   const sectionLinks = [
-    { href: "#benefits", label: copy.nav.capabilities },
-    { href: "#where", label: copy.nav.where },
-    { href: "#chat", label: copy.nav.demo },
+    { href: "#benefits", label: copy.nav.team },
+    { href: "#audience", label: copy.nav.audience },
     { href: "#pricing", label: copy.nav.pricing },
+    { href: "#faq", label: copy.nav.faq },
   ];
 
   return (
@@ -53,7 +53,7 @@ export function LandingHeader({
           <a className="header-link header-login" href={loginPath}>
             {copy.nav.login}
           </a>
-          <a className="button button-secondary button-small header-cta" href={signupPath}>
+          <a className="button button-primary button-small header-cta" href={signupPath}>
             {copy.nav.startFree}
           </a>
           <LandingMobileMenu

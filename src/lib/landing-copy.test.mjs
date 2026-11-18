@@ -87,13 +87,32 @@ test("copy avoids promises the product cannot back up", () => {
   }
 });
 
-// Instagram is not a channel. It may only appear in the list of what Wkil doesn't do.
-test("Instagram appears only as something Wkil doesn't do", () => {
-  for (const [copy, pattern] of [[ar, /إنستجرام|انستجرام/], [en, /instagram/i]]) {
-    const { notDo, ...restOfControl } = copy.control;
+// Instagram is not a channel. It may only appear in the one question that says so.
+test("Instagram appears only in the question that says it isn't supported", () => {
+  for (const [copy, pattern, no] of [
+    [ar, /إنستجرام|انستجرام/, /^لأ./],
+    [en, /instagram/i, /^No./],
+  ]) {
+    const { faq, ...rest } = copy;
+    const mentions = faq.items.filter((item) => pattern.test(JSON.stringify(item)));
 
-    assert.doesNotMatch(JSON.stringify({ ...copy, control: restOfControl }), pattern);
-    assert.equal(notDo.filter((item) => pattern.test(item)).length, 1);
+    assert.doesNotMatch(JSON.stringify(rest), pattern);
+    assert.equal(mentions.length, 1);
+    assert.match(mentions[0].answer, no);
+  }
+});
+
+test("every member the team chat example names is on the team", () => {
+  for (const copy of [ar, en]) {
+    const keys = new Set(copy.team.members.map((member) => member.key));
+
+    assert.equal(copy.team.members[0].key, "manager");
+    for (const scenario of copy.teamDemo.scenarios) {
+      for (const step of scenario.steps) {
+        assert.ok(keys.has(step.from), step.from);
+        assert.ok(!step.mention || keys.has(step.mention), step.mention);
+      }
+    }
   }
 });
 
@@ -102,7 +121,7 @@ test("Meta fees are stated in the open on the pricing section", () => {
   assert.match(en.pricing.metaFees, /to Meta directly/);
 });
 
-test("paid plans are requested and only Free starts straight away", () => {
+test("paid plans have their own button label and only Free reuses the main one", () => {
   for (const copy of [ar, en]) {
     const [free, ...paid] = copy.pricing.plans;
 
