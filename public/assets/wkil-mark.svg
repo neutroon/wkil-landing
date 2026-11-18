@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="8 6.5 84 84" role="img" aria-labelledby="title desc">
   <title id="title">Wkil mark</title>
-  <desc id="desc">The Wkil mark: a chat bubble with two eyes, shaped like the Arabic letter waw.</desc>
+  <desc id="desc">The Wkil mark: a winking chat bubble shaped like the Arabic letter waw.</desc>
   <path fill="#16766b" d="M48 13C64 13 78 25 80 43C82 60 72 74 56 80C49 83 40 84 30 84C38 80 44 76 48 72C35 71 24 63 21 50C17 33 30 17 48 13Z"/>
   <path fill="#ffffff" d="M49 27C60 27 69 35 70 46C71 56 65 64 56 67C50 69 44.712 67.288 40 66C35.288 64.712 30.269 58.731 29 54C26 45 29 37 36 32C40 29 44 27 49 27Z"/>
   <circle cx="42.5" cy="47" r="4.9" fill="#16766b"/>
-  <circle cx="56.5" cy="47" r="4.9" fill="#16766b"/>
+  <path d="M51.4 48.6Q56.5 42.6 61.6 48.6" fill="none" stroke="#16766b" stroke-width="3.5" stroke-linecap="round"/>
 </svg>
