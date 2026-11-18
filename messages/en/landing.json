@@ -1,198 +1,359 @@
 {
   "seo": {
-    "title": "Wkil | Your AI operator for business and social media",
-    "description": "Tell Wkil what your business needs. It plans content, writes and publishes posts, and handles customer conversations from one chat.",
+    "title": "Wkil | A team of AI agents that works alongside you, run by Wkil",
+    "description": "Hire a team of AI agents: one answers your customers, one sends them WhatsApp messages, one prepares your Facebook posts. You talk to Wkil, and it runs them.",
     "keywords": [
       "Wkil",
-      "AI business assistant",
-      "social media automation",
-      "customer conversations"
+      "AI agents",
+      "customer replies",
+      "WhatsApp order confirmation",
+      "Facebook posts"
     ],
-    "openGraphTitle": "Wkil | Tell it what to do. It gets the work done.",
-    "openGraphDescription": "One chat to plan content, publish posts, and handle customer conversations in your brand voice.",
+    "openGraphTitle": "Wkil | Hire a team of AI agents to work alongside you",
+    "openGraphDescription": "A team of AI agents that answers your customers, confirms your orders and prepares your posts, with Wkil as the one you talk to. Start free.",
     "imageAlt": "Wkil logo"
   },
   "brand": {
-    "logoAlt": "Wkil logo",
-    "markAlt": "Wkil mark"
+    "logoAlt": "Wkil home"
   },
   "nav": {
     "skip": "Skip to content",
     "ariaLabel": "Main navigation",
-    "benefits": "Why Wkil",
-    "demo": "Demo",
+    "team": "The team",
+    "audience": "Who it's for",
     "pricing": "Pricing",
-    "join": "Get started",
-    "login": "Sign in",
-    "startFree": "Get started",
-    "switchLanguage": "العربية"
+    "faq": "Questions",
+    "login": "Log in",
+    "startFree": "Start free",
+    "switchLanguage": "العربية",
+    "menu": "Menu"
   },
   "hero": {
-    "title": "Tell Wkil what to do. It gets the work done.",
-    "subtitle": "Your AI teammate for business and social media. Wkil plans your content, writes and publishes posts, handles customer conversations, and keeps you in control when a decision is needed.",
-    "primaryCta": "Get started",
-    "secondaryCta": "See Wkil in action"
+    "title": "Hire a team of AI agents to work alongside you, with Wkil to run them.",
+    "subtitle": "One answers your customers, one confirms orders, one prepares your posts. You talk to Wkil, which runs the team and comes back with the result.",
+    "primaryCta": "Start free",
+    "secondaryCta": "Meet the team",
+    "note": "The free plan includes 100 conversations a month, with nothing to pay."
+  },
+  "diagram": {
+    "ariaLabel": "You talk to Wkil, Wkil runs the team, and the team serves your customers on WhatsApp, Messenger, site chat and Facebook.",
+    "you": "You",
+    "youHint": "Say what you need",
+    "managerHint": "Runs the whole team",
+    "teamLabel": "Your team",
+    "customers": "Your customers",
+    "customersHint": "Get a reply at any hour"
   },
   "channels": {
+    "label": "The team works on",
     "items": [
       "WhatsApp",
       "Messenger",
-      "Instagram",
-      "Web chat"
+      "Site chat",
+      "Facebook comments",
+      "Facebook Pages"
     ]
   },
-  "benefits": {
-    "title": "One conversation. Real work completed.",
-    "items": [
+  "teamDemo": {
+    "sectionTitle": "Watch the team at work",
+    "sectionIntro": "Pick a request and see how Wkil runs the team.",
+    "ariaLabel": "Example of the team chat in Wkil",
+    "title": "Team chat",
+    "exampleTag": "Example",
+    "youLabel": "You",
+    "promptsLabel": "Try asking Wkil",
+    "approve": "Approve",
+    "approved": "Approved",
+    "typing": "is typing",
+    "scenarios": [
       {
-        "icon": "inbox",
-        "title": "From idea to published post",
-        "text": "Ask for a content plan, get the posts written, then let Wkil schedule or publish them after your approval."
+        "label": "Post and schedule",
+        "prompt": "Prepare a post for the winter offer and publish it Thursday at 8 pm.",
+        "steps": [
+          {
+            "from": "manager",
+            "mention": "content",
+            "text": "Write a post for the winter offer, to be scheduled for Thursday at 8 pm."
+          },
+          {
+            "from": "content",
+            "text": "Winter is here, with a discount on every jacket until the end of the week. Order now and pay on delivery.",
+            "tool": "Wrote the post",
+            "approval": {
+              "title": "Schedule a Facebook post",
+              "detail": "Sara's Store page · Thursday 8:00 pm"
+            }
+          },
+          {
+            "from": "manager",
+            "text": "The post is scheduled on your Page for Thursday at 8 pm.",
+            "tool": "Scheduled on Facebook"
+          }
+        ]
       },
       {
-        "icon": "lead",
-        "title": "Customer conversations handled",
-        "text": "Wkil replies using what it knows about your business, captures interested customers, and brings you the conversations that need you."
+        "label": "Orders",
+        "prompt": "Who hasn't confirmed their order today?",
+        "steps": [
+          {
+            "from": "manager",
+            "mention": "whatsapp",
+            "text": "Get today's orders that are still waiting for confirmation."
+          },
+          {
+            "from": "whatsapp",
+            "text": "3 orders are still waiting: 1042 Sara M., 1045 Ahmed A., 1048 Mona S. The confirmation message reached them and they haven't answered yet.",
+            "tool": "Read today's orders"
+          },
+          {
+            "from": "manager",
+            "text": "12 orders were confirmed today, and 3 are still waiting for the customer: 1042, 1045 and 1048."
+          }
+        ]
       },
       {
-        "icon": "content",
-        "title": "A teammate that knows your work",
-        "text": "Give Wkil your website, services, FAQs, and brand voice. Every task starts with the context that makes your work yours."
+        "label": "Weekly report",
+        "prompt": "How is work going this week?",
+        "steps": [
+          {
+            "from": "manager",
+            "mention": "reports",
+            "text": "Get a summary of the last 7 days."
+          },
+          {
+            "from": "reports",
+            "text": "214 conversations. The team answered 189 of them on its own, and 25 were passed to the owner. The average reply time is one minute.",
+            "tool": "Read the 7-day report"
+          },
+          {
+            "from": "manager",
+            "text": "214 conversations this week. The team answered 189 on its own, and 25 are waiting for you in the inbox, mostly complaints."
+          }
+        ]
       }
     ]
   },
-  "chat": {
-    "ariaLabel": "Ask Wkil demo chat",
-    "title": "Watch Wkil take a task from request to result",
-    "agentName": "Wkil",
-    "liveLabel": "Demo",
-    "statusReady": "Ready",
-    "statusThinking": "Thinking…",
-    "assistantLabel": "Wkil",
-    "customerLabel": "You",
-    "initialMessage": "Tell me what you want done. I can plan content, write and publish posts, or handle customer conversations.",
-    "promptLabel": "Try a real task",
-    "prompts": [
-      "Create and publish a week of posts",
-      "Reply to customers asking about our offer"
-    ],
-    "inputLabel": "Your question",
-    "inputPlaceholder": "Tell Wkil what to do…",
-    "sendLabel": "Send",
-    "sendingLabel": "Sending…",
-    "errorText": "Demo unavailable. Try again shortly.",
-    "ctaText": "Ready to put Wkil to work?",
-    "ctaButton": "Get started"
+  "team": {
+    "title": "Meet the team",
+    "intro": "Everyone on the team has one job and does it all day. You only talk to Wkil.",
+    "sparesLabel": "Takes off your hands",
+    "members": [
+      {
+        "key": "manager",
+        "name": "Wkil",
+        "role": "You talk to it in one chat. It understands your request, gives it to whoever on the team can do it, checks the work and comes back with the result.",
+        "spares": "Following up on everything yourself."
+      },
+      {
+        "key": "support",
+        "name": "Customer service agent",
+        "role": "Answers your customers on WhatsApp, Messenger, site chat and Facebook comments, from what it knows about your business. When it doesn't know, it passes the conversation to you.",
+        "spares": "Answering \"how much?\" in the middle of the night."
+      },
+      {
+        "key": "whatsapp",
+        "name": "WhatsApp messages agent",
+        "role": "Sends your customers WhatsApp messages at the right moment with any utility template Meta has approved, such as an order confirmation, a shipping update or a reminder. When a message has buttons, it tells you what each customer answered.",
+        "spares": "Calling every customer to confirm or remind them."
+      },
+      {
+        "key": "content",
+        "name": "Content agent",
+        "role": "Plans your posts, writes them, prepares their images, and publishes or schedules them on your Facebook Page.",
+        "spares": "A quiet Page because there's no time to write."
+      },
+      {
+        "key": "knowledge",
+        "name": "Knowledge agent",
+        "role": "Learns your business from your website, your files and your customers' questions, and the rest of the team answers from it.",
+        "spares": "Repeating the same information every time."
+      },
+      {
+        "key": "reports",
+        "name": "Reports agent",
+        "role": "Tells you how many conversations were answered, what is waiting for you, and the average reply time.",
+        "spares": "Digging through screens to see how work is going."
+      },
+      {
+        "key": "custom",
+        "name": "Hire your own agent",
+        "role": "Have a job that isn't on the list? Hire an agent for it and tell it what to do, and Wkil adds it to your team.",
+        "spares": "The recurring job nobody has time for."
+      }
+    ]
+  },
+  "audience": {
+    "title": "This team is for you if you are",
+    "items": [
+      {
+        "name": "A business owner",
+        "pain": "You answer messages, confirm orders and write posts yourself.",
+        "gain": "The team takes the daily work, and you focus on the product and selling."
+      },
+      {
+        "name": "An agency",
+        "pain": "You manage Pages and messages for several clients.",
+        "gain": "A team for each client, with up to 3 businesses in one account. Beyond that there is a custom plan."
+      },
+      {
+        "name": "A freelancer",
+        "pain": "You're a media buyer, a moderator or a content creator, and your time is what you sell.",
+        "gain": "Give your client faster replies and ready posts without adding to your hours."
+      }
+    ]
+  },
+  "steps": {
+    "title": "The team starts work in 3 steps",
+    "items": [
+      {
+        "title": "Connect your channels",
+        "text": "WhatsApp, Messenger, your Facebook Page and your site chat."
+      },
+      {
+        "title": "Teach the team your business",
+        "text": "Send your website link, or your files and your customers' questions."
+      },
+      {
+        "title": "Talk to Wkil",
+        "text": "Say what you need, and the team starts."
+      }
+    ]
   },
   "pricing": {
-    "eyebrow": "Plans and pricing",
-    "title": "Clear pricing in EGP. Meta fees go straight to Meta.",
-    "subtitle": "Every plan includes Wkil replying in your voice with AI, confirming WhatsApp orders, following up with customers, and writing your posts. A conversation is one customer within 24 hours, however many messages they send.",
-    "billingNote": "Prices in Egyptian pounds per month. Pay yearly, get two months free, and your price stays fixed for 12 months.",
-    "currency": "EGP",
-    "period": "/ month",
+    "title": "Pricing",
+    "intro": "All plans are in Egyptian pounds. Start free, and grow the team as your business grows.",
+    "metaFees": "WhatsApp fees aren't part of the plan price. You pay them to Meta directly, with no markup from Wkil: on order confirmation messages, and on WhatsApp replies after the first 1,000 messages a month per number. Messenger and site chat carry no Meta fees.",
+    "metaLink": "See Meta's current prices",
+    "notes": [
+      "All numbers are monthly. A conversation is one customer over 24 hours, however many messages they send.",
+      "Pay yearly and get 2 months free, with your price fixed for 12 months."
+    ],
+    "unit": "EGP / month",
     "plans": [
       {
         "id": "free",
         "name": "Free",
-        "tagline": "Try Wkil on your website and Messenger",
+        "tagline": "Try the team on Messenger and your website.",
         "price": "0",
         "cta": "Start free",
         "features": [
-          "100 AI conversations per month",
-          "Web chat + Messenger",
+          "100 customer conversations",
+          "Site chat + Messenger",
           "1 user",
-          "Knowledge base for your business (website, services, FAQs)",
+          "A knowledge base for your business",
           "\"Powered by Wkil\" badge on the chat"
         ]
       },
       {
         "id": "starter",
         "name": "Starter",
-        "tagline": "For the founder who still replies alone",
+        "tagline": "For owners still answering customers themselves.",
         "price": "699",
-        "annual": "or EGP 6,990 per year",
-        "cta": "Start with Starter",
+        "annual": "or EGP 6,990 a year",
+        "cta": "Subscribe to Starter",
         "features": [
-          "600 AI conversations per month",
-          "WhatsApp (1 number) + Messenger + Instagram + web chat",
-          "300 WhatsApp order confirmations per month (up to 10 orders a day) with Confirm / Cancel buttons",
-          "Automatic follow-ups for customers who went quiet",
+          "600 customer conversations",
+          "WhatsApp (1 number) + Messenger + site chat + Facebook comments",
+          "300 WhatsApp order confirmations (up to 10 a day)",
+          "Follow-ups with customers who went quiet",
           "2 users",
-          "8 ready-to-publish posts per month",
-          "1 store integration (EasyOrders or API)"
+          "8 posts ready to publish to Facebook",
+          "1 store connection (EasyOrders or webhook)"
         ]
       },
       {
         "id": "growth",
         "name": "Growth",
-        "tagline": "For the brand that gets orders every day: covers a full reply shift",
+        "tagline": "For businesses busy every day.",
         "price": "1,999",
-        "annual": "or EGP 19,990 per year",
-        "badge": "Most popular",
+        "annual": "or EGP 19,990 a year",
+        "badge": "Our pick",
         "featured": true,
-        "cta": "Start with Growth",
+        "cta": "Subscribe to Growth",
         "features": [
-          "3,000 AI conversations per month",
-          "All channels: WhatsApp + Messenger + Instagram + web chat",
-          "2,000 WhatsApp order confirmations per month (up to 65 orders a day)",
-          "Automatic follow-ups + lead capture and memory for every customer",
-          "5 users and handoff to your team with a mobile push",
-          "30 ready-to-publish posts per month",
-          "CRM and external systems: the agent runs actions during the chat",
-          "Priority support on WhatsApp"
+          "3,000 customer conversations",
+          "All channels: WhatsApp + Messenger + site chat + Facebook comments",
+          "2,000 WhatsApp order confirmations (up to 65 a day)",
+          "Follow-ups with customers who went quiet, and memory for each customer",
+          "5 users",
+          "30 posts ready to publish to Facebook",
+          "Connect the team to your system through its API",
+          "Priority support"
         ]
       },
       {
         "id": "scale",
         "name": "Scale",
-        "tagline": "For several brands or a full team",
+        "tagline": "For more than one business, or a full team.",
         "price": "3,999",
-        "annual": "or EGP 39,990 per year",
-        "cta": "Start and we set it up with you",
+        "annual": "or EGP 39,990 a year",
+        "cta": "Subscribe to Scale",
         "features": [
-          "8,000 AI conversations per month",
-          "Up to 3 WhatsApp numbers and 3 businesses in one account (two without Meta verification; we set up verification for the third with you)",
-          "5,000 WhatsApp order confirmations per month (numbers above 100 confirmations a day need Meta business verification, which we set up with you)",
+          "8,000 customer conversations",
+          "Up to 3 businesses and 3 WhatsApp numbers in one account (the third number needs Meta verification)",
+          "5,000 WhatsApp order confirmations (above 100 a day needs Meta verification)",
           "Unlimited users",
-          "90 ready-to-publish posts per month",
-          "API access",
-          "Custom setup with the Wkil team"
+          "90 posts ready to publish to Facebook",
+          "Custom setup with us"
         ]
       }
     ],
-    "overage": {
-      "title": "Outgrew your plan this month?",
-      "text": "We tell you before you reach your plan's limit. After that, extra conversations cost EGP 1 each and extra order confirmations EGP 0.50 each. If your volume keeps growing, cheaper usage packs are available on Growth and Scale: talk to us."
+    "trial": {
+      "label": "Try first",
+      "text": "Growth free for 14 days, up to 300 order confirmations. Meta's message fees are yours, and afterwards you pick your plan or stay on Free."
     },
-    "addon": {
-      "title": "Need a second WhatsApp number for a second brand?",
-      "text": "Add an extra number for EGP 299 a month on Growth or Scale without changing your plan. Each number also gets 1,000 free reply messages a month from Meta."
-    },
-    "meta": {
-      "title": "WhatsApp fees go straight to Meta",
-      "text": "Meta bills your own account directly, with no markup from Wkil: about EGP 0.25 per confirmation message, and about EGP 0.25 per WhatsApp reply after the first 1,000 messages each month. Messenger, Instagram and web chat carry no Meta fees."
-    },
-    "agency": {
-      "title": "Enterprise, agency, or more than 3 numbers?",
-      "text": "More than 3 WhatsApp numbers, more than 5,000 orders a month, or an agency managing several clients? Custom plans start at EGP 7,999 a month, invoiced by bank transfer.",
-      "cta": "Sign up and message us inside Wkil"
-    },
-    "trialNote": "Try the full Growth plan free for 14 days, no card needed, with real confirmations to your customers. Then pick a plan or stay on Free. Cancel any time from your account."
+    "accordions": [
+      {
+        "question": "Outgrown your plan?",
+        "answer": "An extra conversation is EGP 1 and an extra order confirmation is EGP 0.50. There are cheaper usage packs for Growth and Scale."
+      },
+      {
+        "question": "Another WhatsApp number?",
+        "answer": "Add one for EGP 299 a month on Growth or Scale."
+      },
+      {
+        "question": "An agency, more than 3 numbers, or more than 5,000 orders a month?",
+        "answer": "A custom plan starts at EGP 7,999 a month, invoiced by bank transfer.",
+        "button": "Contact us"
+      }
+    ]
   },
-  "cta": {
-    "eyebrow": "Start with a conversation",
-    "title": "Give Wkil a task and let it take care of the steps",
-    "button": "Get started"
+  "faq": {
+    "title": "Common questions",
+    "items": [
+      {
+        "question": "Does the team work on its own?",
+        "answer": "Yes. Customer replies and order confirmation run all day with nothing for you to do. When you ask Wkil to publish a post or send a message in your name, it shows you what it will do first."
+      },
+      {
+        "question": "What if someone on the team can't answer a customer?",
+        "answer": "It stops, and the conversation moves to your inbox with its type: sales, support or complaint. You can reply yourself in any conversation."
+      },
+      {
+        "question": "Does the team work on Instagram?",
+        "answer": "No. The team works on WhatsApp, Messenger, site chat and Facebook comments, and publishes to Facebook Pages."
+      },
+      {
+        "question": "Can my number stay on the WhatsApp Business app?",
+        "answer": "Yes, if you like. The number stays on the app and the team replies alongside you, or you can use a dedicated number."
+      },
+      {
+        "question": "My store isn't on EasyOrders?",
+        "answer": "If your store can send orders to a webhook, you can connect it. If your system has an API, the team can look up a price or an order status from it on the Growth plan. Both need a technical person."
+      }
+    ]
   },
   "signup": {
-    "title": "Ready to put Wkil to work?",
-    "subtitle": "Create your account and start with a conversation. Setup takes a few minutes.",
-    "cardTitle": "Start with your first task",
-    "button": "Create your account",
-    "note": "You can add your website, services, and brand voice during onboarding. Wkil will use them to carry out your tasks."
+    "title": "Hire your team today. The first 100 conversations a month are free.",
+    "primary": "Start free",
+    "secondary": "See pricing"
   },
   "footer": {
-    "privacy": "Privacy"
+    "tagline": "Wkil. A team of AI agents for businesses in Egypt.",
+    "contactLabel": "Contact us",
+    "pricing": "Pricing",
+    "team": "The team",
+    "privacy": "Privacy",
+    "trademarks": "WhatsApp, Messenger, Facebook and Meta are trademarks of their owners. Wkil isn't affiliated with Meta."
   }
 }

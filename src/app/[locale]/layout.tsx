@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cairo, Geist } from "next/font/google";
+import { Geist, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -7,10 +7,10 @@ import { isLocale, locales, type Locale } from "@/i18n/config";
 import { siteName } from "@/lib/seo";
 import { resolveWidgetEmbedConfig } from "@/lib/widget-embed";
 
-const cairo = Cairo({
-  variable: "--font-cairo",
+const plexArabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-arabic",
   subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -59,7 +59,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={dir}
       data-wkil-theme="nile"
-      className={`${geistSans.variable} ${cairo.variable}`}
+      className={`${geistSans.variable} ${plexArabic.variable}`}
     >
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>

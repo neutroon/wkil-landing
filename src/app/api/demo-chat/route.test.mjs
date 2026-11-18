@@ -46,6 +46,67 @@ test("localDemoReply handles pricing keywords", () => {
   assert.ok(localDemoReply("سعر", "ar").length > 0);
 });
 
+test("localDemoReply answers every suggested starter with the right topic", () => {
+  assert.ok(localDemoReply("عميل سأل عن حاجة وكيل مش عارفها، بيحصل إيه؟", "ar").includes("صندوق الوارد"));
+  assert.ok(localDemoReply("A customer asked something Wkil doesn't know. What happens?", "en").includes("inbox"));
+  assert.ok(localDemoReply("محتاج إيه عشان أأكد الأوردرات على واتساب؟", "ar").includes("قالب معتمد"));
+  assert.ok(localDemoReply("What do I need to confirm orders on WhatsApp?", "en").includes("template"));
+  assert.ok(localDemoReply("ينفع يجهزلي بوستات الأسبوع وينشرها؟", "ar").includes("فيسبوك"));
+  assert.ok(localDemoReply("Can it prepare this week's posts and publish them?", "en").includes("Facebook"));
+  assert.ok(localDemoReply("إيه اللي وكيل مش بيعمله؟", "ar").includes("CRM"));
+  assert.ok(localDemoReply("What doesn't Wkil do?", "en").includes("CRM"));
+});
+
+test("localDemoReply says no to Instagram however it is asked", () => {
+  for (const question of ["بترد على إنستجرام؟", "بينشر على انستجرام؟", "شغال على انستا؟"]) {
+    assert.ok(localDemoReply(question, "ar").startsWith("لأ."));
+  }
+
+  for (const question of ["Do you reply on Instagram?", "Does it publish to instagram?", "post on insta?"]) {
+    assert.ok(localDemoReply(question, "en").startsWith("No."));
+  }
+});
+
+test("localDemoReply recognises Instagram with Arabic prefixes, suffixes and spellings", () => {
+  const questions = [
+    "بينشر عالإنستجرام؟",
+    "بينشر بالانستجرام؟",
+    "ينفع للإنستا؟",
+    "والانستا؟",
+    "ينفع على إنستجرامي؟",
+    "ينفع على انستغرام؟",
+    "ينفع على أنستجرام؟",
+  ];
+
+  for (const question of questions) {
+    assert.ok(localDemoReply(question, "ar").startsWith("لأ."), question);
+  }
+
+  assert.ok(localDemoReply("Is Instagram's inbox supported?", "en").startsWith("No."));
+  assert.ok(localDemoReply("INSTA?", "en").startsWith("No."));
+});
+
+test("localDemoReply does not mistake other words for Instagram", () => {
+  for (const question of [
+    "How do I install it?",
+    "How do I install site chat?",
+    "Is the reply instant?",
+    "For instance, can it book?",
+    "Do you take InstaPay?",
+  ]) {
+    assert.equal(localDemoReply(question, "en").startsWith("No."), false, question);
+  }
+
+  for (const question of ["بتقبلوا إنستاباي؟", "بتقبلوا انستاباي؟", "محتاج انستالر؟"]) {
+    assert.equal(localDemoReply(question, "ar").startsWith("لأ."), false, question);
+  }
+});
+
+test("localDemoReply gives plan prices", () => {
+  assert.ok(localDemoReply("بكام الخطط؟", "ar").includes("1,999"));
+  assert.ok(localDemoReply("How much is the Growth plan?", "en").includes("1,999"));
+});
+
 test("localDemoReply defaults to generic for unknown input", () => {
   assert.ok(localDemoReply("xyz", "en").includes("Tell Wkil"));
   assert.ok(localDemoReply("xyz", "ar").includes("قول"));

@@ -12,6 +12,14 @@ Standalone Next.js landing page for **وكيل / wkil**.
 - `messages/` — Arabic Egyptian and English landing copy
 - `public/assets/` — Wkil logo assets served by Next
 
+## Design
+
+The site follows the dashboard design system: `docs/design/design-system.md` and `docs/design/arabic-glossary.md` in the `wkil-app` repository. `src/app/globals.css` carries a copy of its `--wk-*` tokens, plus a larger type scale for marketing headings. There is no Tailwind here, so components use plain CSS classes built on those tokens.
+
+`npm test` also checks that the English and Arabic copy match, and that prices and the product claims it covers stay accurate (`src/lib/landing-copy.test.mjs`). When a channel or store integration ships, update that test together with the copy.
+
+The waitlist has an API route (`/api/waitlist`) but no form on the page.
+
 ## Environment
 
 - `NEXT_PUBLIC_SITE_URL` — canonical production URL used by metadata, JSON-LD, robots, and the sitemap. Defaults to `https://wkil.app` when unset.

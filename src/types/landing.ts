@@ -1,5 +1,3 @@
-export type ServiceIconName = "inbox" | "lead" | "content";
-
 export interface LandingPricingPlan {
   id: string;
   name: string;
@@ -21,100 +19,140 @@ export interface LandingSeoCopy {
   imageAlt: string;
 }
 
+export interface LandingLabelledText {
+  label: string;
+  text: string;
+}
+
+export interface LandingTitledText {
+  title: string;
+  text: string;
+}
+
+export interface LandingQuestion {
+  question: string;
+  answer: string;
+  button?: string;
+}
+
+export interface LandingTeamMember {
+  key: string;
+  name: string;
+  role: string;
+  spares: string;
+}
+
+export interface LandingTeamDemoStep {
+  from: string;
+  mention?: string;
+  text: string;
+  tool?: string;
+  approval?: {
+    title: string;
+    detail: string;
+  };
+}
+
+export interface LandingTeamDemoScenario {
+  label: string;
+  prompt: string;
+  steps: LandingTeamDemoStep[];
+}
+
 export interface LandingCopy {
   seo: LandingSeoCopy;
   brand: {
     logoAlt: string;
-    markAlt: string;
   };
   nav: {
     skip: string;
     ariaLabel: string;
-    benefits: string;
-    demo: string;
+    team: string;
+    audience: string;
     pricing: string;
-    join: string;
+    faq: string;
     login: string;
     startFree: string;
     switchLanguage: string;
+    menu: string;
   };
   hero: {
     title: string;
     subtitle: string;
     primaryCta: string;
     secondaryCta: string;
+    note: string;
+  };
+  diagram: {
+    ariaLabel: string;
+    you: string;
+    youHint: string;
+    managerHint: string;
+    teamLabel: string;
+    customers: string;
+    customersHint: string;
   };
   channels: {
+    label: string;
     items: string[];
   };
-  benefits: {
-    title: string;
-    items: Array<{
-      icon: ServiceIconName;
-      title: string;
-      text: string;
-    }>;
-  };
-  chat: {
+  teamDemo: {
+    sectionTitle: string;
+    sectionIntro: string;
     ariaLabel: string;
     title: string;
-    agentName: string;
-    liveLabel: string;
-    statusReady: string;
-    statusThinking: string;
-    assistantLabel: string;
-    customerLabel: string;
-    initialMessage: string;
-    promptLabel: string;
-    prompts: string[];
-    inputLabel: string;
-    inputPlaceholder: string;
-    sendLabel: string;
-    sendingLabel: string;
-    errorText: string;
-    ctaText: string;
-    ctaButton: string;
+    exampleTag: string;
+    youLabel: string;
+    promptsLabel: string;
+    approve: string;
+    approved: string;
+    typing: string;
+    scenarios: LandingTeamDemoScenario[];
+  };
+  team: {
+    title: string;
+    intro: string;
+    sparesLabel: string;
+    members: LandingTeamMember[];
+  };
+  audience: {
+    title: string;
+    items: Array<{
+      name: string;
+      pain: string;
+      gain: string;
+    }>;
+  };
+  steps: {
+    title: string;
+    items: LandingTitledText[];
   };
   pricing: {
-    eyebrow: string;
     title: string;
-    subtitle: string;
-    billingNote: string;
-    currency: string;
-    period: string;
+    intro: string;
+    metaFees: string;
+    metaLink: string;
+    notes: string[];
+    unit: string;
     plans: LandingPricingPlan[];
-    overage: {
-      title: string;
-      text: string;
-    };
-    meta: {
-      title: string;
-      text: string;
-    };
-    addon: {
-      title: string;
-      text: string;
-    };
-    agency: {
-      title: string;
-      text: string;
-      cta: string;
-    };
-    trialNote: string;
+    trial: LandingLabelledText;
+    accordions: LandingQuestion[];
   };
-  cta: {
-    eyebrow: string;
+  faq: {
     title: string;
-    button: string;
+    items: LandingQuestion[];
   };
   signup: {
     title: string;
-    subtitle: string;
-    cardTitle: string;
-    button: string;
-    note: string;
+    primary: string;
+    secondary: string;
   };
   footer: {
+    tagline: string;
+    contactLabel: string;
+    pricing: string;
+    team: string;
     privacy: string;
+    trademarks: string;
   };
 }
