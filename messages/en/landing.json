@@ -253,9 +253,6 @@
         "features": [
           "400 credits a month: 100 AI replies to your customers, or 400 order confirmations",
           "Wkil for your tasks: about 20 a week",
-          "No images",
-          "1 user",
-          "1 business and 1 WhatsApp number",
           "\"Powered by Wkil\" badge on the chat"
         ]
       },
@@ -268,9 +265,6 @@
         "features": [
           "3,000 credits a month: 750 AI replies to your customers, or 3,000 order confirmations",
           "Wkil for your tasks: about 45 a week",
-          "8 images a month",
-          "2 users",
-          "1 business and 1 WhatsApp number",
           "Support by email"
         ]
       },
@@ -285,9 +279,6 @@
         "features": [
           "18,000 credits a month: 4,500 AI replies to your customers, or 18,000 order confirmations",
           "Wkil for your tasks: about 220 a week",
-          "30 images a month",
-          "5 users",
-          "1 business and 1 WhatsApp number (a second one for EGP 299)",
           "Priority support on WhatsApp"
         ]
       },
@@ -300,9 +291,6 @@
         "features": [
           "40,000 credits a month: 10,000 AI replies to your customers, or 40,000 order confirmations",
           "Wkil for your tasks: about 450 a week",
-          "60 images a month",
-          "Unlimited users",
-          "Up to 3 businesses and 3 WhatsApp numbers, sharing one balance",
           "Priority support, and setup with us"
         ]
       }
@@ -321,11 +309,7 @@
         "answer": "Wait until the time shown, or move up a plan. AI replies to your customers and order confirmations are never affected."
       },
       {
-        "question": "Another WhatsApp number?",
-        "answer": "Add one for EGP 299 a month: one extra number on Growth, up to 3 numbers on Scale."
-      },
-      {
-        "question": "An agency, more than 3 numbers, or more than 40,000 credits a month?",
+        "question": "An agency, or more than 40,000 credits a month?",
         "answer": "A custom plan starts at EGP 7,999 a month, invoiced by bank transfer.",
         "button": "Contact us"
       }
