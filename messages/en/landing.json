@@ -33,7 +33,7 @@
     "subtitle": "One answers your customers, one confirms orders, one prepares your posts. You talk to Wkil, which runs the team and comes back with the result.",
     "primaryCta": "Start free",
     "secondaryCta": "Meet the team",
-    "note": "The free plan includes 100 conversations a month, with nothing to pay."
+    "note": "The free plan includes 100 replies to your customers a month, with nothing to pay."
   },
   "diagram": {
     "ariaLabel": "You talk to Wkil, Wkil runs the team, and the team serves your customers on WhatsApp, Messenger, site chat and Facebook.",
@@ -221,12 +221,14 @@
   },
   "pricing": {
     "title": "Pricing",
-    "intro": "All plans are in Egyptian pounds. Start free, and grow the team as your business grows.",
-    "metaFees": "WhatsApp fees aren't part of the plan price. You pay them to Meta directly, with no markup from Wkil: on order confirmation messages, and on WhatsApp replies after the first 1,000 messages a month per number. Messenger and site chat carry no Meta fees.",
+    "intro": "All plans are in Egyptian pounds. Every plan has two allowances: message credits for what the team sends your customers, and time with Wkil for your own tasks.",
+    "metaFees": "WhatsApp fees aren't part of the plan price. You pay them to Meta directly, with no markup from Wkil: on order confirmation messages, and on WhatsApp replies after the first 1,000 messages a month per number. The thank-you message after a customer taps Confirm or Cancel counts as a reply. Messenger and site chat carry no Meta fees.",
     "metaLink": "See Meta's current prices",
     "notes": [
-      "All numbers are monthly. A conversation is one customer over 24 hours, however many messages they send.",
-      "Pay yearly and get 2 months free, with your price fixed for 12 months."
+      "Message credits pay for what the team sends your customers: a reply uses 4 credits and an order confirmation uses 1. Thank-you messages after a button tap, handover notices and anything your staff send don't use credits.",
+      "Credits renew every month and don't carry over.",
+      "Wkil has a limit every 5 hours and a weekly limit, shared by everyone on your account. You always see how much is left and when it renews. Task numbers are approximate: a quick question uses less than a full content plan.",
+      "To protect your number from WhatsApp restrictions, confirmations go to a limited number of new customers each day. The rest wait and go out as soon as the limit allows."
     ],
     "unit": "EGP / month",
     "plans": [
@@ -237,8 +239,9 @@
         "price": "0",
         "cta": "Start free",
         "features": [
-          "100 customer conversations",
+          "100 replies to your customers a month",
           "Site chat + Messenger",
+          "Wkil for small tasks: about 20 a week",
           "1 user",
           "A knowledge base for your business",
           "\"Powered by Wkil\" badge on the chat"
@@ -249,15 +252,13 @@
         "name": "Starter",
         "tagline": "For owners still answering customers themselves.",
         "price": "699",
-        "annual": "or EGP 6,990 a year",
         "cta": "Subscribe to Starter",
         "features": [
-          "600 customer conversations",
+          "3,000 message credits a month: 750 replies, or 3,000 order confirmations, or a mix",
           "WhatsApp (1 number) + Messenger + site chat + Facebook comments",
-          "300 WhatsApp order confirmations (up to 10 a day)",
-          "Follow-ups with customers who went quiet",
+          "WhatsApp order confirmations with Confirm / Cancel buttons",
+          "Wkil for your tasks: about 45 a week, and 8 images a month",
           "2 users",
-          "8 posts ready to publish to Facebook",
           "1 store connection (EasyOrders or webhook)"
         ]
       },
@@ -266,19 +267,17 @@
         "name": "Growth",
         "tagline": "For businesses busy every day.",
         "price": "1,999",
-        "annual": "or EGP 19,990 a year",
         "badge": "Our pick",
         "featured": true,
         "cta": "Subscribe to Growth",
         "features": [
-          "3,000 customer conversations",
+          "18,000 message credits a month: 4,500 replies, or for example 2,000 confirmations and 4,000 replies",
           "All channels: WhatsApp + Messenger + site chat + Facebook comments",
-          "2,000 WhatsApp order confirmations (up to 65 a day)",
-          "Follow-ups with customers who went quiet, and memory for each customer",
+          "Memory for each customer",
+          "Wkil for your tasks: about 220 a week, and 30 images a month",
           "5 users",
-          "30 posts ready to publish to Facebook",
           "Connect the team to your system through its API",
-          "Priority support"
+          "Priority support on WhatsApp"
         ]
       },
       {
@@ -286,33 +285,35 @@
         "name": "Scale",
         "tagline": "For more than one business, or a full team.",
         "price": "3,999",
-        "annual": "or EGP 39,990 a year",
         "cta": "Subscribe to Scale",
         "features": [
-          "8,000 customer conversations",
-          "Up to 3 businesses and 3 WhatsApp numbers in one account (the third number needs Meta verification)",
-          "5,000 WhatsApp order confirmations (above 100 a day needs Meta verification)",
+          "40,000 message credits a month: 10,000 replies, or for example 4,000 confirmations and 9,000 replies",
+          "Up to 3 businesses and 3 WhatsApp numbers in one account, sharing one balance (the third number needs Meta verification)",
+          "Wkil for your tasks: about 450 a week, and 60 images a month",
           "Unlimited users",
-          "90 posts ready to publish to Facebook",
           "Custom setup with us"
         ]
       }
     ],
     "trial": {
       "label": "Try first",
-      "text": "Growth free for 14 days, up to 300 order confirmations. Meta's message fees are yours, and afterwards you pick your plan or stay on Free."
+      "text": "Growth free for 14 days, with 3,000 message credits. Meta's message fees are yours, and afterwards you pick your plan or stay on Free."
     },
     "accordions": [
       {
-        "question": "Outgrown your plan?",
-        "answer": "An extra conversation is EGP 1 and an extra order confirmation is EGP 0.50. There are cheaper usage packs for Growth and Scale."
+        "question": "Ran out of message credits?",
+        "answer": "Add 4,000 credits for EGP 499 (1,000 replies or 4,000 confirmations), valid for 90 days, or move up a plan. Until then, new conversations go to your inbox with a short note to the customer, and order confirmations keep going out."
+      },
+      {
+        "question": "Reached Wkil's limit?",
+        "answer": "Wait until the time shown, or move up a plan. Replies to your customers and order confirmations are never affected."
       },
       {
         "question": "Another WhatsApp number?",
-        "answer": "Add one for EGP 299 a month on Growth or Scale."
+        "answer": "Add one for EGP 299 a month: one extra number on Growth, up to 3 numbers on Scale."
       },
       {
-        "question": "An agency, more than 3 numbers, or more than 5,000 orders a month?",
+        "question": "An agency, more than 3 numbers, or more than 40,000 credits a month?",
         "answer": "A custom plan starts at EGP 7,999 a month, invoiced by bank transfer.",
         "button": "Contact us"
       }
@@ -344,7 +345,7 @@
     ]
   },
   "signup": {
-    "title": "Hire your team today. The first 100 conversations a month are free.",
+    "title": "Hire your team today. The first 100 replies a month are free.",
     "primary": "Start free",
     "secondary": "See pricing"
   },
