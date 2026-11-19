@@ -85,6 +85,29 @@ export function LandingPricing({
           ))}
         </div>
 
+        <div className="pricing-included">
+          <h3>{pricing.included.title}</h3>
+          <ul className="pricing-features">
+            {pricing.included.items.map((item) => (
+              <li key={item}>
+                <svg
+                  aria-hidden="true"
+                  fill="none"
+                  focusable="false"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.75"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="m3.5 8.5 3 3 6-7" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <p className="pricing-trial">
           <strong>{pricing.trial.label}:</strong> {pricing.trial.text}
         </p>
