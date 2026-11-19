@@ -134,6 +134,10 @@ export interface LandingCopy {
     metaLink: string;
     notes: string[];
     unit: string;
+    included: {
+      title: string;
+      items: string[];
+    };
     plans: LandingPricingPlan[];
     trial: LandingLabelledText;
     accordions: LandingQuestion[];

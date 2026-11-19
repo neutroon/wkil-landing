@@ -33,7 +33,7 @@
     "subtitle": "One answers your customers, one confirms orders, one prepares your posts. You talk to Wkil, which runs the team and comes back with the result.",
     "primaryCta": "Start free",
     "secondaryCta": "Meet the team",
-    "note": "The free plan includes 100 replies to your customers a month, with nothing to pay."
+    "note": "The free plan includes 100 AI replies to your customers a month, with nothing to pay."
   },
   "diagram": {
     "ariaLabel": "You talk to Wkil, Wkil runs the team, and the team serves your customers on WhatsApp, Messenger, site chat and Facebook.",
@@ -225,25 +225,37 @@
     "metaFees": "WhatsApp fees aren't part of the plan price. You pay them to Meta directly, with no markup from Wkil: on order confirmation messages, and on WhatsApp replies after the first 1,000 messages a month per number. The thank-you message after a customer taps Confirm or Cancel counts as a reply. Messenger and site chat carry no Meta fees.",
     "metaLink": "See Meta's current prices",
     "notes": [
-      "Message credits pay for what the team sends your customers: a reply uses 4 credits and an order confirmation uses 1. Thank-you messages after a button tap, handover notices and anything your staff send don't use credits.",
+      "Message credits pay for what the team sends your customers: an AI reply to a customer uses 4 credits and an order confirmation uses 1. Thank-you messages after a button tap, handover notices and anything your staff send don't use credits.",
       "Credits renew every month and don't carry over.",
       "Wkil has a limit every 5 hours and a weekly limit, shared by everyone on your account. You always see how much is left and when it renews. Task numbers are approximate: a quick question uses less than a full content plan.",
       "To protect your number from WhatsApp restrictions, confirmations go to a limited number of new customers each day. The rest wait and go out as soon as the limit allows."
     ],
     "unit": "EGP / month",
+    "included": {
+      "title": "Every plan includes",
+      "items": [
+        "AI replies to your customers on WhatsApp, Messenger, Facebook comments and your site chat",
+        "WhatsApp order confirmations with Confirm / Cancel buttons",
+        "Store connection: wkil.store, EasyOrders or webhook",
+        "A shared inbox: anything the team can't answer comes to you",
+        "Memory for each customer, and a knowledge base for your business",
+        "Wkil prepares your Facebook posts and schedules them",
+        "Connect your own system through its API"
+      ]
+    },
     "plans": [
       {
         "id": "free",
         "name": "Free",
-        "tagline": "Try the team on Messenger and your website.",
+        "tagline": "Try the whole team for free.",
         "price": "0",
         "cta": "Start free",
         "features": [
-          "100 replies to your customers a month",
-          "Site chat + Messenger",
-          "Wkil: about 20 tasks a week",
+          "400 credits a month: 100 AI replies to your customers, or 400 order confirmations",
+          "Wkil for your tasks: about 20 a week",
+          "No images",
           "1 user",
-          "Knowledge base for your business",
+          "1 business and 1 WhatsApp number",
           "\"Powered by Wkil\" badge on the chat"
         ]
       },
@@ -254,12 +266,12 @@
         "price": "699",
         "cta": "Subscribe to Starter",
         "features": [
-          "3,000 credits a month: 750 replies or 3,000 confirmations",
-          "WhatsApp (1 number), Messenger, site chat, Facebook comments",
-          "Order confirmations with Confirm / Cancel buttons",
-          "Wkil: about 45 tasks a week, 8 images a month",
+          "3,000 credits a month: 750 AI replies to your customers, or 3,000 order confirmations",
+          "Wkil for your tasks: about 45 a week",
+          "8 images a month",
           "2 users",
-          "1 store: wkil.store, EasyOrders or webhook"
+          "1 business and 1 WhatsApp number",
+          "Support by email"
         ]
       },
       {
@@ -271,12 +283,11 @@
         "featured": true,
         "cta": "Subscribe to Growth",
         "features": [
-          "18,000 credits a month: 4,500 replies, or confirmations and replies mixed",
-          "All channels",
-          "Memory for each customer",
-          "Wkil: about 220 tasks a week, 30 images a month",
+          "18,000 credits a month: 4,500 AI replies to your customers, or 18,000 order confirmations",
+          "Wkil for your tasks: about 220 a week",
+          "30 images a month",
           "5 users",
-          "Connect your system by API",
+          "1 business and 1 WhatsApp number (a second one for EGP 299)",
           "Priority support on WhatsApp"
         ]
       },
@@ -287,11 +298,12 @@
         "price": "3,999",
         "cta": "Subscribe to Scale",
         "features": [
-          "40,000 credits a month: 10,000 replies, or confirmations and replies mixed",
-          "3 businesses and 3 WhatsApp numbers, one shared balance",
-          "Wkil: about 450 tasks a week, 60 images a month",
+          "40,000 credits a month: 10,000 AI replies to your customers, or 40,000 order confirmations",
+          "Wkil for your tasks: about 450 a week",
+          "60 images a month",
           "Unlimited users",
-          "Custom setup with us"
+          "Up to 3 businesses and 3 WhatsApp numbers, sharing one balance",
+          "Priority support, and setup with us"
         ]
       }
     ],
@@ -302,11 +314,11 @@
     "accordions": [
       {
         "question": "Ran out of message credits?",
-        "answer": "Add 4,000 credits for EGP 499 (1,000 replies or 4,000 confirmations), valid for 90 days, or move up a plan. Until then, new conversations go to your inbox with a short note to the customer, and order confirmations keep going out."
+        "answer": "Add 4,000 credits for EGP 499 (1,000 AI replies or 4,000 confirmations), valid for 90 days, or move up a plan. Until then, new conversations go to your inbox with a short note to the customer, and order confirmations keep going out."
       },
       {
         "question": "Reached Wkil's limit?",
-        "answer": "Wait until the time shown, or move up a plan. Replies to your customers and order confirmations are never affected."
+        "answer": "Wait until the time shown, or move up a plan. AI replies to your customers and order confirmations are never affected."
       },
       {
         "question": "Another WhatsApp number?",
@@ -345,7 +357,7 @@
     ]
   },
   "signup": {
-    "title": "Hire your team today. The first 100 replies a month are free.",
+    "title": "Hire your team today. The first 100 AI replies to your customers each month are free.",
     "primary": "Start free",
     "secondary": "See pricing"
   },
