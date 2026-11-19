@@ -241,9 +241,9 @@
         "features": [
           "100 replies to your customers a month",
           "Site chat + Messenger",
-          "Wkil for small tasks: about 20 a week",
+          "Wkil: about 20 tasks a week",
           "1 user",
-          "A knowledge base for your business",
+          "Knowledge base for your business",
           "\"Powered by Wkil\" badge on the chat"
         ]
       },
@@ -254,12 +254,12 @@
         "price": "699",
         "cta": "Subscribe to Starter",
         "features": [
-          "3,000 message credits a month: 750 replies, or 3,000 order confirmations, or a mix",
-          "WhatsApp (1 number) + Messenger + site chat + Facebook comments",
-          "WhatsApp order confirmations with Confirm / Cancel buttons",
-          "Wkil for your tasks: about 45 a week, and 8 images a month",
+          "3,000 credits a month: 750 replies or 3,000 confirmations",
+          "WhatsApp (1 number), Messenger, site chat, Facebook comments",
+          "Order confirmations with Confirm / Cancel buttons",
+          "Wkil: about 45 tasks a week, 8 images a month",
           "2 users",
-          "1 store connection (EasyOrders or webhook)"
+          "1 store: wkil.store, EasyOrders or webhook"
         ]
       },
       {
@@ -271,12 +271,12 @@
         "featured": true,
         "cta": "Subscribe to Growth",
         "features": [
-          "18,000 message credits a month: 4,500 replies, or for example 2,000 confirmations and 4,000 replies",
-          "All channels: WhatsApp + Messenger + site chat + Facebook comments",
+          "18,000 credits a month: 4,500 replies, or confirmations and replies mixed",
+          "All channels",
           "Memory for each customer",
-          "Wkil for your tasks: about 220 a week, and 30 images a month",
+          "Wkil: about 220 tasks a week, 30 images a month",
           "5 users",
-          "Connect the team to your system through its API",
+          "Connect your system by API",
           "Priority support on WhatsApp"
         ]
       },
@@ -287,9 +287,9 @@
         "price": "3,999",
         "cta": "Subscribe to Scale",
         "features": [
-          "40,000 message credits a month: 10,000 replies, or for example 4,000 confirmations and 9,000 replies",
-          "Up to 3 businesses and 3 WhatsApp numbers in one account, sharing one balance (the third number needs Meta verification)",
-          "Wkil for your tasks: about 450 a week, and 60 images a month",
+          "40,000 credits a month: 10,000 replies, or confirmations and replies mixed",
+          "3 businesses and 3 WhatsApp numbers, one shared balance",
+          "Wkil: about 450 tasks a week, 60 images a month",
           "Unlimited users",
           "Custom setup with us"
         ]
