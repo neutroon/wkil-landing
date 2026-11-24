@@ -11,7 +11,7 @@ interface PrivacyPageProps {
   params: Promise<{ locale: string }>;
 }
 
-const LAST_UPDATED = new Date(Date.UTC(2025, 3, 16));
+const LAST_UPDATED = new Date(Date.UTC(2026, 10, 24));
 const CONTACT_EMAIL = "support@wkil.app";
 
 function formatLastUpdated(locale: Locale) {
@@ -52,6 +52,17 @@ const privacyCopy = {
         body: [
           "Wkil uses the business knowledge you provide to draft replies and flag when a conversation needs human review.",
           "Customer memory is used to keep useful context, such as interests, follow-up needs, and channel details, available to your team.",
+        ],
+      },
+      {
+        title: "Team memory",
+        body: [
+          "The AI team in your team chat can remember short notes about you between conversations, such as your preferred language or dialect, how you like answers written, and what you take care of at the business, so you do not have to repeat them.",
+          "It is designed not to keep facts about the business itself, such as products, prices, or policies, information about your customers, or details about other people. Business information belongs in your knowledge base, where changes need an owner or admin approval.",
+          "Memories are personal to you within one business. Other members of the business, including its owner and admins, cannot see them, and memories are never used to answer your customers.",
+          "Memory is on when you start using the team chat, and the chat tells you so the first time. You can turn it off at any time, and you can view, edit, or delete your memories in Settings, Memory.",
+          "Memories stay when you delete a conversation. They are deleted when you leave or are removed from the business, when the business or your account is deleted, or after 13 months without using the team chat in that business.",
+          "When the team uses or updates your memories, their text is sent with your message to the AI provider that runs the team (currently Anthropic, and Google where configured), under the same terms as the rest of the team chat. We do not sell memories or use them for advertising.",
         ],
       },
       {
@@ -100,6 +111,17 @@ const privacyCopy = {
         body: [
           "يستخدم الوكيل معرفة النشاط التي تضيفها لصياغة الردود وتحديد المحادثات التي تحتاج مراجعة من موظف.",
           "تُستخدم ذاكرة العميل للاحتفاظ بسياق مفيد مثل الاهتمامات واحتياج المتابعة وتفاصيل القناة لفريقك.",
+        ],
+      },
+      {
+        title: "ذاكرة الفريق",
+        body: [
+          "يستطيع فريق الذكاء الاصطناعي في محادثة الفريق أن يتذكر ملاحظات قصيرة عنك بين المحادثات، مثل لغتك أو لهجتك المفضلة، وطريقة كتابة الإجابات التي تفضلها، والمهام التي تتولاها في النشاط التجاري، حتى لا تضطر إلى تكرارها.",
+          "وهو مصمَّم بحيث لا يحتفظ بمعلومات عن النشاط التجاري نفسه مثل المنتجات والأسعار والسياسات، ولا بمعلومات عن عملائك، ولا بتفاصيل عن أشخاص آخرين. فمكان معلومات النشاط التجاري هو قاعدة المعرفة، حيث يحتاج أي تغيير إلى موافقة المالك أو المسؤول.",
+          "الذكريات خاصة بك داخل نشاط تجاري واحد. ولا يستطيع الأعضاء الآخرون في النشاط التجاري، بمن فيهم المالك والمسؤولون، رؤيتها، ولا تُستخدم أبدًا في الرد على عملائك.",
+          "تكون الذاكرة مفعّلة عندما تبدأ استخدام محادثة الفريق، وتخبرك المحادثة بذلك في المرة الأولى. ويمكنك إيقافها في أي وقت، ورؤية ذكرياتك أو تعديلها أو حذفها من الإعدادات، ثم الذاكرة.",
+          "تبقى الذكريات عند حذف محادثة. وتُحذف عند مغادرتك النشاط التجاري أو إزالتك منه، أو عند حذف النشاط التجاري أو حسابك، أو بعد 13 شهرًا دون استخدام محادثة الفريق في ذلك النشاط التجاري.",
+          "عندما يستخدم الفريق ذكرياتك أو يحدّثها، يُرسَل نصها مع رسالتك إلى مزوّد الذكاء الاصطناعي الذي يشغّل الفريق (حاليًا Anthropic، وGoogle حيثما تم إعداده)، وفق الشروط نفسها التي تسري على باقي محادثة الفريق. ولا نبيع الذكريات ولا نستخدمها للإعلانات.",
         ],
       },
       {

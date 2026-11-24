@@ -44,7 +44,9 @@ test("plan prices stay on the agreed numbers in both locales", () => {
   }
 });
 
-test("annual prices equal ten months, which is two months free", () => {
+// Skipped since 19 Nov: the pricing cards have no annual price any more (the credits pricing
+// dropped `annual`). Re-enable with the annual prices if yearly billing comes back to the page.
+test.skip("annual prices equal ten months, which is two months free", () => {
   for (const copy of [ar, en]) {
     const [, starter, growth, scale] = copy.pricing.plans;
 
@@ -64,9 +66,13 @@ test("Growth is the only featured plan and carries the badge", () => {
   }
 });
 
-test("web chat stays on the Free plan", () => {
-  assert.match(ar.pricing.plans[0].features.join(" "), /شات الموقع/);
-  assert.match(en.pricing.plans[0].features.join(" "), /Site chat/);
+// Since 19 Nov every plan has the same features and the cards list only the limits, so web
+// chat is a channel of every plan (Free included) and the Free card names its chat badge.
+test("web chat is a channel on every plan, Free included", () => {
+  assert.ok(ar.channels.items.includes("شات الموقع"));
+  assert.ok(en.channels.items.some((item) => /Site chat/.test(item)));
+  assert.match(ar.pricing.plans[0].features.join(" "), /الشات/);
+  assert.match(en.pricing.plans[0].features.join(" "), /chat/i);
 });
 
 test("copy avoids promises the product cannot back up", () => {
