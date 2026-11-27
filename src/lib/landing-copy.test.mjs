@@ -9,6 +9,20 @@ function readLanding(locale) {
 
 const ar = readLanding("ar");
 const en = readLanding("en");
+const plans = JSON.parse(
+  readFileSync(new URL("../data/plans.snapshot.json", import.meta.url), "utf8"),
+);
+const formatter = new Intl.NumberFormat("en-US");
+
+function walkStrings(value, visit, path = "") {
+  if (typeof value === "string") {
+    visit(value, path);
+  } else if (value && typeof value === "object") {
+    for (const [key, child] of Object.entries(value)) {
+      walkStrings(child, visit, path ? `${path}.${key}` : key);
+    }
+  }
+}
 
 function shapeOf(value) {
   if (Array.isArray(value)) {
@@ -30,39 +44,63 @@ test("Arabic and English copy have the same keys and list lengths", () => {
   assert.deepEqual(shapeOf(ar), shapeOf(en));
 });
 
-test("plan prices stay on the agreed numbers in both locales", () => {
-  for (const copy of [ar, en]) {
-    assert.deepEqual(
-      copy.pricing.plans.map((plan) => [plan.id, plan.price]),
-      [
-        ["free", "0"],
-        ["starter", "699"],
-        ["growth", "1,999"],
-        ["scale", "3,999"],
-      ],
-    );
+test("no pricing string holds a literal catalog number", () => {
+  // Every number the catalog owns, as it is printed (grouped) or bare. Single digits are
+  // skipped, and the agency line's maximum number of businesses is checked on its own.
+  const numbers = new Set();
+  const collect = (value) => {
+    if (typeof value === "number" && value >= 10) numbers.add(value);
+    if (value && typeof value === "object") Object.values(value).forEach(collect);
+  };
+  collect(plans);
+
+  const literals = [...numbers].flatMap((n) => [String(n), formatter.format(n)]);
+  const pattern = new RegExp(`(?<![\d,])(${literals.join("|")})(?![\d,])`);
+
+  for (const [copy, name] of [[ar, "ar"], [en, "en"]]) {
+    // metaFees quotes Meta's own free allowance (1,000 messages), which is not a Wkil number.
+    const { metaFees, ...pricingCopy } = copy.pricing;
+    assert.ok(metaFees);
+    const checked = {
+      hero: copy.hero,
+      signup: copy.signup,
+      audience: copy.audience,
+      demoChat: copy.demoChat,
+      pricing: pricingCopy,
+    };
+
+    walkStrings(checked, (text, path) => {
+      assert.doesNotMatch(text, pattern, `${name} ${path} holds a catalog number`);
+    });
+    assert.doesNotMatch(copy.audience.items.agency.gain, /3/, `${name} agency line`);
   }
 });
 
-// Skipped since 19 Nov: the pricing cards have no annual price any more (the credits pricing
-// dropped `annual`). Re-enable with the annual prices if yearly billing comes back to the page.
-test.skip("annual prices equal ten months, which is two months free", () => {
-  for (const copy of [ar, en]) {
-    const [, starter, growth, scale] = copy.pricing.plans;
+test("every pricing placeholder is one the composer fills", () => {
+  const known = new Set([
+    "freeReplies", "maxBusinesses", "replyCredits", "confirmationCredits",
+    "confirmationCreditsText", "trialDays", "trialCredits", "packCredits", "packPriceEgp",
+    "packReplies", "packConfirmations", "packValidDays", "scaleCredits", "customFromEgp",
+    "credits", "replies", "confirmations", "tasksPerWeek", "starterPrice", "growthPrice",
+    "scalePrice",
+  ]);
 
-    assert.match(starter.annual, /6,990/);
-    assert.match(growth.annual, /19,990/);
-    assert.match(scale.annual, /39,990/);
+  for (const copy of [ar, en]) {
+    walkStrings(copy, (text, path) => {
+      for (const [, name] of text.matchAll(/{(w+)[,}]/g)) {
+        assert.ok(known.has(name), `${path} uses {${name}}`);
+      }
+    });
   }
 });
 
-test("Growth is the only featured plan and carries the badge", () => {
+test("Growth is the only recommended plan, and the copy has its badge", () => {
+  assert.deepEqual(
+    plans.plans.filter((plan) => plan.recommended).map((plan) => plan.id),
+    ["growth"],
+  );
   for (const copy of [ar, en]) {
-    const featured = copy.pricing.plans.filter((plan) => plan.featured);
-
-    assert.equal(featured.length, 1);
-    assert.equal(featured[0].id, "growth");
-    assert.ok(featured[0].badge);
+    assert.ok(copy.pricing.recommendedBadge);
   }
 });
 
@@ -71,8 +109,9 @@ test("Growth is the only featured plan and carries the badge", () => {
 test("web chat is a channel on every plan, Free included", () => {
   assert.ok(ar.channels.items.includes("شات الموقع"));
   assert.ok(en.channels.items.some((item) => /Site chat/.test(item)));
-  assert.match(ar.pricing.plans[0].features.join(" "), /الشات/);
-  assert.match(en.pricing.plans[0].features.join(" "), /chat/i);
+  assert.equal(plans.plans[0].poweredByBadge, true);
+  assert.match(ar.pricing.poweredByBadge, /الشات/);
+  assert.match(en.pricing.poweredByBadge, /chat/i);
 });
 
 test("copy avoids promises the product cannot back up", () => {
@@ -129,10 +168,10 @@ test("Meta fees are stated in the open on the pricing section", () => {
 
 test("paid plans have their own button label and only Free reuses the main one", () => {
   for (const copy of [ar, en]) {
-    const [free, ...paid] = copy.pricing.plans;
+    const { free, ...paid } = copy.pricing.plans;
 
     assert.equal(free.cta, copy.hero.primaryCta);
-    for (const plan of paid) {
+    for (const plan of Object.values(paid)) {
       assert.notEqual(plan.cta, copy.hero.primaryCta);
     }
   }

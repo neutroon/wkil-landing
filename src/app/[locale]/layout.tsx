@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { siteName } from "@/lib/seo";
@@ -50,7 +50,6 @@ export default async function LocaleLayout({
   const locale: Locale = localeParam;
   setRequestLocale(locale);
 
-  const messages = await getMessages({ locale });
   const dir = locale === "ar" ? "rtl" : "ltr";
   const widgetEmbed = resolveWidgetEmbedConfig(process.env);
 
@@ -62,7 +61,7 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${plexArabic.variable}`}
     >
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={{}}>
           {children}
         </NextIntlClientProvider>
 
