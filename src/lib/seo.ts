@@ -33,12 +33,17 @@ export function getLanguageTag(locale: Locale) {
 }
 
 export function buildLandingJsonLd({
+  currency,
   description,
   locale,
+  offers,
   title,
 }: {
+  currency: string;
   description: string;
   locale: Locale;
+  /** One entry per plan, in catalog order. */
+  offers: Array<{ name: string; price: number }>;
   title: string;
 }) {
   const localePath = getLocalePath(locale);
@@ -76,11 +81,12 @@ export function buildLandingJsonLd({
         url: canonicalUrl,
         description,
         inLanguage: getLanguageTag(locale),
-        offers: {
+        offers: offers.map((offer) => ({
           "@type": "Offer",
-          price: "0",
-          priceCurrency: "EGP",
-        },
+          name: offer.name,
+          price: String(offer.price),
+          priceCurrency: currency,
+        })),
       },
     ],
   };

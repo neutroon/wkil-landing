@@ -1,11 +1,29 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
+import { createTranslator } from "next-intl";
 import {
   normalizeText,
   localDemoReply,
   getClientKey,
   isRateLimited,
 } from "./chat-utils.ts";
+import { composePricingReply } from "../../../lib/landing-copy.ts";
+
+const plans = JSON.parse(
+  readFileSync(new URL("../../../data/plans.snapshot.json", import.meta.url), "utf8"),
+);
+
+function pricingReplyFor(locale) {
+  const landing = JSON.parse(
+    readFileSync(new URL(`../../../../messages/${locale}/landing.json`, import.meta.url), "utf8"),
+  );
+
+  return composePricingReply(
+    plans,
+    createTranslator({ locale, messages: { landing }, namespace: "landing" }),
+  );
+}
 
 // 1. normalizeText
 
@@ -42,8 +60,8 @@ test("localDemoReply returns Arabic locale response", () => {
 });
 
 test("localDemoReply handles pricing keywords", () => {
-  assert.ok(localDemoReply("pricing", "en").includes("plan") || localDemoReply("pricing", "en").includes("Choose"));
-  assert.ok(localDemoReply("سعر", "ar").length > 0);
+  assert.ok(localDemoReply("pricing", "en", pricingReplyFor("en")).includes("plan"));
+  assert.ok(localDemoReply("سعر", "ar", pricingReplyFor("ar")).length > 0);
 });
 
 test("localDemoReply answers every suggested starter with the right topic", () => {
@@ -102,9 +120,19 @@ test("localDemoReply does not mistake other words for Instagram", () => {
   }
 });
 
-test("localDemoReply gives plan prices", () => {
-  assert.ok(localDemoReply("بكام الخطط؟", "ar").includes("1,999"));
-  assert.ok(localDemoReply("How much is the Growth plan?", "en").includes("1,999"));
+test("localDemoReply gives the catalog's plan prices and claims no channel restriction", () => {
+  for (const [question, locale] of [["بكام الخطط؟", "ar"], ["How much is the Growth plan?", "en"]]) {
+    const reply = localDemoReply(question, locale, pricingReplyFor(locale));
+
+    for (const price of ["699", "1,999", "3,999"]) {
+      assert.ok(reply.includes(price), `${locale} ${price}`);
+    }
+    assert.doesNotMatch(reply, /messenger|ماسنجر|site chat|شات الموقع/i);
+  }
+});
+
+test("localDemoReply writes no price of its own when it is not given the catalog reply", () => {
+  assert.doesNotMatch(localDemoReply("How much is the Growth plan?", "en"), /\d,\d{3}|\b699\b/);
 });
 
 test("localDemoReply defaults to generic for unknown input", () => {

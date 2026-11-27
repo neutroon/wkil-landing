@@ -32,5 +32,8 @@ jobs:
         run: npm run typecheck
       - name: Test
         run: npm run test
+        env:
+          # The snapshot-drift test compares src/data/plans.snapshot.json with the live catalog.
+          WKIL_PLANS_URL: https://api.wkil.app/v1/public/plans
       - name: Build
         run: npm run build

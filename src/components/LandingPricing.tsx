@@ -31,14 +31,16 @@ export function LandingPricing({
           {pricing.plans.map((plan) => (
             <article
               className={
-                plan.featured ? "pricing-card pricing-card-featured" : "pricing-card"
+                plan.recommended
+                  ? "pricing-card pricing-card-featured"
+                  : "pricing-card"
               }
               key={plan.id}
             >
               <div className="pricing-card-head">
                 <h3>{plan.name}</h3>
-                {plan.badge ? (
-                  <span className="pricing-badge">{plan.badge}</span>
+                {plan.recommended ? (
+                  <span className="pricing-badge">{pricing.recommendedBadge}</span>
                 ) : null}
               </div>
               <p className="pricing-tagline">{plan.tagline}</p>
@@ -47,11 +49,10 @@ export function LandingPricing({
                 <span className="pricing-amount">{plan.price}</span>
                 <span className="pricing-unit">{pricing.unit}</span>
               </p>
-              <p className="pricing-annual">{plan.annual ?? " "}</p>
 
               <a
                 className={`button pricing-cta ${
-                  plan.featured ? "button-primary" : "button-secondary"
+                  plan.recommended ? "button-primary" : "button-secondary"
                 }`}
                 href={
                   plan.id === "free"

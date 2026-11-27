@@ -7,8 +7,9 @@
     "build": "next build --no-lint",
     "lint": "eslint",
     "start": "next start",
-    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test src/lib/landing-copy.test.mjs src/lib/widget-embed.test.mjs src/app/api/demo-chat/route.test.mjs src/app/api/waitlist/route.test.mjs",
-    "typecheck": "tsc --noEmit"
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test src/lib/landing-copy.test.mjs src/lib/landing-render.test.mjs src/lib/plans-snapshot.test.mjs src/lib/widget-embed.test.mjs src/app/api/demo-chat/route.test.mjs src/app/api/waitlist/route.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "plans:snapshot": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/plans-snapshot.mjs"
   },
   "dependencies": {
     "next": "15.5.9",

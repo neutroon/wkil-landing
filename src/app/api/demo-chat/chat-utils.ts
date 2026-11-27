@@ -51,7 +51,24 @@ const unknownReply = {
 const instagramMention =
   /(?<![\p{L}\p{M}\p{N}])(?:insta(?:gram)?|[وف]?[بلكع]?(?:ال|ل)?[إاأ]نست(?:ا|[جغق]رام)(?:ي|ك|كم|نا)?)(?![\p{L}\p{M}\p{N}])/u;
 
-export function localDemoReply(message: string, locale: Locale) {
+const priceWords = ["price", "pricing", "cost", "plan", "free", "pay", "سعر", "أسعار", "بكام", "خطة", "خطط", "باقة", "باقات", "مجاني", "ببلاش", "دفع", "تكلف"];
+
+/** Whether a visitor's message is about prices, so the caller fetches the catalog only then. */
+export function asksAboutPrice(message: string) {
+  const text = message.toLowerCase();
+
+  return priceWords.some((word) => text.includes(word));
+}
+
+/**
+ * `pricingReply` is the price answer composed from the plan catalog (see pricing-reply.ts);
+ * without it, a price question gets the generic answer rather than a number written here.
+ */
+export function localDemoReply(
+  message: string,
+  locale: Locale,
+  pricingReply?: string,
+) {
   const text = message.toLowerCase();
   // original uses module-level requestBuckets; pure behavior verified in sequence
   const isArabic = locale === "ar";
@@ -84,10 +101,8 @@ export function localDemoReply(message: string, locale: Locale) {
       : "Yes, on Facebook only. Give it the goal, dates and number of posts, and it makes a plan saved as a draft and writes each post. After you approve, it publishes or schedules to your page.";
   }
 
-  if (hasAny(["price", "pricing", "cost", "plan", "free", "pay", "سعر", "أسعار", "بكام", "خطة", "خطط", "باقة", "باقات", "مجاني", "ببلاش", "دفع", "تكلف"])) {
-    return isArabic
-      ? "فيه 4 خطط: مجانية على ماسنجر وشات الموقع، البداية بـ 699 ج.م في الشهر، النمو بـ 1,999 ج.م، والتوسّع بـ 3,999 ج.م. ورسوم ميتا على واتساب منفصلة."
-      : "There are 4 plans: Free on Messenger and your site chat, Starter at EGP 699 a month, Growth at EGP 1,999 and Scale at EGP 3,999. Meta's WhatsApp fees are separate.";
+  if (pricingReply && hasAny(priceWords)) {
+    return pricingReply;
   }
 
   if (hasAny(["order", "confirm", "cancel", "طلب", "أوردر", "اوردر", "تأكيد", "أكد", "إلغاء", "شحن", "easyorders", "store", "shop", "webhook", "متجر", "ويب هوك"])) {

@@ -1235,12 +1235,6 @@ button:disabled {
   font-size: 0.875rem;
 }
 
-.pricing-annual {
-  color: var(--wk-text-muted);
-  font-size: 0.8125rem;
-  min-height: 1.5rem;
-}
-
 .pricing-cta {
   margin-top: 1rem;
   width: 100%;

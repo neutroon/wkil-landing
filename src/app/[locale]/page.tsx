@@ -7,6 +7,8 @@ import {
 import { notFound } from "next/navigation";
 import { LandingPage } from "@/components/LandingPage";
 import { isLocale, locales, type Locale } from "@/i18n/config";
+import { composeLandingCopy, type Translate } from "@/lib/landing-copy";
+import { getPlans } from "@/lib/plans";
 import {
   buildLandingJsonLd,
   getLanguageAlternates,
@@ -15,7 +17,10 @@ import {
   siteName,
   siteUrl,
 } from "@/lib/seo";
-import type { LandingCopy } from "@/types/landing";
+import type { LandingMessages } from "@/types/landing";
+
+// Prices and credits come from the plan catalog, cached for an hour (see src/lib/plans.ts).
+export const revalidate = 3600;
 
 interface LandingPageRouteProps {
   params: Promise<{ locale: string }>;
@@ -99,8 +104,16 @@ export default async function Page({ params }: LandingPageRouteProps) {
   const locale = getRouteLocale((await params).locale);
   setRequestLocale(locale);
 
-  const messages = await getMessages({ locale });
-  const copy = (messages as { landing: LandingCopy }).landing;
+  const [messages, t, plans] = await Promise.all([
+    getMessages({ locale }),
+    getTranslations({ locale, namespace: "landing" }),
+    getPlans(),
+  ]);
+  const copy = composeLandingCopy(
+    (messages as { landing: LandingMessages }).landing,
+    plans,
+    t as unknown as Translate,
+  );
 
   return (
     <>
@@ -108,6 +121,11 @@ export default async function Page({ params }: LandingPageRouteProps) {
         data={buildLandingJsonLd({
           description: copy.seo.description,
           locale,
+          offers: copy.pricing.plans.map((plan, index) => ({
+            name: plan.name,
+            price: plans.plans[index].priceEgp,
+          })),
+          currency: plans.currency,
           title: copy.seo.title,
         })}
       />

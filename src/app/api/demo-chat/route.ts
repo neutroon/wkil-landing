@@ -4,8 +4,10 @@ import {
   normalizeText,
   getClientKey,
   isRateLimited,
+  asksAboutPrice,
   localDemoReply,
 } from "./chat-utils";
+import { getPricingReply } from "./pricing-reply";
 
 const messageMaxLength = 800;
 const visitorIdMaxLength = 128;
@@ -60,7 +62,16 @@ type DemoChatBody = {
   visitorId?: string;
 };
 
-function localDemoResponse(
+async function demoReply(message: string, locale: Locale) {
+  // The catalog is fetched only for a price question, so an outage never slows other replies.
+  const pricingReply = asksAboutPrice(message)
+    ? await getPricingReply(locale)
+    : undefined;
+
+  return localDemoReply(message, locale, pricingReply);
+}
+
+async function localDemoResponse(
   payload: DemoChatBody,
   message: string,
   locale: Locale,
@@ -68,7 +79,7 @@ function localDemoResponse(
   return NextResponse.json({
     conversationId: payload.conversationId ?? null,
     mode: "local-demo",
-    reply: localDemoReply(message, locale),
+    reply: await demoReply(message, locale),
   });
 }
 
@@ -113,7 +124,7 @@ export async function POST(request: Request) {
   }
 
   if (!demoSiteKey) {
-    return localDemoResponse(payload, message, locale);
+    return await localDemoResponse(payload, message, locale);
   }
 
   try {
@@ -134,7 +145,7 @@ export async function POST(request: Request) {
     });
 
     if (!response.ok) {
-      return localDemoResponse(payload, message, locale);
+      return await localDemoResponse(payload, message, locale);
     }
 
     const result = (await response.json()) as {
@@ -145,9 +156,9 @@ export async function POST(request: Request) {
     return NextResponse.json({
       conversationId: result.conversationId ?? payload.conversationId ?? null,
       mode: "live-ai",
-      reply: result.reply || localDemoReply(message, locale),
+      reply: result.reply || (await demoReply(message, locale)),
     });
   } catch {
-    return localDemoResponse(payload, message, locale);
+    return await localDemoResponse(payload, message, locale);
   }
 }

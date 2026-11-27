@@ -1,11 +1,11 @@
+/** A plan card with every number already filled in from the plan catalog. */
 export interface LandingPricingPlan {
   id: string;
   name: string;
   tagline: string;
+  /** Monthly price in EGP, grouped with commas ("1,999"). */
   price: string;
-  annual?: string;
-  badge?: string;
-  featured?: boolean;
+  recommended: boolean;
   cta: string;
   features: string[];
 }
@@ -35,6 +35,12 @@ export interface LandingQuestion {
   button?: string;
 }
 
+export interface LandingAudienceItem {
+  name: string;
+  pain: string;
+  gain: string;
+}
+
 export interface LandingTeamMember {
   key: string;
   name: string;
@@ -59,6 +65,7 @@ export interface LandingTeamDemoScenario {
   steps: LandingTeamDemoStep[];
 }
 
+/** The composed copy the components render: every ICU placeholder is already filled in. */
 export interface LandingCopy {
   seo: LandingSeoCopy;
   brand: {
@@ -117,11 +124,7 @@ export interface LandingCopy {
   };
   audience: {
     title: string;
-    items: Array<{
-      name: string;
-      pain: string;
-      gain: string;
-    }>;
+    items: LandingAudienceItem[];
   };
   steps: {
     title: string;
@@ -134,6 +137,7 @@ export interface LandingCopy {
     metaLink: string;
     notes: string[];
     unit: string;
+    recommendedBadge: string;
     included: {
       title: string;
       items: string[];
@@ -158,5 +162,42 @@ export interface LandingCopy {
     team: string;
     privacy: string;
     trademarks: string;
+  };
+}
+
+/** One plan's copy in messages/{locale}/landing.json. Numbers are ICU placeholders. */
+export interface LandingPlanMessages {
+  name: string;
+  tagline: string;
+  cta: string;
+  features: {
+    credits: string;
+    assistant: string;
+    support?: string;
+  };
+}
+
+/**
+ * The shape of messages/{locale}/landing.json: the same sections as LandingCopy, with the
+ * pricing lists keyed (so each entry can take its own values) and ICU placeholders where
+ * a number comes from the plan catalog. Use composeLandingCopy to get LandingCopy.
+ */
+export interface LandingMessages extends Omit<LandingCopy, "audience" | "pricing"> {
+  audience: {
+    title: string;
+    items: Record<"owner" | "agency" | "freelancer", LandingAudienceItem>;
+  };
+  pricing: Omit<
+    LandingCopy["pricing"],
+    "notes" | "plans" | "accordions" | "trial"
+  > & {
+    poweredByBadge: string;
+    notes: Record<"credits" | "renewal" | "assistant" | "protection", string>;
+    plans: Record<"free" | "starter" | "growth" | "scale", LandingPlanMessages>;
+    trial: LandingLabelledText;
+    accordions: Record<"pack" | "limit" | "custom", LandingQuestion>;
+  };
+  demoChat: {
+    pricingReply: string;
   };
 }
