@@ -5,10 +5,15 @@ export type { PlanId, PublicPlan, PublicPlans } from "./plans-schema";
 
 const fetchTimeoutMs = 3_000;
 
+/** An env var that is empty or only spaces counts as unset (`??` would keep it). */
+function envValue(name: string) {
+  return process.env[name]?.trim() || undefined;
+}
+
 function plansUrl() {
   const base =
-    process.env.WKIL_BACKEND_URL ??
-    process.env.NEXT_PUBLIC_API ??
+    envValue("WKIL_BACKEND_URL") ??
+    envValue("NEXT_PUBLIC_API") ??
     "https://api.wkil.app";
 
   return `${base.replace(/\/$/, "")}/v1/public/plans`;
@@ -24,6 +29,11 @@ function fallback(reason: string): PublicPlans {
  * The plan catalog every number on the page comes from. Fetched from the backend and cached
  * for an hour (ISR); when the backend is down or answers with something unexpected, the
  * committed snapshot is used so a build or render never fails.
+ *
+ * Known trade-off: this never throws, so a revalidation that happens during an outage
+ * stores a page built from the snapshot, and it stays for up to an hour (the next
+ * revalidation) even if the backend is back a minute later. The log line
+ * `plans.fallback_snapshot` is the only signal.
  */
 export async function getPlans(): Promise<PublicPlans> {
   try {

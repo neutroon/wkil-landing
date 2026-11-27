@@ -85,7 +85,8 @@ export function isPublicPlans(value: unknown): value is PublicPlans {
 
   if (
     typeof value.catalogVersion !== "string" ||
-    typeof value.currency !== "string" ||
+    // The copy prints EGP / ج.م literally, so any other currency is not renderable.
+    value.currency !== "EGP" ||
     !isRecord(weights) ||
     !isCount(weights.aiReply) ||
     weights.aiReply < 1 ||

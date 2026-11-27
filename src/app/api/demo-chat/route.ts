@@ -4,6 +4,7 @@ import {
   normalizeText,
   getClientKey,
   isRateLimited,
+  asksAboutPrice,
   localDemoReply,
 } from "./chat-utils";
 import { getPricingReply } from "./pricing-reply";
@@ -62,7 +63,12 @@ type DemoChatBody = {
 };
 
 async function demoReply(message: string, locale: Locale) {
-  return localDemoReply(message, locale, await getPricingReply(locale));
+  // The catalog is fetched only for a price question, so an outage never slows other replies.
+  const pricingReply = asksAboutPrice(message)
+    ? await getPricingReply(locale)
+    : undefined;
+
+  return localDemoReply(message, locale, pricingReply);
 }
 
 async function localDemoResponse(
@@ -153,6 +159,6 @@ export async function POST(request: Request) {
       reply: result.reply || (await demoReply(message, locale)),
     });
   } catch {
-    return localDemoResponse(payload, message, locale);
+    return await localDemoResponse(payload, message, locale);
   }
 }

@@ -51,6 +51,15 @@ const unknownReply = {
 const instagramMention =
   /(?<![\p{L}\p{M}\p{N}])(?:insta(?:gram)?|[وف]?[بلكع]?(?:ال|ل)?[إاأ]نست(?:ا|[جغق]رام)(?:ي|ك|كم|نا)?)(?![\p{L}\p{M}\p{N}])/u;
 
+const priceWords = ["price", "pricing", "cost", "plan", "free", "pay", "سعر", "أسعار", "بكام", "خطة", "خطط", "باقة", "باقات", "مجاني", "ببلاش", "دفع", "تكلف"];
+
+/** Whether a visitor's message is about prices, so the caller fetches the catalog only then. */
+export function asksAboutPrice(message: string) {
+  const text = message.toLowerCase();
+
+  return priceWords.some((word) => text.includes(word));
+}
+
 /**
  * `pricingReply` is the price answer composed from the plan catalog (see pricing-reply.ts);
  * without it, a price question gets the generic answer rather than a number written here.
@@ -92,7 +101,7 @@ export function localDemoReply(
       : "Yes, on Facebook only. Give it the goal, dates and number of posts, and it makes a plan saved as a draft and writes each post. After you approve, it publishes or schedules to your page.";
   }
 
-  if (pricingReply && hasAny(["price", "pricing", "cost", "plan", "free", "pay", "سعر", "أسعار", "بكام", "خطة", "خطط", "باقة", "باقات", "مجاني", "ببلاش", "دفع", "تكلف"])) {
+  if (pricingReply && hasAny(priceWords)) {
     return pricingReply;
   }
 

@@ -55,13 +55,15 @@ test("no pricing string holds a literal catalog number", () => {
   collect(plans);
 
   const literals = [...numbers].flatMap((n) => [String(n), formatter.format(n)]);
-  const pattern = new RegExp(`(?<![\d,])(${literals.join("|")})(?![\d,])`);
+  const pattern = new RegExp(String.raw`(?<![\d,])(${literals.join("|")})(?![\d,])`);
 
   for (const [copy, name] of [[ar, "ar"], [en, "en"]]) {
     // metaFees quotes Meta's own free allowance (1,000 messages), which is not a Wkil number.
     const { metaFees, ...pricingCopy } = copy.pricing;
     assert.ok(metaFees);
     const checked = {
+      seo: copy.seo,
+      faq: copy.faq,
       hero: copy.hero,
       signup: copy.signup,
       audience: copy.audience,
@@ -72,7 +74,10 @@ test("no pricing string holds a literal catalog number", () => {
     walkStrings(checked, (text, path) => {
       assert.doesNotMatch(text, pattern, `${name} ${path} holds a catalog number`);
     });
-    assert.doesNotMatch(copy.audience.items.agency.gain, /3/, `${name} agency line`);
+    assert.doesNotMatch(copy.audience.items.agency.gain, /\b3\b/, `${name} agency line`);
+    // The credit weights (4 and 1) are single digits, so they are checked only where they
+    // are quoted: the credits note. Other small numbers (5 hours, 3 steps) stay free.
+    assert.doesNotMatch(copy.pricing.notes.credits, /\b[41]\b/, `${name} credits note`);
   }
 });
 
@@ -87,7 +92,7 @@ test("every pricing placeholder is one the composer fills", () => {
 
   for (const copy of [ar, en]) {
     walkStrings(copy, (text, path) => {
-      for (const [, name] of text.matchAll(/{(w+)[,}]/g)) {
+      for (const [, name] of text.matchAll(/\{(\w+)[,}]/g)) {
         assert.ok(known.has(name), `${path} uses {${name}}`);
       }
     });

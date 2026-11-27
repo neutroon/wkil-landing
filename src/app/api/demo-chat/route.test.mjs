@@ -132,7 +132,7 @@ test("localDemoReply gives the catalog's plan prices and claims no channel restr
 });
 
 test("localDemoReply writes no price of its own when it is not given the catalog reply", () => {
-  assert.doesNotMatch(localDemoReply("How much is the Growth plan?", "en"), /d,d{3}|699/);
+  assert.doesNotMatch(localDemoReply("How much is the Growth plan?", "en"), /\d,\d{3}|\b699\b/);
 });
 
 test("localDemoReply defaults to generic for unknown input", () => {
