@@ -1,23 +1,94 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "2026-11-27",
+  "catalogVersion": "2026-11-28",
   "currency": "EGP",
-  "weights": { "aiReply": 4, "orderConfirmation": 1, "thankYou": 0, "handoverNotice": 0, "staffMessage": 0 },
+  "weights": {
+    "aiReply": 4,
+    "orderConfirmation": 1,
+    "thankYou": 0,
+    "handoverNotice": 0,
+    "staffMessage": 0
+  },
   "plans": [
-    { "id": "free", "rank": 0, "priceEgp": 0, "monthlyCredits": 200, "aiReplies": 50, "confirmations": 200,
-      "assistantTasksPerWeek": 20, "maxBusinesses": 1, "poweredByBadge": true,
-      "packs": { "eligible": false, "maxPerPeriod": 0 }, "recommended": false },
-    { "id": "starter", "rank": 1, "priceEgp": 699, "monthlyCredits": 1500, "aiReplies": 375, "confirmations": 1500,
-      "assistantTasksPerWeek": 45, "maxBusinesses": 1, "poweredByBadge": false,
-      "packs": { "eligible": true, "maxPerPeriod": 2 }, "recommended": false },
-    { "id": "growth", "rank": 2, "priceEgp": 1999, "monthlyCredits": 9000, "aiReplies": 2250, "confirmations": 9000,
-      "assistantTasksPerWeek": 220, "maxBusinesses": 1, "poweredByBadge": false,
-      "packs": { "eligible": true, "maxPerPeriod": 3 }, "recommended": true },
-    { "id": "scale", "rank": 3, "priceEgp": 3999, "monthlyCredits": 20000, "aiReplies": 5000, "confirmations": 20000,
-      "assistantTasksPerWeek": 450, "maxBusinesses": 3, "poweredByBadge": false,
-      "packs": { "eligible": true, "maxPerPeriod": 7 }, "recommended": false }
+    {
+      "id": "free",
+      "rank": 0,
+      "priceEgp": 0,
+      "monthlyCredits": 200,
+      "aiReplies": 50,
+      "confirmations": 200,
+      "assistantTasksPerWeek": 5,
+      "maxBusinesses": 1,
+      "poweredByBadge": true,
+      "packs": {
+        "eligible": false,
+        "maxPerPeriod": 0
+      },
+      "recommended": false
+    },
+    {
+      "id": "starter",
+      "rank": 1,
+      "priceEgp": 699,
+      "monthlyCredits": 1500,
+      "aiReplies": 375,
+      "confirmations": 1500,
+      "assistantTasksPerWeek": 11,
+      "maxBusinesses": 1,
+      "poweredByBadge": false,
+      "packs": {
+        "eligible": true,
+        "maxPerPeriod": 2
+      },
+      "recommended": false
+    },
+    {
+      "id": "growth",
+      "rank": 2,
+      "priceEgp": 1999,
+      "monthlyCredits": 9000,
+      "aiReplies": 2250,
+      "confirmations": 9000,
+      "assistantTasksPerWeek": 55,
+      "maxBusinesses": 1,
+      "poweredByBadge": false,
+      "packs": {
+        "eligible": true,
+        "maxPerPeriod": 3
+      },
+      "recommended": true
+    },
+    {
+      "id": "scale",
+      "rank": 3,
+      "priceEgp": 3999,
+      "monthlyCredits": 20000,
+      "aiReplies": 5000,
+      "confirmations": 20000,
+      "assistantTasksPerWeek": 110,
+      "maxBusinesses": 3,
+      "poweredByBadge": false,
+      "packs": {
+        "eligible": true,
+        "maxPerPeriod": 7
+      },
+      "recommended": false
+    }
   ],
-  "trial": { "planId": "growth", "days": 14, "credits": 1500, "aiReplies": 375 },
-  "pack": { "credits": 4000, "priceEgp": 499, "validDays": 90, "aiReplies": 1000, "confirmations": 4000 },
-  "custom": { "fromPriceEgp": 7999 }
+  "trial": {
+    "planId": "growth",
+    "days": 14,
+    "credits": 1500,
+    "aiReplies": 375
+  },
+  "pack": {
+    "credits": 4000,
+    "priceEgp": 499,
+    "validDays": 90,
+    "aiReplies": 1000,
+    "confirmations": 4000
+  },
+  "custom": {
+    "fromPriceEgp": 7999
+  }
 }

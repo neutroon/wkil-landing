@@ -35,5 +35,7 @@ jobs:
         env:
           # The snapshot-drift test compares src/data/plans.snapshot.json with the live catalog.
           WKIL_PLANS_URL: https://api.wkil.app/v1/public/plans
+          # The endpoint is live: an error status or an unreachable URL fails the test instead of skipping it.
+          WKIL_PLANS_REQUIRED: "1"
       - name: Build
         run: npm run build
